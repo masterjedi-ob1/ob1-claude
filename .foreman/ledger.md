@@ -20,16 +20,19 @@ Source Sans 3 + Newsreader, parchment/navy/orange). Deploy to Vercel, iterate, p
 | ID | Task | Write set | Seat | Status |
 |----|------|-----------|------|--------|
 | T1 | Design spec + shared CSS/JS + vercel.json (LEAD, pre-dispatch) | site/css/ob1.css, site/js/ob1.js, DESIGN-SPEC.md, vercel.json | LEAD | DONE |
-| T2 | law.html | site/law.html | sonnet | DISPATCHED |
-| T3 | professional-services.html | site/professional-services.html | sonnet | DISPATCHED |
-| T4 | manufacturing.html | site/manufacturing.html | sonnet | DISPATCHED |
-| T5 | healthcare.html | site/healthcare.html | sonnet | DISPATCHED |
-| T6 | index.html hub + robots.txt + sitemap.xml | site/index.html, site/robots.txt, site/sitemap.xml | sonnet | DISPATCHED |
-| T7 | Verification pass (blind verifier + LEAD visual review) | none | LEAD+verifier | PENDING |
-| T8 | Batch fixes from findings | per findings | sonnet | DISPATCHED |
-| T9 | Vercel deploy + smoke test | none | LEAD | PENDING |
+| T2 | law.html | site/law.html | sonnet | DONE (verified) |
+| T3 | professional-services.html | site/professional-services.html | sonnet | DONE (verified) |
+| T4 | manufacturing.html | site/manufacturing.html | sonnet | DONE (verified) |
+| T5 | healthcare.html | site/healthcare.html | sonnet | DONE (verified) |
+| T6 | index.html hub + robots.txt + sitemap.xml | site/index.html, site/robots.txt, site/sitemap.xml | sonnet | DONE (verified) |
+| T7 | Verification pass (blind verifier + LEAD visual review) | none | LEAD+verifier | DONE |
+| T8 | Batch fixes from findings | per findings | sonnet | DONE (verified) |
+| T9 | Vercel deploy + smoke test | none | LEAD | IN_PROGRESS (worker via Vercel MCP) |
 | T10 | Commit + push | git | LEAD | PENDING |
 
 ## Attempts
 - T1 attempt 1 (LEAD): DONE. Spec + ob1.css + ob1.js + vercel.json authored.
-- T2-T6 attempt 1 (sonnet x5, parallel, disjoint write sets): dispatched.
+- T2-T6 attempt 1 (sonnet x5, parallel, disjoint write sets): all DONE with evidence.
+- T7 attempt 1: opus blind verifier PASS_WITH_NOTES (16 findings); LEAD Playwright pass (30 screenshots, desktop+mobile): 0 hscroll, 0 console errors after fixes.
+- T8 attempt 1: sonnet batch-fix worker DONE (16/16 findings, evidence per finding); LEAD applied CSS/JS-side fixes (fail-open reveals, dial static default, mobile nav, favicon, hub link styling).
+- T9 attempt 1: sonnet deploy worker via mcp Vercel deploy_to_vercel, project ob1-verticals, team OB1 GANG, target production.
