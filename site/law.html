@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Audit for Law Firms | OB.1 AI Solutions · Rules Before Tools</title>
+<meta name="description" content="AI audit for law firms covering ABA Rule 1.1, 1.6, and 5.3 risk. An 82-point AI governance diagnostic that finds what to fix before a client or a court does.">
+<link rel="canonical" href="https://ob1ai.co/law">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AI Audit for Law Firms | OB.1 AI Solutions">
+<meta property="og:description" content="An 82-point AI governance diagnostic for law firms: ABA 1.1, 1.6, 5.3, privilege, and work product, scored and fixed before a client or a court finds it.">
+<meta property="og:url" content="https://ob1ai.co/law">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Audit for Law Firms | OB.1 AI Solutions">
+<meta name="twitter:description" content="An 82-point AI governance diagnostic for law firms: ABA 1.1, 1.6, 5.3, privilege, and work product, scored and fixed before a client or a court finds it.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/ob1.css">
+<noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "OB.1 AI Solutions",
+  "url": "https://ob1ai.co/law",
+  "email": "admin@ob1ai.co",
+  "telephone": "+1-234-602-0500",
+  "areaServed": ["Ohio", "United States"],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Cleveland",
+    "addressRegion": "OH",
+    "addressCountry": "US"
+  },
+  "description": "AI governance audits for law firms: an 82-point diagnostic covering ABA Rule 1.1, 1.6, and 5.3 risk, privilege exposure, and automation opportunity, delivered as a fixed-phase, flat-fee engagement.",
+  "slogan": "Rules Before Tools"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does the AI audit require access to privileged files?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. We audit how AI tools are configured, accessed, and supervised across your firm, not the content of client matters. Where a review step needs to touch anything sensitive, it is counsel-gated: your own lawyers control what we see, and the finished rubric is reviewed by counsel before it reaches you."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does the audit actually score?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Six dimensions: business context, technology maturity, automation opportunity, data infrastructure, decision authority, and investment readiness. Eighty-two points across those six produce one readiness score and a ranked list of fixes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "We already have an AI use policy. Why do we need this?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A policy states intent. An audit tests practice against it: which associates are using which tools, on which matters, with what oversight. Most firms we meet have a policy and a gap between the policy and the desk."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does the engagement take, and what does it cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is a fixed-phase, flat-fee engagement, scoped in one call. Most firms move from audit to a working control set inside a quarter."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this cover transactional practice, or only litigation risk?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Both. Hallucinated citations are the headline risk, but confidentiality under Rule 1.6, supervision under Rule 5.3, and work-product exposure apply to deal teams and diligence rooms the same as they apply to litigators."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav class="ob1">
+  <div class="wrap">
+    <a class="logo" href="/">OB<span>.1</span> AI SOLUTIONS</a>
+    <a class="nl" href="/">Home</a>
+    <a class="nl" href="/law" aria-current="page">Law</a>
+    <a class="nl" href="/healthcare">Healthcare</a>
+    <a class="nl" href="/manufacturing">Manufacturing</a>
+    <a class="nl" href="/professional-services">Professional Services</a>
+    <a class="cta" href="https://ob1ai.co/services">GET YOUR READINESS SCORE</a>
+  </div>
+</nav>
+
+<div class="rail" aria-hidden="false">
+  <a href="#s1" title="The Stakes"></a>
+  <a href="#s2" title="The Audit"></a>
+  <a href="#s3" title="Two Doors"></a>
+  <a href="#s4" title="Five Controls"></a>
+  <a href="#s5" title="When Models Move"></a>
+  <a href="#s6" title="Proof"></a>
+  <a href="#s7" title="Straight Answers"></a>
+</div>
+
+<header class="hero grid-bg" id="top">
+  <canvas class="hero-canvas" data-density="1"></canvas>
+  <div class="cropmarks" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">AI Audit &middot; Law Firms</p>
+      <h1>The standard of care now includes the tools you have not vetted.</h1>
+      <p class="lede">An associate pastes client facts into a public chatbot. A brief cites a case that does not exist. Neither shows up in your billables. Both show up in your malpractice file. The audit finds where AI already lives in your firm, and closes the gap before the bar does.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="https://ob1ai.co/services">Get Your AI Readiness Score</a>
+        <a class="btn btn-ghost" href="mailto:chris@ob1ai.co">Talk to Chris</a>
+      </div>
+      <p class="micro">For listeners of the Shoveling Smoke podcast: this page is the practical half of that conversation.</p>
+    </div>
+    <div class="tilt-wrap reveal d2">
+      <div class="scorecard tilt">
+        <div class="sc-head">
+          <b>Readiness Scorecard</b>
+          <span>82-PT DIAGNOSTIC</span>
+        </div>
+        <div class="dial-row">
+          <div class="dial">
+            <svg width="180" height="180" viewBox="0 0 180 180">
+              <circle cx="90" cy="90" r="77" fill="none" stroke="rgba(232,226,214,.14)" stroke-width="10"></circle>
+              <circle class="dial-arc" data-score="53" cx="90" cy="90" r="77" fill="none" stroke="#D97757" stroke-width="10" stroke-linecap="round"></circle>
+            </svg>
+            <div class="num"><b>53</b><i>/ 100</i></div>
+          </div>
+          <div class="findings">
+            <div class="finding"><b data-count="21">0</b><span>automation-ready workflows identified, unscoped and unsupervised</span></div>
+            <div class="finding blue"><b data-count="6.2" data-decimals="1" data-suffix="x">0</b><span>projected Year-1 ROI once findings are actioned</span></div>
+            <div class="finding"><b data-count="9">0</b><span>quick wins closeable inside 30 days, no new tooling required</span></div>
+          </div>
+        </div>
+        <div class="sc-foot">Scored across <b>six dimensions</b>: business context, technology maturity, automation opportunity, data infrastructure, decision authority, investment readiness. Figures shown are from the anonymized manufacturing audit, projected.</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="ticker">
+  <div class="ticker-track">
+    <div class="ticker-seq">
+      <span>ABA 1.6</span><em>&middot;</em><span>ABA 5.3</span><em>&middot;</em><span>MODEL RULE 1.1 C.8</span><em>&middot;</em><span>PRIVILEGE</span><em>&middot;</em><span>WORK PRODUCT</span><em>&middot;</em><span>E-DISCOVERY</span><em>&middot;</em><span>STATE BAR OPS</span>
+    </div>
+    <div class="ticker-seq">
+      <span>ABA 1.6</span><em>&middot;</em><span>ABA 5.3</span><em>&middot;</em><span>MODEL RULE 1.1 C.8</span><em>&middot;</em><span>PRIVILEGE</span><em>&middot;</em><span>WORK PRODUCT</span><em>&middot;</em><span>E-DISCOVERY</span><em>&middot;</em><span>STATE BAR OPS</span>
+    </div>
+  </div>
+</div>
+
+<section id="s1">
+  <div class="wrap">
+    <div class="sheet-head reveal">
+      <div>
+        <div class="sheet-no">01</div>
+      </div>
+      <div class="titleblock">
+        <span>SHEET</span><b>01 / 07</b>
+        <span>TITLE</span><b>THE STAKES</b>
+        <span>SCALE</span><b>NTS</b>
+        <span>DATE</span><b>2026</b>
+        <span>DRAWN BY</span><b>OB.1</b>
+      </div>
+    </div>
+    <h2 class="reveal">Nobody voted to change your standard of care.</h2>
+    <p class="lede reveal">It changed anyway, the day the first associate opened a chatbot on a client matter. Comment 8 to Rule 1.1 already ties competence to understanding the technology you use. These are the moments that turn an unvetted tool into a bar complaint.</p>
+    <div class="ledger reveal">
+      <div class="ledger-row">
+        <span class="no">R-01</span>
+        <b>An associate pastes client facts into a public chatbot</b>
+        <span>Confidentiality waived under Rule 1.6. There is no way to un-paste it.</span>
+      </div>
+      <div class="ledger-row">
+        <span class="no">R-02</span>
+        <b>A filing cites a case that does not exist</b>
+        <span>Sanctions, a referral to bar counsel, and a client relationship that does not recover quickly.</span>
+      </div>
+      <div class="ledger-row">
+        <span class="no">R-03</span>
+        <b>A model drafts, and no partner reviews the draft</b>
+        <span>Rule 5.3's duty to supervise nonlawyer assistance was written for paralegals. It reads the same for software.</span>
+      </div>
+      <div class="ledger-row">
+        <span class="no">R-04</span>
+        <b>Work product is typed into a tool that trains on it</b>
+        <span>Privilege and work-product protection erode quietly, long before anyone moves to compel.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--paper)" id="s2">
+  <div class="wrap">
+    <div class="sheet-head reveal">
+      <div>
+        <div class="sheet-no">02</div>
+      </div>
+      <div class="titleblock">
+        <span>SHEET</span><b>02 / 07</b>
+        <span>TITLE</span><b>THE AUDIT</b>
+        <span>SCALE</span><b>NTS</b>
+        <span>DATE</span><b>2026</b>
+        <span>DRAWN BY</span><b>OB.1</b>
+      </div>
+    </div>
+    <h2 class="reveal">One diagnostic. Eighty-two points. Six dimensions.</h2>
+    <p class="lede reveal">The audit walks the firm the way a managing partner already thinks about risk: where the facts come in, who drafts, who reviews, and what crosses the privilege line on the way to a filing. Nothing here requires opening a client file to us.</p>
+    <div class="schematic reveal" style="margin-top:44px">
+      <svg viewBox="0 0 720 420" role="img" aria-label="Blueprint elevation of a courthouse facade beside a privilege and supervision flow diagram" aria-hidden="true">
+        <!-- LEFT: courthouse facade elevation -->
+        <path class="draw" d="M20,350 L330,350"></path>
+        <path class="draw faint" d="M8,362 L342,362"></path>
+        <path class="draw faint" d="M0,374 L350,374"></path>
+        <path class="draw" d="M55,160 L55,350 M46,350 L64,350 M46,160 L64,160"></path>
+        <path class="draw" d="M104,160 L104,350 M95,350 L113,350 M95,160 L113,160"></path>
+        <path class="draw" d="M153,160 L153,350 M144,350 L162,350 M144,160 L162,160"></path>
+        <path class="draw" d="M202,160 L202,350 M193,350 L211,350 M193,160 L211,160"></path>
+        <path class="draw" d="M251,160 L251,350 M242,350 L260,350 M242,160 L260,160"></path>
+        <path class="draw" d="M300,160 L300,350 M291,350 L309,350 M291,160 L309,160"></path>
+        <path class="draw" d="M30,160 L325,160"></path>
+        <path class="draw" d="M30,150 L325,150"></path>
+        <path class="draw" d="M22,142 L333,142"></path>
+        <path class="draw o" d="M22,142 L177,58 L333,142"></path>
+        <path class="draw faint" d="M40,136 L177,78 L316,136"></path>
+        <path class="draw o" d="M177,95 L177,120 M155,100 L199,100 M155,100 L148,112 M155,100 L162,112 M199,100 L192,112 M199,100 L206,112"></path>
+        <path class="draw faint" d="M104,255 L104,232 L138,232"></path>
+        <path class="draw faint" d="M251,265 L251,242 L286,242"></path>
+
+        <!-- RIGHT: privilege & supervision flow -->
+        <path class="draw" d="M470,60 L630,60 L630,100 L470,100 Z"></path>
+        <path class="draw" d="M470,140 L630,140 L630,180 L470,180 Z"></path>
+        <path class="draw o" d="M440,220 L660,220 L660,340 L440,340 Z"></path>
+        <path class="draw" d="M470,250 L630,250 L630,310 L470,310 Z"></path>
+        <path class="draw" d="M470,360 L630,360 L630,400 L470,400 Z"></path>
+        <path class="draw faint" d="M550,100 L550,140 M544,132 L550,140 L556,132"></path>
+        <path class="draw faint" d="M550,180 L550,220 M544,212 L550,220 L556,212"></path>
+        <path class="draw faint" d="M550,340 L550,360 M544,352 L550,360 L556,352"></path>
+
+        <text x="26" y="404">SCALE NTS &middot; COURTHOUSE FACADE ELEVATION</text>
+        <text x="128" y="222" class="lbl-o">ABA 1.6</text>
+        <text x="275" y="232" class="lbl-o">MODEL RULE 1.1 C.8</text>
+        <text x="470" y="48">CLIENT INTAKE</text>
+        <text x="470" y="128">AI DRAFT ASSIST</text>
+        <text x="446" y="212" class="lbl-o">PRIVILEGE BOUNDARY</text>
+        <text x="470" y="248">COUNSEL REVIEW</text>
+        <text x="470" y="326" class="lbl-o">SUPERVISED &middot; ABA 5.3</text>
+        <text x="470" y="348">FILED / PRODUCED</text>
+      </svg>
+    </div>
+    <div class="chips reveal">
+      <div class="chip hot"><small>DIM 01</small> Business context</div>
+      <div class="chip"><small>DIM 02</small> Technology maturity</div>
+      <div class="chip"><small>DIM 03</small> Automation opportunity</div>
+      <div class="chip"><small>DIM 04</small> Data infrastructure</div>
+      <div class="chip"><small>DIM 05</small> Decision authority</div>
+      <div class="chip"><small>DIM 06</small> Investment readiness</div>
+    </div>
+  </div>
+</section>
+
+<section id="s3">
+  <div class="wrap">
+    <div class="sheet-head reveal">
+      <div>
+        <div class="sheet-no">03</div>
+      </div>
+      <div class="titleblock">
+        <span>SHEET</span><b>03 / 07</b>
+        <span>TITLE</span><b>TWO DOORS</b>
+        <span>SCALE</span><b>NTS</b>
+        <span>DATE</span><b>2026</b>
+        <span>DRAWN BY</span><b>OB.1</b>
+      </div>
+    </div>
+    <h2 class="reveal">There are two ways firms fix this. Pick the one that fits.</h2>
+    <p class="lede reveal">Some firms want the audit and a set of controls installed once. Others want someone watching the controls every quarter, the way they already watch conflicts and trust accounting.</p>
+    <div class="doors">
+      <div class="door reveal">
+        <span class="tag">One-time</span>
+        <h3>Operational Blueprint</h3>
+        <p>Audit, findings, and a built control set delivered once, handed to your IT lead and managing partner to run.</p>
+        <ul>
+          <li>82-point diagnostic across all six practice-facing dimensions</li>
+          <li>Access and matter-scoping rules built for your tool stack</li>
+          <li>Written policy your associates can actually follow</li>
+          <li>One counsel-gated review before handoff</li>
+        </ul>
+        <a class="more" href="https://ob1ai.co/services">See the engagement &rarr;</a>
+      </div>
+      <div class="door gaas reveal d2">
+        <span class="tag">Continuous</span>
+        <h3>Governance-as-a-Service</h3>
+        <p>The same diagnostic, plus a standing watch as models, matters, and state bar guidance keep moving.</p>
+        <ul>
+          <li>Quarterly re-audit against the same 82-point rubric</li>
+          <li>Model-change monitoring, so a vendor update does not become your problem at 5pm on a Friday</li>
+          <li>Covered hours for new tool requests from any practice group</li>
+          <li>Standing counsel-gated review cadence</li>
+        </ul>
+        <a class="more" href="https://ob1ai.co/services">See the engagement &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--paper)" id="s4">
+  <div class="wrap">
+    <div class="sheet-head reveal">
+      <div>
+        <div class="sheet-no">04</div>
+      </div>
+      <div class="titleblock">
+        <span>SHEET</span><b>04 / 07</b>
+        <span>TITLE</span><b>FIVE CONTROLS</b>
+        <span>SCALE</span><b>NTS</b>
+        <span>DATE</span><b>2026</b>
+        <span>DRAWN BY</span><b>OB.1</b>
+      </div>
+    </div>
+    <h2 class="reveal">Five controls, installed once, checked every quarter.</h2>
+    <p class="lede reveal">These are not five more policies to lose in a shared drive. They are the guardrails that turn "we have a tool" into "we can defend how we used it."</p>
+    <div class="controls">
+      <div class="control reveal"><div class="dot">01</div><b>Trusted Data</b><span>The model reasons only from files your firm has cleared, not whatever an associate uploaded that morning.</span></div>
+      <div class="control reveal d1"><div class="dot">02</div><b>Right-Sized Access</b><span>An associate's assistant cannot open a matter number it has no reason to touch.</span></div>
+      <div class="control reveal d2"><div class="dot">03</div><b>Guardrails</b><span>Drafting stops short of filing. A citation gets checked before it becomes an exhibit.</span></div>
+      <div class="control reveal d3"><div class="dot">04</div><b>Human Escalation</b><span>Anything touching privilege, a deadline, or a client relationship routes to a partner, not a queue.</span></div>
+      <div class="control reveal d4"><div class="dot">05</div><b>Full Audit Trail</b><span>Every draft, every prompt, every reviewer, logged the way your billing system already logs time.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="s5">
+  <div class="wrap">
+    <div class="sheet-head reveal">
+      <div>
+        <div class="sheet-no">05</div>
+      </div>
+      <div class="titleblock">
+        <span>SHEET</span><b>05 / 07</b>
+        <span>TITLE</span><b>WHEN MODELS MOVE</b>
+        <span>SCALE</span><b>NTS</b>
+        <span>DATE</span><b>2026</b>
+        <span>DRAWN BY</span><b>OB.1</b>
+      </div>
+    </div>
+    <h2 class="reveal">The vendor updates the model. Your obligations do not update with it.</h2>
+    <p class="lede reveal">A model that passed review in January can behave differently by June. The controls need to move with it, before an associate finds out the hard way.</p>
+    <div class="doors">
+      <div class="door reveal">
+        <span class="tag">In every build</span>
+        <h3>Governance Rider</h3>
+        <p>Every Operational Blueprint contract carries a rider: when a vendor materially changes a model your firm relies on, the control set gets re-tested against your rubric before anyone relies on the new behavior.</p>
+      </div>
+      <div class="door gaas reveal d2">
+        <span class="tag">In every quarter</span>
+        <h3>Covered Hours</h3>
+        <p>Governance-as-a-Service clients carry standing hours for exactly this: a new practice tool, a drift in output, a new state bar opinion. Reviewed before it reaches a client file.</p>
+      </div>
+    </div>
+    <div style="margin-top:40px">
+      <details class="faq reveal">
+        <summary>What happens when a model we rely on gets deprecated?</summary>
+        <p>Your rider triggers a re-test against the same rubric used at audit. You get findings, not a surprise, and a plan for the swap before the old model goes dark.</p>
+      </details>
+      <details class="faq reveal d1">
+        <summary>How would we even know a model's behavior has drifted?</summary>
+        <p>The audit trail installed in Sheet 04 is the early-warning system. Drift shows up as a pattern in the logs long before it shows up in a client complaint.</p>
+      </details>
+      <details class="faq reveal d2">
+        <summary>What if our state bar issues new AI guidance mid-engagement?</summary>
+        <p>The rubric gets updated and your existing controls get re-checked against it. That is the difference between a policy and a standing practice.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--paper)" id="s6">
+  <div class="wrap">
+    <div class="sheet-head reveal">
+      <div>
+        <div class="sheet-no">06</div>
+      </div>
+      <div class="titleblock">
+        <span>SHEET</span><b>06 / 07</b>
+        <span>TITLE</span><b>PROOF</b>
+        <span>SCALE</span><b>NTS</b>
+        <span>DATE</span><b>2026</b>
+        <span>DRAWN BY</span><b>OB.1</b>
+      </div>
+    </div>
+    <h2 class="reveal">Different industry. Same discipline.</h2>
+    <p class="lede reveal">The numbers below come from an anonymized manufacturing audit, projected. We show them because the method does not change by industry: score the six dimensions, rank the findings, fix what pays back first. A counsel-gated rubric built for law firms exists on the same model, scored against ABA 1.1, 1.6, and 5.3 and the state bar opinions that apply to your jurisdiction. Featured by Audity, the AI readiness assessment platform.</p>
+    <div class="case-panel reveal">
+      <div class="grid-veil" aria-hidden="true"></div>
+      <h3>The audit, applied</h3>
+      <p>One 82-point diagnostic. One ranked list of fixes. One projected return, before a single new tool gets bought.</p>
+      <div class="case-stats">
+        <div><b data-count="53">0</b><span>Readiness score / 100</span></div>
+        <div><b data-count="487" data-prefix="$" data-suffix="K">0</b><span>Projected annual value</span></div>
+        <div class="bl"><b data-count="6.2" data-decimals="1" data-suffix="x">0</b><span>Projected Year-1 ROI</span></div>
+        <div><b data-count="1.9" data-decimals="1">0</b><span>Month payback</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="s7">
+  <div class="wrap">
+    <div class="sheet-head reveal">
+      <div>
+        <div class="sheet-no">07</div>
+      </div>
+      <div class="titleblock">
+        <span>SHEET</span><b>07 / 07</b>
+        <span>TITLE</span><b>STRAIGHT ANSWERS</b>
+        <span>SCALE</span><b>NTS</b>
+        <span>DATE</span><b>2026</b>
+        <span>DRAWN BY</span><b>OB.1</b>
+      </div>
+    </div>
+    <h2 class="reveal">Straight answers.</h2>
+    <div style="margin-top:32px">
+      <details class="faq reveal" open>
+        <summary>Does the AI audit require access to privileged files?</summary>
+        <p>No. We audit how AI tools are configured, accessed, and supervised across your firm, not the content of client matters. Where a review step needs to touch anything sensitive, it is counsel-gated: your own lawyers control what we see, and the finished rubric is reviewed by counsel before it reaches you.</p>
+      </details>
+      <details class="faq reveal d1">
+        <summary>What does the audit actually score?</summary>
+        <p>Six dimensions: business context, technology maturity, automation opportunity, data infrastructure, decision authority, and investment readiness. Eighty-two points across those six produce one readiness score and a ranked list of fixes.</p>
+      </details>
+      <details class="faq reveal d2">
+        <summary>We already have an AI use policy. Why do we need this?</summary>
+        <p>A policy states intent. An audit tests practice against it: which associates are using which tools, on which matters, with what oversight. Most firms we meet have a policy and a gap between the policy and the desk.</p>
+      </details>
+      <details class="faq reveal d3">
+        <summary>How long does the engagement take, and what does it cost?</summary>
+        <p>It is a fixed-phase, flat-fee engagement, scoped in one call. Most firms move from audit to a working control set inside a quarter.</p>
+      </details>
+      <details class="faq reveal d4">
+        <summary>Does this cover transactional practice, or only litigation risk?</summary>
+        <p>Both. Hallucinated citations are the headline risk, but confidentiality under Rule 1.6, supervision under Rule 5.3, and work-product exposure apply to deal teams and diligence rooms the same as they apply to litigators.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band grid-bg on-dark">
+  <svg class="compass" viewBox="0 0 200 200" aria-hidden="true">
+    <circle cx="100" cy="100" r="90" fill="none" stroke="#4A7FB5" stroke-width="1.5"></circle>
+    <circle cx="100" cy="100" r="62" fill="none" stroke="#4A7FB5" stroke-width="1"></circle>
+    <path d="M100,14 L108,90 L100,100 L92,90 Z" fill="#4A7FB5"></path>
+    <path d="M100,186 L108,110 L100,100 L92,110 Z" fill="none" stroke="#4A7FB5" stroke-width="1"></path>
+    <path d="M14,100 L90,92 L100,100 L90,108 Z" fill="none" stroke="#4A7FB5" stroke-width="1"></path>
+    <path d="M186,100 L110,92 L100,100 L110,108 Z" fill="none" stroke="#4A7FB5" stroke-width="1"></path>
+  </svg>
+  <div class="wrap reveal">
+    <h2 class="serif">If a client asked what your firm's AI policy actually catches, what would you show them?</h2>
+    <p>A score, a ranked list of findings, and a plan reviewed by counsel. Scoped in one call.</p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="https://ob1ai.co/services">Get Your AI Readiness Score</a>
+      <a class="btn btn-ghost" href="mailto:chris@ob1ai.co">Talk to Chris</a>
+    </div>
+  </div>
+</section>
+
+<footer class="ob1">
+  <div class="wrap">
+    <div><b>OB.1 AI Solutions</b> &middot; Cleveland, Ohio &middot; <a href="mailto:admin@ob1ai.co">admin@ob1ai.co</a> &middot; <a href="tel:+12346020500">(234) 602-0500</a></div>
+    <div class="foot-tag">RULES BEFORE TOOLS</div>
+    <div>&copy; 2026 OB.1 AI Solutions</div>
+  </div>
+</footer>
+
+<script src="js/ob1.js" defer></script>
+</body>
+</html>
