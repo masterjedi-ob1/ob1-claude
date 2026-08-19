@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Audit for Manufacturers | OB.1 AI Solutions · Rules Before Tools</title>
+<meta name="description" content="AI audit for manufacturers covering CMMC 2.0, ITAR/EAR, and CUI handling, plus IEC 62443 for OT-IT convergence. Score your shop's AI governance with OB.1.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2712%27 fill=%27%230D1B2A%27/%3E%3Ctext x=%2732%27 y=%2746%27 font-family=%27Georgia,serif%27 font-size=%2736%27 font-style=%27italic%27 fill=%27%23D97757%27 text-anchor=%27middle%27%3E.1%3C/text%3E%3C/svg%3E">
+<link rel="canonical" href="https://ob1ai.co/manufacturing">
+<meta property="og:title" content="AI Audit for Manufacturers | OB.1 AI Solutions">
+<meta property="og:description" content="AI audit for manufacturers covering CMMC 2.0, ITAR/EAR, and CUI handling. Score your shop's AI governance with OB.1 AI Solutions.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ob1ai.co/manufacturing">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Audit for Manufacturers | OB.1 AI Solutions">
+<meta name="twitter:description" content="AI audit for manufacturers covering CMMC 2.0, ITAR/EAR, and CUI handling. Score your shop's AI governance with OB.1 AI Solutions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ==========================================================================
+   OB.1 AI SOLUTIONS · Architectural Blueprint Design System · v1.0
+   Vertical landing pages: Law · Professional Services · Manufacturing · Healthcare
+   Canvas: parchment. Structure: blueprint navy. Accent: sunset orange (<=15%).
+   Type: Newsreader (display serif) · Source Sans 3 (UI/body) · JetBrains Mono (drafting annotations)
+   ========================================================================== */
+
+:root{
+  --parchment:#F5F0E8;
+  --paper:#FDFBF7;
+  --cream:#E8DFD0;
+  --navy:#0D1B2A;
+  --navy-2:#1B3A5C;
+  --blue:#2E5E8E;
+  --line:#4A7FB5;
+  --orange:#D97757;
+  --amber:#E09070;
+  --charcoal:#3D3832;
+  --stone:#8B8178;
+  --ink:#2A2622;
+  --hairline:rgba(61,56,50,.18);
+  --hairline-d:rgba(232,226,214,.14);
+  --t-on-navy:#E8E2D6;
+  --t-on-navy-dim:#a5bbcf;
+  --serif:'Newsreader',Georgia,serif;
+  --sans:'Source Sans 3','Helvetica Neue',Arial,sans-serif;
+  --mono:'JetBrains Mono','Fira Code',Consolas,monospace;
+  --shadow-card:0 24px 60px -24px rgba(13,27,42,.45);
+  --shadow-soft:0 2px 8px rgba(13,27,42,.12);
+  --ease-out:cubic-bezier(.2,.7,.2,1);
+  --maxw:1280px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);
+  background:var(--parchment);
+  color:var(--ink);
+  line-height:1.62;
+  font-size:18px;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg,canvas{max-width:100%;display:block}
+a{color:inherit}
+::selection{background:rgba(217,119,87,.28)}
+
+.serif{font-family:var(--serif)}
+.mono{font-family:var(--mono)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 40px}
+
+/* Blueprint grid canvases -------------------------------------------------- */
+.grid-bg{
+  background-image:
+    linear-gradient(rgba(74,127,181,.07) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(74,127,181,.07) 1px,transparent 1px),
+    linear-gradient(rgba(74,127,181,.045) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(74,127,181,.045) 1px,transparent 1px);
+  background-size:120px 120px,120px 120px,24px 24px,24px 24px;
+}
+.dark .grid-bg,.grid-bg.dark{
+  background-image:
+    linear-gradient(rgba(74,127,181,.14) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(74,127,181,.14) 1px,transparent 1px),
+    linear-gradient(rgba(74,127,181,.07) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(74,127,181,.07) 1px,transparent 1px);
+  background-size:120px 120px,120px 120px,24px 24px,24px 24px;
+}
+
+/* Type scale --------------------------------------------------------------- */
+.eyebrow{
+  color:var(--orange);font-size:13px;font-weight:700;letter-spacing:.2em;
+  text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:14px;
+}
+.eyebrow::before{content:"";width:34px;height:2px;background:var(--orange);flex:none}
+h1{font-family:var(--serif);font-weight:500;font-size:clamp(40px,5vw,64px);line-height:1.05;color:var(--navy);letter-spacing:-.01em}
+h2{font-family:var(--serif);font-weight:500;font-size:clamp(30px,3.4vw,44px);line-height:1.1;color:var(--navy);margin-bottom:14px;letter-spacing:-.005em}
+h3{font-family:var(--serif);font-weight:500;color:var(--navy)}
+.lede{font-size:21px;color:var(--charcoal);max-width:680px;margin-top:20px}
+.micro{font-size:15px;color:#595246;margin-top:12px}
+.dim{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;color:var(--stone);text-transform:uppercase}
+
+/* Nav ---------------------------------------------------------------------- */
+nav.ob1{
+  background:rgba(253,251,247,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--hairline);padding:14px 0;position:sticky;top:0;z-index:90;
+}
+nav.ob1 .wrap{display:flex;align-items:center;gap:28px}
+.logo{font-weight:700;font-size:20px;letter-spacing:.02em;color:var(--navy);text-decoration:none}
+.logo span{color:var(--orange)}
+nav.ob1 a.nl{color:var(--charcoal);text-decoration:none;font-size:16px;font-weight:500;position:relative}
+nav.ob1 a.nl:after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:2px;background:var(--orange);transition:width .28s var(--ease-out)}
+nav.ob1 a.nl:hover:after,nav.ob1 a.nl[aria-current]:after{width:100%}
+nav.ob1 .cta{margin-left:auto;background:var(--orange);color:#fff;padding:10px 20px;border-radius:6px;font-weight:600;font-size:14px;text-decoration:none;letter-spacing:.04em;transition:background .2s,transform .2s}
+nav.ob1 .cta:hover{background:#c4633f;transform:translateY(-1px)}
+
+/* Buttons ------------------------------------------------------------------ */
+.btn{display:inline-block;text-decoration:none;font-weight:600;font-size:17px;padding:16px 30px;border-radius:6px;transition:transform .22s var(--ease-out),background .2s,box-shadow .22s}
+.btn-primary{background:var(--orange);color:#fff;box-shadow:0 10px 24px -12px rgba(217,119,87,.7)}
+.btn-primary:hover{background:#c4633f;transform:translateY(-2px);box-shadow:0 16px 30px -12px rgba(217,119,87,.75)}
+.btn-ghost{border:1.5px solid var(--navy);color:var(--navy)}
+.btn-ghost:hover{background:rgba(13,27,42,.05);transform:translateY(-2px)}
+.on-dark .btn-ghost{border-color:var(--t-on-navy);color:var(--t-on-navy)}
+.on-dark .btn-ghost:hover{background:rgba(232,226,214,.08)}
+.btn-row{display:flex;gap:14px;margin-top:28px;flex-wrap:wrap}
+
+/* Sections & sheet title-blocks ------------------------------------------- */
+section{padding:84px 0;position:relative}
+.sheet-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:8px}
+.sheet-no{
+  font-family:var(--serif);font-weight:500;font-size:clamp(64px,8vw,110px);line-height:.8;
+  color:transparent;-webkit-text-stroke:1.5px rgba(74,127,181,.5);user-select:none;flex:none;
+}
+.dark .sheet-no,.on-dark .sheet-no{-webkit-text-stroke:1.5px rgba(232,226,214,.28)}
+.titleblock{
+  font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--stone);border:1px solid var(--hairline);border-radius:4px;padding:10px 16px;
+  display:grid;grid-template-columns:auto auto;gap:2px 26px;background:var(--paper);
+}
+.titleblock b{color:var(--charcoal);font-weight:600}
+.on-dark .titleblock{border-color:var(--hairline-d);background:rgba(232,226,214,.05);color:var(--t-on-navy-dim)}
+.on-dark .titleblock b{color:var(--t-on-navy)}
+
+/* Hero --------------------------------------------------------------------- */
+.hero{padding:88px 0 96px;position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;position:relative;z-index:2}
+.hero-canvas{position:absolute;inset:0;z-index:1;pointer-events:none}
+
+/* Crop marks (drafting sheet corners) */
+.cropmarks{position:absolute;inset:26px;pointer-events:none;z-index:1}
+.cropmarks i{position:absolute;width:16px;height:16px;border-color:rgba(74,127,181,.55);border-style:solid;border-width:0}
+.cropmarks i:nth-child(1){top:0;left:0;border-top-width:1.5px;border-left-width:1.5px}
+.cropmarks i:nth-child(2){top:0;right:0;border-top-width:1.5px;border-right-width:1.5px}
+.cropmarks i:nth-child(3){bottom:0;left:0;border-bottom-width:1.5px;border-left-width:1.5px}
+.cropmarks i:nth-child(4){bottom:0;right:0;border-bottom-width:1.5px;border-right-width:1.5px}
+
+/* Tilt cards (3D) ---------------------------------------------------------- */
+.tilt-wrap{perspective:1200px}
+.tilt{transform-style:preserve-3d;transition:transform .5s var(--ease-out);will-change:transform}
+.tilt .tilt-inner-pop{transform:translateZ(28px)}
+
+/* Scorecard ---------------------------------------------------------------- */
+.scorecard{background:var(--navy);border-radius:12px;padding:38px;color:var(--t-on-navy);box-shadow:var(--shadow-card);position:relative;overflow:hidden}
+.scorecard::after{content:"";position:absolute;inset:0;pointer-events:none;background:
+  linear-gradient(rgba(74,127,181,.12) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(74,127,181,.12) 1px,transparent 1px);
+  background-size:28px 28px;mask-image:radial-gradient(120% 90% at 80% 0%,#000 0%,transparent 70%)}
+.sc-head{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--hairline-d);padding-bottom:14px;margin-bottom:22px;position:relative;z-index:2}
+.sc-head b{font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+.sc-head span{font-size:11.5px;color:var(--t-on-navy-dim);font-family:var(--mono);text-align:right;max-width:46%;line-height:1.4}
+.dial-row{display:flex;gap:28px;align-items:center;position:relative;z-index:2}
+.dial{position:relative;width:180px;height:180px;flex:none}
+.dial svg{transform:rotate(-90deg);overflow:visible}
+.dial .num{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.dial .num b{font-size:48px;font-family:var(--serif);font-weight:600;color:#fff}
+.dial .num i{font-style:normal;font-size:11px;letter-spacing:.12em;color:var(--t-on-navy-dim);font-family:var(--mono)}
+/* static 53% default so the dial never reads as a full ring without JS */
+.dial-arc{stroke-dasharray:483.8;stroke-dashoffset:227.4}
+.findings{flex:1;display:flex;flex-direction:column}
+.finding{display:flex;gap:14px;align-items:baseline;padding:10px 0;border-bottom:1px dashed var(--hairline-d)}
+.finding:last-child{border-bottom:none}
+.finding b{font-family:var(--serif);font-size:32px;font-weight:600;color:var(--orange);min-width:56px}
+.finding.blue b{color:var(--line)}
+.finding span{font-size:15px;color:#c7d3de;line-height:1.5}
+.sc-foot{margin-top:22px;font-size:13px;color:var(--t-on-navy-dim);border-top:1px solid var(--hairline-d);padding-top:14px;position:relative;z-index:2}
+.sc-foot b{color:var(--t-on-navy)}
+
+/* Regulatory ticker -------------------------------------------------------- */
+.ticker{background:var(--navy);color:var(--t-on-navy-dim);overflow:hidden;padding:13px 0;border-top:1px solid var(--hairline-d);border-bottom:1px solid var(--hairline-d)}
+.ticker-track{display:flex;gap:0;width:max-content;animation:tick 46s linear infinite}
+.ticker-seq{display:flex;align-items:center;white-space:nowrap;font-family:var(--mono);font-size:12.5px;letter-spacing:.16em;text-transform:uppercase}
+.ticker-seq span{padding:0 22px}
+.ticker-seq em{font-style:normal;color:var(--orange);padding:0 6px}
+@keyframes tick{to{transform:translateX(-50%)}}
+.ticker:hover .ticker-track{animation-play-state:paused}
+
+/* Stat band ---------------------------------------------------------------- */
+.stat-band{background:var(--navy);color:var(--t-on-navy);padding:48px 0}
+.stat-band .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;text-align:center}
+.stat-band b{display:block;font-family:var(--serif);font-size:44px;font-weight:500;color:#fff}
+.stat-band .u{color:var(--orange)}
+.stat-band span{font-size:16px;color:#b2c3d3}
+
+/* Cards / doors ------------------------------------------------------------ */
+.doors{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:40px}
+.door{background:var(--paper);border:1px solid var(--hairline);border-top:4px solid var(--blue);border-radius:10px;padding:36px;transition:transform .32s var(--ease-out),box-shadow .32s}
+.door:hover{transform:translateY(-6px);box-shadow:0 30px 50px -30px rgba(13,27,42,.4)}
+.door.gaas{border-top-color:var(--orange)}
+.door .tag{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--blue)}
+.door.gaas .tag{color:var(--orange)}
+.door h3{font-size:30px;margin:10px 0 12px}
+.door p{font-size:17px;color:var(--charcoal)}
+.door ul{list-style:none;margin:18px 0 22px}
+.door li{font-size:16px;padding:8px 0 8px 24px;position:relative;border-bottom:1px dashed var(--hairline)}
+.door li::before{content:"";position:absolute;left:2px;top:14px;width:10px;height:10px;border:2px solid var(--orange);border-radius:50%}
+.door a.more{color:var(--navy);font-weight:600;font-size:14px;text-decoration:none;border-bottom:2px solid var(--orange)}
+
+/* Controls grid (agentic five) --------------------------------------------- */
+.controls{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:40px}
+.controls.six{grid-template-columns:repeat(3,1fr)}
+.control{background:var(--paper);border:1px solid var(--hairline);border-radius:8px;padding:24px 18px;text-align:center;transition:transform .3s var(--ease-out),border-color .3s}
+.control:hover{transform:translateY(-4px);border-color:rgba(217,119,87,.5)}
+.control b{display:block;font-family:var(--serif);font-size:21px;font-weight:500;color:var(--navy);margin-bottom:6px}
+.control span{font-size:14.5px;color:#595246;line-height:1.5;display:block}
+.control .dot{width:36px;height:36px;margin:0 auto 12px;border-radius:50%;background:rgba(217,119,87,.14);display:flex;align-items:center;justify-content:center;color:var(--orange);font-weight:700;font-size:14px;font-family:var(--mono)}
+
+/* Scope / audit ledger rows ------------------------------------------------ */
+.ledger{margin-top:40px;border:1px solid var(--hairline);border-radius:10px;overflow:hidden;background:var(--paper)}
+.ledger-row{display:grid;grid-template-columns:120px 1fr 1.3fr;gap:24px;padding:22px 28px;border-bottom:1px dashed var(--hairline);align-items:baseline}
+.ledger-row:last-child{border-bottom:none}
+.ledger-row:hover{background:rgba(74,127,181,.05)}
+.ledger-row .no{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--orange)}
+a.ledger-row{text-decoration:none;color:inherit}
+.ledger-row b{font-family:var(--serif);font-size:20px;font-weight:500;color:var(--navy)}
+.ledger-row span{font-size:15.5px;color:#595246}
+
+/* Chips -------------------------------------------------------------------- */
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px}
+.chip{background:var(--paper);border:1px solid var(--hairline);border-radius:100px;padding:9px 18px;font-size:14.5px;font-weight:500;color:var(--navy)}
+.chip small{color:#595246;font-weight:400}
+.chip.hot{border-color:var(--orange);background:rgba(217,119,87,.08)}
+.arr{color:var(--orange);font-weight:700}
+
+/* Quotes / proof ----------------------------------------------------------- */
+.quote{background:var(--paper);border:1px solid var(--hairline);border-radius:10px;padding:30px}
+.quote p{font-family:var(--serif);font-size:22px;font-style:italic;color:var(--navy);line-height:1.45}
+
+/* Dark proof panel (case study) -------------------------------------------- */
+.case-panel{background:var(--navy);color:var(--t-on-navy);border-radius:12px;padding:52px;margin-top:40px;box-shadow:var(--shadow-card);position:relative;overflow:hidden}
+.case-panel .grid-veil{position:absolute;inset:0;pointer-events:none;background:
+  linear-gradient(rgba(74,127,181,.1) 1px,transparent 1px),linear-gradient(90deg,rgba(74,127,181,.1) 1px,transparent 1px);
+  background-size:32px 32px;mask-image:radial-gradient(130% 100% at 15% 0%,#000,transparent 75%)}
+.case-panel h3{color:#fff;font-size:30px}
+.case-panel p{color:#c7d3de}
+.case-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;margin-top:34px;position:relative;z-index:2}
+.case-stats b{display:block;font-family:var(--serif);font-size:40px;font-weight:500;color:var(--orange)}
+.case-stats .bl b{color:var(--line)}
+.case-stats span{font-size:14px;color:var(--t-on-navy-dim)}
+
+/* FAQ ----------------------------------------------------------------------- */
+details.faq{background:var(--paper);border:1px solid var(--hairline);border-radius:8px;margin-bottom:12px;overflow:hidden}
+details.faq summary{cursor:pointer;padding:20px 24px;font-weight:600;font-size:17.5px;color:var(--navy);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:18px}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq summary:after{content:"+";font-family:var(--serif);font-size:22px;color:var(--orange);flex:none}
+details.faq[open] summary:after{content:"–"}
+details.faq p{padding:0 24px 22px;font-size:16.5px;color:var(--charcoal);max-width:840px}
+
+/* CTA band ------------------------------------------------------------------ */
+.cta-band{background:var(--navy);color:#fff;text-align:center;padding:88px 0;position:relative;overflow:hidden}
+.cta-band h2{color:#fff;font-size:clamp(32px,3.6vw,46px)}
+.cta-band p{color:#b2c3d3;max-width:560px;margin:14px auto 0}
+.cta-band .btn-row{justify-content:center}
+.compass{position:absolute;right:6%;top:50%;width:210px;height:210px;margin-top:-105px;opacity:.14;animation:spin 70s linear infinite;pointer-events:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Footer -------------------------------------------------------------------- */
+footer.ob1{background:var(--charcoal);color:#c2bab0;padding:44px 0;font-size:14px}
+footer.ob1 .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;align-items:center}
+footer.ob1 b{color:#fff}
+footer.ob1 a{color:#c2bab0;text-decoration:none}
+footer.ob1 a:hover{color:#fff}
+.foot-tag{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--orange)}
+
+/* Schematic (SVG blueprint drawings) ---------------------------------------- */
+.schematic{position:relative}
+.schematic svg{width:100%;height:auto}
+.schematic .draw{fill:none;stroke:var(--line);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.schematic .draw.o{stroke:var(--orange)}
+.schematic .draw.faint{stroke:rgba(74,127,181,.4);stroke-width:1}
+.schematic text{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;fill:var(--stone);text-transform:uppercase}
+.schematic .lbl-o{fill:var(--orange)}
+.on-dark .schematic .draw{stroke:#7fa8cd}
+.on-dark .schematic text{fill:var(--t-on-navy-dim)}
+/* draw-on-scroll: js sets stroke-dasharray/offset then animates */
+.schematic .draw{transition:none}
+
+/* Reveal engine ------------------------------------------------------------- */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease-out),transform .8s var(--ease-out)}
+.reveal.on{opacity:1;transform:none}
+.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}
+.reveal.d4{transition-delay:.32s}.reveal.d5{transition-delay:.4s}
+
+/* Breadcrumb rail (vertical pages) ------------------------------------------ */
+.rail{position:fixed;left:18px;top:50%;transform:translateY(-50%);z-index:80;display:flex;flex-direction:column;gap:14px}
+.rail a{width:9px;height:9px;border-radius:50%;border:1.5px solid var(--stone);display:block;transition:background .25s,border-color .25s,transform .25s}
+.rail a.on{background:var(--orange);border-color:var(--orange);transform:scale(1.25)}
+@media(max-width:1360px){.rail{display:none}}
+
+/* Responsive ---------------------------------------------------------------- */
+@media(max-width:980px){
+  .hero .wrap{grid-template-columns:1fr}
+  .doors,.quotes{grid-template-columns:1fr}
+  .controls,.controls.six{grid-template-columns:repeat(2,1fr)}
+  .case-stats{grid-template-columns:repeat(2,1fr)}
+  .ledger-row{grid-template-columns:70px 1fr;gap:10px}
+  .ledger-row span{grid-column:2}
+  .stat-band .wrap{grid-template-columns:1fr;gap:22px}
+  .sheet-head{flex-direction:column;align-items:flex-start;gap:10px}
+  .titleblock{display:none}
+  nav.ob1 .wrap{flex-wrap:wrap;gap:8px 18px}
+  nav.ob1 a.nl{font-size:14px}
+  nav.ob1 .cta{padding:8px 14px;font-size:12.5px}
+  .wrap{padding:0 22px}
+  .compass{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none}
+  .ticker-track{animation:none}
+}
+
+</style>
+<noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "OB.1 AI Solutions",
+  "url": "https://ob1ai.co/manufacturing",
+  "email": "admin@ob1ai.co",
+  "telephone": "+1-234-602-0500",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Cleveland",
+    "addressRegion": "OH",
+    "addressCountry": "US"
+  },
+  "areaServed": ["Ohio", "United States"],
+  "description": "AI governance audits and Governance-as-a-Service for manufacturers, covering CMMC 2.0, ITAR/EAR, CUI handling, IEC 62443, and ISO 9001 quality records."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What happens if a vendor deprecates the model our floor tools run on?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every Governance-as-a-Service quarter carries covered hours for exactly this. We re-point the guardrails to the replacement model, re-test the guardrails against the same six dimensions, and confirm nothing on the floor breaks quietly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you handle model behavior drift on the floor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We re-score the tool against its original guardrails on a set cadence. If a scheduling or quoting model starts answering differently than it did at go-live, that shows up in the re-score, not six months later in a customer complaint."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if a new regulation lands mid-engagement?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The governance rider in every build contract and the covered hours in every GaaS quarter both cover this. A CMMC level change or a new export control gets mapped against your current controls, not left for your next audit cycle to catch."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does an AI audit for a manufacturer actually cover?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An 82-point diagnostic across six dimensions: business context, technology maturity, automation opportunity, data infrastructure, decision authority, and investment readiness. Built for shops carrying CUI, export-controlled prints, and ISO 9001 quality records, not a generic SaaS checklist."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "We are not a defense contractor. Does CMMC or ITAR even apply to us?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Plenty of shops touch CUI or export-controlled data two or three tiers down a supply chain without realizing it. The audit tells you where you actually stand instead of guessing from a prime's flowdown clause."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is this different from a cybersecurity audit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A cybersecurity audit looks at your network. This looks at where AI tools touch your data, your floor, and your decisions, then maps that against your CMMC, ITAR, and ISO 9001 exposure specifically."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do we have to hire you to fix what the audit finds?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The audit stands on its own. You get the findings and a prioritized roadmap either way. Some shops run it themselves, some bring us back for the Operational Blueprint build."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does the audit take and what does it cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most shops finish in a few weeks, start to finish. It is a fixed-phase, flat-fee engagement, scoped in one call, so you know the number before we start."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav class="ob1">
+  <div class="wrap">
+    <a href="index.html" class="logo">OB<span>.1</span> AI SOLUTIONS</a>
+    <a href="index.html" class="nl">Home</a>
+    <a href="law.html" class="nl">Law</a>
+    <a href="healthcare.html" class="nl">Healthcare</a>
+    <a href="manufacturing.html" class="nl" aria-current="page">Manufacturing</a>
+    <a href="professional-services.html" class="nl">Professional Services</a>
+    <a href="https://ob1ai.co/services" class="cta">GET YOUR READINESS SCORE</a>
+  </div>
+</nav>
+
+<div class="rail">
+  <a href="#s1" aria-label="The Stakes"></a>
+  <a href="#s2" aria-label="The Audit"></a>
+  <a href="#s3" aria-label="Two Doors"></a>
+  <a href="#s4" aria-label="Five Controls"></a>
+  <a href="#s5" aria-label="When Models Move"></a>
+  <a href="#s6" aria-label="Proof"></a>
+  <a href="#s7" aria-label="Straight Answers"></a>
+</div>
+
+<header class="hero grid-bg" id="top">
+  <canvas class="hero-canvas" data-density="1"></canvas>
+  <div class="cropmarks"><i></i><i></i><i></i><i></i></div>
+  <div class="wrap">
+    <div class="reveal on">
+      <div class="eyebrow">AI Audit · Manufacturers</div>
+      <h1>You would never run an uncalibrated machine. Your AI is uncalibrated.</h1>
+      <p class="lede">Your CNC cells get calibrated on a schedule. Your quality system gets audited every year. Nobody has calibrated the AI tools running your quotes, your scheduling, or your CUI. We do that in one focused audit.</p>
+      <div class="btn-row">
+        <a href="https://ob1ai.co/services" class="btn btn-primary">Get Your AI Readiness Score</a>
+        <a href="mailto:chris@ob1ai.co" class="btn btn-ghost">Talk to Chris</a>
+      </div>
+      <p class="micro">82-point diagnostic across six dimensions. Built for shops handling controlled data, not a generic SaaS checklist.</p>
+    </div>
+    <div class="tilt-wrap reveal d2 on">
+      <div class="scorecard tilt">
+        <div class="sc-head">
+          <b>Readiness Scorecard</b>
+          <span>ANONYMIZED SHOP AUDIT</span>
+        </div>
+        <div class="dial-row">
+          <div class="dial">
+            <svg width="180" height="180" viewBox="0 0 180 180" aria-hidden="true">
+              <circle cx="90" cy="90" r="77" fill="none" stroke="rgba(232,226,214,.14)" stroke-width="10"></circle>
+              <circle class="dial-arc" data-score="53" cx="90" cy="90" r="77" fill="none" stroke="#D97757" stroke-width="10" stroke-linecap="round"></circle>
+            </svg>
+            <div class="num"><b>53</b><i>/ 100</i></div>
+          </div>
+          <div class="findings">
+            <div class="finding">
+              <b data-count="21">21</b>
+              <span>automation opportunities identified across the floor and back office</span>
+            </div>
+            <div class="finding blue">
+              <b data-count="6.2" data-decimals="1" data-suffix="x">6.2x</b>
+              <span>projected Year-1 ROI</span>
+            </div>
+            <div class="finding">
+              <b data-count="9">9</b>
+              <span>quick wins ready inside 90 days</span>
+            </div>
+          </div>
+        </div>
+        <div class="sc-foot">Scored across business context, technology maturity, automation opportunity, data infrastructure, decision authority, and investment readiness. <b>Anonymized manufacturing audit, projected figures.</b></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="ticker">
+  <div class="ticker-track">
+    <div class="ticker-seq">
+      <span>CMMC 2.0</span><em>·</em><span>ITAR/EAR</span><em>·</em><span>CUI</span><em>·</em><span>IEC 62443</span><em>·</em><span>ISO 9001</span><em>·</em><span>OT/IT CONVERGENCE</span><em>·</em><span>NIST 800-171</span><em>·</em><span>SUPPLY CHAIN FLOWDOWN</span><em>·</em>
+    </div>
+    <div class="ticker-seq">
+      <span>CMMC 2.0</span><em>·</em><span>ITAR/EAR</span><em>·</em><span>CUI</span><em>·</em><span>IEC 62443</span><em>·</em><span>ISO 9001</span><em>·</em><span>OT/IT CONVERGENCE</span><em>·</em><span>NIST 800-171</span><em>·</em><span>SUPPLY CHAIN FLOWDOWN</span><em>·</em>
+    </div>
+  </div>
+</div>
+
+<section id="s1">
+  <div class="wrap">
+    <div class="sheet-head reveal">
+      <div class="sheet-no">01</div>
+      <div class="titleblock">
+        <span>SHEET</span><b>01 / 07</b>
+        <span>TITLE</span><b>THE STAKES</b>
+        <span>SCALE</span><b>NTS</b>
+        <span>DATE</span><b>2026</b>
+        <span>DRAWN BY</span><b>OB.1</b>
+      </div>
+    </div>
+    <h2 class="reveal">The floor already has AI on it. Nobody calibrated it.</h2>
+    <p class="lede reveal">Estimators, schedulers, and quality clerks have all found faster ways to work. Most of those ways were never checked against what your shop is actually obligated to protect.</p>
+    <div class="ledger reveal">
+      <div class="ledger-row">
+        <span class="no">R-01</span>
+        <b>Controlled data walks out through a chatbot</b>
+        <span>An estimator pastes a customer print into a public AI tool to speed up a quote. That print may be CUI. That is a CMMC finding, not a shortcut.</span>
+      </div>
+      <div class="ledger-row">
+        <span class="no">R-02</span>
+        <b>Export-controlled data crosses a border it shouldn't</b>
+        <span>A drawing, a spec, a process parameter goes into a model hosted outside the US. ITAR and EAR do not care that it saved you twenty minutes.</span>
+      </div>
+      <div class="ledger-row">
+        <span class="no">R-03</span>
+        <b>A scheduling agent touches the OT network unsupervised</b>
+        <span>Predictive maintenance and scheduling tools now sit close to machine controllers. IEC 62443 assumes segmentation. Most shops do not have it.</span>
+      </div>
+      <div class="ledger-row">
+        <span class="no">R-04</span>
+        <b>An unreviewed edit lands in a quality record</b>
+        <span>AI drafts a nonconformance report or a corrective action and nobody signs off. Your ISO 9001 auditor will find it before your customer does.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="s2">
+  <div class="wrap">
+    <div class="sheet-head reveal">
+      <div class="sheet-no">02</div>
+      <div class="titleblock">
+        <span>SHEET</span><b>02 / 07</b>
+        <span>TITLE</span><b>THE AUDIT</b>
+        <span>SCALE</span><b>NTS</b>
+        <span>DATE</span><b>2026</b>
+        <span>DRAWN BY</span><b>OB.1</b>
+      </div>
+    </div>
+    <h2 class="reveal">One audit. Six dimensions. Eighty-two points.</h2>
+    <p class="lede reveal">We walk the floor and the org chart. Business context, technology maturity, automation opportunity, data infrastructure, decision authority, and investment readiness, scored dimension by dimension against an 82-point diagnostic built for shops carrying CUI, export-controlled prints, and quality records regulators actually read.</p>
+    <div class="chips reveal">
+      <span class="chip hot">Business Context</span>
+      <span class="chip">Technology Maturity</span>
+      <span class="chip hot">Automation Opportunity</span>
+      <span class="chip">Data Infrastructure</span>
+      <span class="chip hot">Decision Authority</span>
+      <span class="chip">Investment Readiness</span>
+    </div>
+
+    <div class="schematic reveal" style="margin-top:44px">
+      <svg viewBox="0 0 720 420" role="img" aria-hidden="true">
+        <!-- building outline -->
+        <path class="draw" d="M60,50 L660,50 L660,370 L60,370 Z"></path>
+        <!-- conveyor line -->
+        <path class="draw" d="M90,325 L630,325"></path>
+        <path class="draw faint" d="M220,317 L220,333"></path>
+        <path class="draw faint" d="M400,317 L400,333"></path>
+        <!-- CNC cell 01 -->
+        <path class="draw" d="M90,90 L180,90 L180,170 L90,170 Z"></path>
+        <!-- CNC cell 02 -->
+        <path class="draw" d="M210,90 L300,90 L300,170 L210,170 Z"></path>
+        <!-- CNC cell 03 -->
+        <path class="draw o" d="M330,90 L420,90 L420,170 L330,170 Z"></path>
+        <path class="draw o faint" d="M360,130 L390,130 M375,115 L375,145"></path>
+        <!-- quality gate -->
+        <path class="draw" d="M470,90 L580,90 L580,150 L470,150 Z"></path>
+        <!-- CUI vault -->
+        <path class="draw o" d="M470,200 L560,200 L560,270 L470,270 Z"></path>
+        <path class="draw o faint" d="M505,225 a10,10 0 1,0 20,0 a10,10 0 1,0 -20,0 M515,235 L515,250"></path>
+        <!-- OT/IT governance boundary, drawn as dashed segments -->
+        <path class="draw faint" d="M75,75 L280,75"></path>
+        <path class="draw faint" d="M340,75 L575,75"></path>
+        <path class="draw faint" d="M575,75 L575,180"></path>
+        <path class="draw faint" d="M575,225 L575,290"></path>
+        <path class="draw faint" d="M575,290 L400,290"></path>
+        <path class="draw faint" d="M340,290 L75,290"></path>
+        <path class="draw faint" d="M75,290 L75,190"></path>
+        <path class="draw faint" d="M75,150 L75,75"></path>
+        <!-- IT desk icon -->
+        <path class="draw faint" d="M605,105 L650,105 L650,135 L605,135 Z M617,135 L617,145 L638,145 L638,135"></path>
+        <!-- data flow arrow, CNC cell 03 to conveyor -->
+        <path class="draw o" d="M375,170 L375,300 M365,290 L375,300 L385,290"></path>
+
+        <text x="90" y="84">CNC CELL 01</text>
+        <text x="210" y="84">CNC CELL 02</text>
+        <text x="330" y="84" class="lbl-o">CNC CELL 03</text>
+        <text x="90" y="313">CONVEYOR LINE</text>
+        <text x="470" y="84">QUALITY GATE</text>
+        <text x="470" y="195" class="lbl-o">CUI VAULT</text>
+        <text x="80" y="66">OT/IT BOUNDARY</text>
+        <text x="470" y="300">CMMC 2.0</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section id="s3">
+  <div class="wrap">
+    <div class="sheet-head reveal">
+      <div class="sheet-no">03</div>
+      <div class="titleblock">
+        <span>SHEET</span><b>03 / 07</b>
+        <span>TITLE</span><b>TWO DOORS</b>
+        <span>SCALE</span><b>NTS</b>
+        <span>DATE</span><b>2026</b>
+        <span>DRAWN BY</span><b>OB.1</b>
+      </div>
+    </div>
+    <h2 class="reveal">Two doors out of the audit</h2>
+    <p class="lede reveal">The audit ends with a report either way. What you do with it depends on how the floor is set up to keep changing.</p>
+    <div class="doors">
+      <div class="door reveal">
+        <span class="tag">One-Time Build</span>
+        <h3>Operational Blueprint</h3>
+        <p>We fix what the audit finds. Access rules, guardrails on the tools already running the floor, and a governance rider written into every AI contract you sign next.</p>
+        <ul>
+          <li>Segment OT from the tools that touch it</li>
+          <li>Rewrite access so a quoting tool can't see a print it has no reason to open</li>
+          <li>Stand up an audit trail your ISO auditor can read</li>
+          <li>Close the CMMC and ITAR gaps the audit surfaced</li>
+        </ul>
+        <a href="https://ob1ai.co/services" class="more">See what's included</a>
+      </div>
+      <div class="door gaas reveal d2">
+        <span class="tag">Continuous</span>
+        <h3>Governance-as-a-Service</h3>
+        <p>Models change. So does your customer list, your export classification, and your CMMC level. We keep the guardrails current every quarter, not just the day we leave.</p>
+        <ul>
+          <li>Quarterly re-score against the same six dimensions</li>
+          <li>Covered hours when a new tool shows up on the floor</li>
+          <li>A direct line when a regulation moves before your team notices</li>
+          <li>Documentation kept current for your next assessment</li>
+        </ul>
+        <a href="https://ob1ai.co/services" class="more">See what's included</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="s4">
+  <div class="wrap">
+    <div class="sheet-head reveal">
+      <div class="sheet-no">04</div>
+      <div class="titleblock">
+        <span>SHEET</span><b>04 / 07</b>
+        <span>TITLE</span><b>FIVE CONTROLS</b>
+        <span>SCALE</span><b>NTS</b>
+        <span>DATE</span><b>2026</b>
+        <span>DRAWN BY</span><b>OB.1</b>
+      </div>
+    </div>
+    <h2 class="reveal">Five controls, every build</h2>
+    <p class="lede reveal">Every Operational Blueprint and every GaaS quarter carries the same five, adapted to what is actually on your floor.</p>
+    <div class="controls">
+      <div class="control reveal"><span class="dot">01</span><b>Trusted Data</b><span>Every model draws from data you can name the source of. No CUI in a prompt nobody logged.</span></div>
+      <div class="control reveal d1"><span class="dot">02</span><b>Right-Sized Access</b><span>A quoting tool doesn't get to see a print it has no reason to open.</span></div>
+      <div class="control reveal d2"><span class="dot">03</span><b>Guardrails</b><span>Hard stops before a model touches ITAR-classified data or an OT control point.</span></div>
+      <div class="control reveal d3"><span class="dot">04</span><b>Human Escalation</b><span>A person signs off before an AI-drafted CAPA or NCR becomes the record.</span></div>
+      <div class="control reveal d4"><span class="dot">05</span><b>Full Audit Trail</b><span>Every AI touchpoint logged the way your CMMC assessor and your ISO auditor both expect.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="s5">
+  <div class="wrap">
+    <div class="sheet-head reveal">
+      <div class="sheet-no">05</div>
+      <div class="titleblock">
+        <span>SHEET</span><b>05 / 07</b>
+        <span>TITLE</span><b>WHEN MODELS MOVE</b>
+        <span>SCALE</span><b>NTS</b>
+        <span>DATE</span><b>2026</b>
+        <span>DRAWN BY</span><b>OB.1</b>
+      </div>
+    </div>
+    <h2 class="reveal">When the models move, the floor doesn't stop</h2>
+    <p class="lede reveal">Vendors deprecate models. Tools drift. Regulations shift mid-quarter. That is covered before it becomes your problem.</p>
+    <div class="doors">
+      <div class="door reveal">
+        <span class="tag">In Every Build</span>
+        <h3>Governance Rider</h3>
+        <p>Every Operational Blueprint contract includes a rider covering what happens when the underlying model changes behavior, gets deprecated, or a new rule like a CMMC level bump lands mid-project.</p>
+      </div>
+      <div class="door gaas reveal d2">
+        <span class="tag">In Every Quarter</span>
+        <h3>Covered Hours</h3>
+        <p>Every GaaS engagement carries covered hours for exactly this: a vendor deprecates a model, a new export rule ships, or a tool starts behaving differently on the floor.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:40px">
+      <details class="faq reveal" open>
+        <summary>What happens if a vendor deprecates the model our floor tools run on?</summary>
+        <p>Every GaaS quarter carries covered hours for exactly this. We re-point the guardrails to the replacement model, re-test against the same six dimensions, and confirm nothing on the floor breaks quietly.</p>
+      </details>
+      <details class="faq reveal">
+        <summary>How do you handle model behavior drift on the floor?</summary>
+        <p>We re-score the tool against its original guardrails on a set cadence. If a scheduling or quoting model starts answering differently than it did at go-live, that shows up in the re-score, not six months later in a customer complaint.</p>
+      </details>
+      <details class="faq reveal">
+        <summary>What if a new regulation lands mid-engagement?</summary>
+        <p>The governance rider in every build contract and the covered hours in every GaaS quarter both cover this. A CMMC level change or a new export control gets mapped against your current controls, not left for your next audit cycle to catch.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="s6">
+  <div class="wrap">
+    <div class="sheet-head reveal">
+      <div class="sheet-no">06</div>
+      <div class="titleblock">
+        <span>SHEET</span><b>06 / 07</b>
+        <span>TITLE</span><b>PROOF</b>
+        <span>SCALE</span><b>NTS</b>
+        <span>DATE</span><b>2026</b>
+        <span>DRAWN BY</span><b>OB.1</b>
+      </div>
+    </div>
+    <h2 class="reveal">We scored a shop like yours</h2>
+    <p class="lede reveal">Fifty to five hundred employees. Great Lakes corridor. CUI on the floor, export-controlled prints in the file room, an ERP nobody fully trusts. Here is what the audit found, anonymized and projected.</p>
+
+    <div class="case-panel reveal">
+      <div class="grid-veil" aria-hidden="true"></div>
+      <h3>Anonymized Manufacturing Audit</h3>
+      <p>Scored against a counsel-gated manufacturing rubric built around CMMC 2.0, ITAR/EAR, CUI handling, and IEC 62443. Featured by Audity, the AI readiness assessment platform. All figures below are projected.</p>
+      <div class="case-stats">
+        <div>
+          <b data-count="53">53</b>
+          <span>readiness score, out of 100</span>
+        </div>
+        <div>
+          <b data-count="487" data-prefix="$" data-suffix="K">$487K</b>
+          <span>projected annual value</span>
+        </div>
+        <div class="bl">
+          <b data-count="6.2" data-decimals="1" data-suffix="x">6.2x</b>
+          <span>projected Year-1 ROI</span>
+        </div>
+        <div>
+          <b data-count="1.9" data-decimals="1">1.9</b>
+          <span>months to payback, projected</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="s7">
+  <div class="wrap">
+    <div class="sheet-head reveal">
+      <div class="sheet-no">07</div>
+      <div class="titleblock">
+        <span>SHEET</span><b>07 / 07</b>
+        <span>TITLE</span><b>STRAIGHT ANSWERS</b>
+        <span>SCALE</span><b>NTS</b>
+        <span>DATE</span><b>2026</b>
+        <span>DRAWN BY</span><b>OB.1</b>
+      </div>
+    </div>
+    <h2 class="reveal">Straight answers</h2>
+    <div style="margin-top:32px">
+      <details class="faq reveal" open>
+        <summary>What does an AI audit for a manufacturer actually cover?</summary>
+        <p>An 82-point diagnostic across six dimensions: business context, technology maturity, automation opportunity, data infrastructure, decision authority, and investment readiness. Built for shops carrying CUI, export-controlled prints, and ISO 9001 quality records, not a generic SaaS checklist.</p>
+      </details>
+      <details class="faq reveal">
+        <summary>We are not a defense contractor. Does CMMC or ITAR even apply to us?</summary>
+        <p>Plenty of shops touch CUI or export-controlled data two or three tiers down a supply chain without realizing it. The audit tells you where you actually stand instead of guessing from a prime's flowdown clause.</p>
+      </details>
+      <details class="faq reveal">
+        <summary>How is this different from a cybersecurity audit?</summary>
+        <p>A cybersecurity audit looks at your network. This looks at where AI tools touch your data, your floor, and your decisions, then maps that against your CMMC, ITAR, and ISO 9001 exposure specifically.</p>
+      </details>
+      <details class="faq reveal">
+        <summary>Do we have to hire you to fix what the audit finds?</summary>
+        <p>No. The audit stands on its own. You get the findings and a prioritized roadmap either way. Some shops run it themselves, some bring us back for the Operational Blueprint build.</p>
+      </details>
+      <details class="faq reveal">
+        <summary>How long does the audit take and what does it cost?</summary>
+        <p>Most shops finish in a few weeks, start to finish. It is a fixed-phase, flat-fee engagement, scoped in one call, so you know the number before we start.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band grid-bg on-dark">
+  <svg class="compass" viewBox="0 0 100 100" aria-hidden="true">
+    <circle cx="50" cy="50" r="46" fill="none" stroke="#4A7FB5" stroke-width="1"></circle>
+    <circle cx="50" cy="50" r="34" fill="none" stroke="#4A7FB5" stroke-width="1"></circle>
+    <path d="M50,6 L50,94 M6,50 L94,50" stroke="#4A7FB5" stroke-width="1"></path>
+    <path d="M50,16 L58,50 L50,84 L42,50 Z" fill="#4A7FB5"></path>
+  </svg>
+  <div class="wrap reveal">
+    <h2>Would you run a machine nobody calibrated?</h2>
+    <p>Get the same six-dimension audit that scored a shop like yours. Fixed-phase, flat-fee, scoped in one call.</p>
+    <div class="btn-row">
+      <a href="https://ob1ai.co/services" class="btn btn-primary">Get Your AI Readiness Score</a>
+      <a href="mailto:chris@ob1ai.co" class="btn btn-ghost">Talk to Chris</a>
+    </div>
+  </div>
+</section>
+
+<footer class="ob1">
+  <div class="wrap">
+    <div>
+      <b>OB.1 AI Solutions</b> · Cleveland, Ohio · <a href="mailto:admin@ob1ai.co">admin@ob1ai.co</a> · <a href="tel:+12346020500">(234) 602-0500</a>
+      <div class="foot-tag">RULES BEFORE TOOLS</div>
+    </div>
+    <div>© 2026 OB.1 AI Solutions</div>
+  </div>
+</footer>
+
+<script>
+/* OB.1 motion engine · reveals, count-ups, dial arcs, SVG draw-on-scroll,
+   3D tilt cards, hero particle field, section rail. No dependencies. */
+(function(){
+  'use strict';
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- Scroll reveals ---- */
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target); }
+    });
+  },{threshold:.14,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+  /* ---- Count-up numbers: <b data-count="53" data-suffix="%" data-decimals="1"> ---- */
+  function countUp(el){
+    var target = parseFloat(el.dataset.count), dec = parseInt(el.dataset.decimals||'0',10);
+    var pre = el.dataset.prefix||'', suf = el.dataset.suffix||'', dur = 1500, t0 = null;
+    if(reduced){ el.textContent = pre + target.toFixed(dec) + suf; return; }
+    function tick(ts){
+      if(!t0) t0 = ts;
+      var k = Math.min((ts-t0)/dur,1), e = 1-Math.pow(1-k,3);
+      el.textContent = pre + (target*e).toFixed(dec) + suf;
+      if(k<1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  var cio = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting){ countUp(e.target); cio.unobserve(e.target); }
+    });
+  },{threshold:.5});
+  document.querySelectorAll('[data-count]').forEach(function(el){ cio.observe(el); });
+
+  /* ---- Dial arc: <circle class="dial-arc" data-score="53" r="77"> ---- */
+  var dio = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting) return;
+      var c = e.target, r = parseFloat(c.getAttribute('r')), C = 2*Math.PI*r;
+      var score = parseFloat(c.dataset.score);
+      c.style.strokeDasharray = C;
+      c.style.strokeDashoffset = C;
+      c.getBoundingClientRect();
+      c.style.transition = reduced ? 'none' : 'stroke-dashoffset 1.6s cubic-bezier(.2,.7,.2,1)';
+      c.style.strokeDashoffset = C - C*(score/100);
+      dio.unobserve(c);
+    });
+  },{threshold:.5});
+  document.querySelectorAll('.dial-arc').forEach(function(el){ dio.observe(el); });
+
+  /* ---- Fail-open: anything not yet revealed shows itself shortly after load,
+     so non-scrolling renderers (search engines, print, capture) see full content. */
+  var armFns = [];
+  window.addEventListener('load', function(){
+    setTimeout(function(){
+      document.querySelectorAll('.reveal:not(.on)').forEach(function(el){
+        el.classList.add('on'); io.unobserve(el);
+      });
+      armFns.forEach(function(f){ f(); });
+    }, 4000);
+  });
+
+  /* ---- SVG draw-on-scroll: every .schematic .draw path animates its stroke ---- */
+  function prepDraw(p,i){
+    var len; try{ len = p.getTotalLength(); }catch(e){ return; }
+    p.style.strokeDasharray = len;
+    p.style.strokeDashoffset = len;
+    p.dataset.len = len; p.dataset.idx = i;
+  }
+  document.querySelectorAll('.schematic').forEach(function(s){
+    var paths = s.querySelectorAll('.draw');
+    paths.forEach(prepDraw);
+    var texts = s.querySelectorAll('text');
+    texts.forEach(function(t){ t.style.opacity = 0; t.style.transition = 'opacity .7s ease'; });
+    var fired = false;
+    function fire(){
+      if(fired) return; fired = true;
+      paths.forEach(function(p){
+        if(!p.dataset.len) return;
+        var d = 120*parseInt(p.dataset.idx,10);
+        p.style.transition = reduced ? 'none' : 'stroke-dashoffset 1.5s cubic-bezier(.2,.7,.2,1) '+d+'ms';
+        p.style.strokeDashoffset = 0;
+      });
+      var base = reduced?0:900;
+      texts.forEach(function(t,i){ setTimeout(function(){ t.style.opacity = 1; }, base + i*90); });
+      sio.disconnect();
+    }
+    var sio = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting) fire(); });
+    },{threshold:.3});
+    sio.observe(s);
+    armFns.push(fire);
+  });
+
+  /* ---- 3D tilt: pointer-tracked, desktop only ---- */
+  if(!reduced && matchMedia('(pointer:fine)').matches){
+    document.querySelectorAll('.tilt-wrap').forEach(function(w){
+      var card = w.querySelector('.tilt'); if(!card) return;
+      w.addEventListener('pointermove', function(ev){
+        var r = w.getBoundingClientRect();
+        var x = (ev.clientX-r.left)/r.width - .5, y = (ev.clientY-r.top)/r.height - .5;
+        card.style.transform = 'rotateY('+(x*7)+'deg) rotateX('+(-y*7)+'deg)';
+      });
+      w.addEventListener('pointerleave', function(){ card.style.transform = ''; });
+    });
+  }
+
+  /* ---- Hero particle field: <canvas class="hero-canvas" data-density="1"> ----
+     Drifting plotter points + short connective linework, brand tinted, very low key. */
+  document.querySelectorAll('canvas.hero-canvas').forEach(function(cv){
+    if(reduced) return;
+    var ctx = cv.getContext('2d'), pts = [], W, H, raf;
+    var dark = cv.dataset.theme === 'dark';
+    function size(){
+      var r = cv.parentElement.getBoundingClientRect();
+      W = cv.width = r.width * devicePixelRatio;
+      H = cv.height = r.height * devicePixelRatio;
+      cv.style.width = r.width+'px'; cv.style.height = r.height+'px';
+      var n = Math.min(70, Math.floor(r.width/22) * (parseFloat(cv.dataset.density||'1')));
+      pts = [];
+      for(var i=0;i<n;i++) pts.push({
+        x:Math.random()*W, y:Math.random()*H,
+        vx:(Math.random()-.5)*.14*devicePixelRatio, vy:(Math.random()-.5)*.14*devicePixelRatio,
+        o:Math.random()*.5+.2, hot:Math.random()<.12
+      });
+    }
+    function step(){
+      ctx.clearRect(0,0,W,H);
+      var linkD = 130*devicePixelRatio;
+      for(var i=0;i<pts.length;i++){
+        var p = pts[i];
+        p.x += p.vx; p.y += p.vy;
+        if(p.x<0||p.x>W) p.vx*=-1;
+        if(p.y<0||p.y>H) p.vy*=-1;
+        for(var j=i+1;j<pts.length;j++){
+          var q = pts[j], dx = p.x-q.x, dy = p.y-q.y, d = Math.sqrt(dx*dx+dy*dy);
+          if(d<linkD){
+            ctx.strokeStyle = dark
+              ? 'rgba(127,168,205,'+(.13*(1-d/linkD))+')'
+              : 'rgba(74,127,181,'+(.15*(1-d/linkD))+')';
+            ctx.lineWidth = devicePixelRatio*.7;
+            ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.lineTo(q.x,q.y); ctx.stroke();
+          }
+        }
+        ctx.fillStyle = p.hot
+          ? 'rgba(217,119,87,'+(p.o*.9)+')'
+          : (dark ? 'rgba(127,168,205,'+(p.o*.7)+')' : 'rgba(46,94,142,'+(p.o*.6)+')');
+        ctx.beginPath(); ctx.arc(p.x,p.y,(p.hot?2.2:1.5)*devicePixelRatio,0,7); ctx.fill();
+      }
+      raf = requestAnimationFrame(step);
+    }
+    var vio = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){ if(!raf) step(); }
+        else { cancelAnimationFrame(raf); raf = null; }
+      });
+    });
+    size(); vio.observe(cv);
+    addEventListener('resize', function(){ size(); });
+  });
+
+  /* ---- Section rail: <div class="rail"><a href="#s1">... highlights on scroll ---- */
+  var rail = document.querySelector('.rail');
+  if(rail){
+    var links = [].slice.call(rail.querySelectorAll('a'));
+    var secs = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+    var rio = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){
+          links.forEach(function(a){ a.classList.remove('on'); });
+          var i = secs.indexOf(e.target);
+          if(i>-1) links[i].classList.add('on');
+        }
+      });
+    },{rootMargin:'-45% 0px -45% 0px'});
+    secs.forEach(function(s){ if(s) rio.observe(s); });
+  }
+})();
+
+</script>
+<div style="position:fixed;bottom:0;left:0;right:0;z-index:999;background:#3D3832;color:#fff;font:600 11px/1.5 'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase;padding:7px 16px;text-align:center">OFFLINE REVIEW COPY &middot; OB.1 VERTICAL LANDING PAGES &middot; <span style="color:#D97757">RULES BEFORE TOOLS</span></div><div style="height:32px"></div>
+</body>
+</html>

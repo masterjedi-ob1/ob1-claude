@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Audit for Professional Services | OB.1 AI Solutions · Rules Before Tools</title>
+<meta name="description" content="AI audit for professional services firms: CPAs, consultancies, agencies, engineering firms. A diagnostic that builds AI governance for client confidentiality.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2712%27 fill=%27%230D1B2A%27/%3E%3Ctext x=%2732%27 y=%2746%27 font-family=%27Georgia,serif%27 font-size=%2736%27 font-style=%27italic%27 fill=%27%23D97757%27 text-anchor=%27middle%27%3E.1%3C/text%3E%3C/svg%3E">
+<link rel="canonical" href="https://ob1ai.co/professional-services">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="AI Audit for Professional Services Firms | OB.1 AI Solutions">
+<meta property="og:description" content="A 6-dimension AI governance diagnostic for CPAs, consultancies, agencies, and engineering firms. Protect client confidentiality and the work product your name is on.">
+<meta property="og:url" content="https://ob1ai.co/professional-services">
+<meta property="og:site_name" content="OB.1 AI Solutions">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Audit for Professional Services Firms | OB.1 AI Solutions">
+<meta name="twitter:description" content="A 6-dimension AI governance diagnostic for CPAs, consultancies, agencies, and engineering firms. Protect client confidentiality and the work product your name is on.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ==========================================================================
+   OB.1 AI SOLUTIONS · Architectural Blueprint Design System · v1.0
+   Vertical landing pages: Law · Professional Services · Manufacturing · Healthcare
+   Canvas: parchment. Structure: blueprint navy. Accent: sunset orange (<=15%).
+   Type: Newsreader (display serif) · Source Sans 3 (UI/body) · JetBrains Mono (drafting annotations)
+   ========================================================================== */
+
+:root{
+  --parchment:#F5F0E8;
+  --paper:#FDFBF7;
+  --cream:#E8DFD0;
+  --navy:#0D1B2A;
+  --navy-2:#1B3A5C;
+  --blue:#2E5E8E;
+  --line:#4A7FB5;
+  --orange:#D97757;
+  --amber:#E09070;
+  --charcoal:#3D3832;
+  --stone:#8B8178;
+  --ink:#2A2622;
+  --hairline:rgba(61,56,50,.18);
+  --hairline-d:rgba(232,226,214,.14);
+  --t-on-navy:#E8E2D6;
+  --t-on-navy-dim:#a5bbcf;
+  --serif:'Newsreader',Georgia,serif;
+  --sans:'Source Sans 3','Helvetica Neue',Arial,sans-serif;
+  --mono:'JetBrains Mono','Fira Code',Consolas,monospace;
+  --shadow-card:0 24px 60px -24px rgba(13,27,42,.45);
+  --shadow-soft:0 2px 8px rgba(13,27,42,.12);
+  --ease-out:cubic-bezier(.2,.7,.2,1);
+  --maxw:1280px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);
+  background:var(--parchment);
+  color:var(--ink);
+  line-height:1.62;
+  font-size:18px;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg,canvas{max-width:100%;display:block}
+a{color:inherit}
+::selection{background:rgba(217,119,87,.28)}
+
+.serif{font-family:var(--serif)}
+.mono{font-family:var(--mono)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 40px}
+
+/* Blueprint grid canvases -------------------------------------------------- */
+.grid-bg{
+  background-image:
+    linear-gradient(rgba(74,127,181,.07) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(74,127,181,.07) 1px,transparent 1px),
+    linear-gradient(rgba(74,127,181,.045) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(74,127,181,.045) 1px,transparent 1px);
+  background-size:120px 120px,120px 120px,24px 24px,24px 24px;
+}
+.dark .grid-bg,.grid-bg.dark{
+  background-image:
+    linear-gradient(rgba(74,127,181,.14) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(74,127,181,.14) 1px,transparent 1px),
+    linear-gradient(rgba(74,127,181,.07) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(74,127,181,.07) 1px,transparent 1px);
+  background-size:120px 120px,120px 120px,24px 24px,24px 24px;
+}
+
+/* Type scale --------------------------------------------------------------- */
+.eyebrow{
+  color:var(--orange);font-size:13px;font-weight:700;letter-spacing:.2em;
+  text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:14px;
+}
+.eyebrow::before{content:"";width:34px;height:2px;background:var(--orange);flex:none}
+h1{font-family:var(--serif);font-weight:500;font-size:clamp(40px,5vw,64px);line-height:1.05;color:var(--navy);letter-spacing:-.01em}
+h2{font-family:var(--serif);font-weight:500;font-size:clamp(30px,3.4vw,44px);line-height:1.1;color:var(--navy);margin-bottom:14px;letter-spacing:-.005em}
+h3{font-family:var(--serif);font-weight:500;color:var(--navy)}
+.lede{font-size:21px;color:var(--charcoal);max-width:680px;margin-top:20px}
+.micro{font-size:15px;color:#595246;margin-top:12px}
+.dim{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;color:var(--stone);text-transform:uppercase}
+
+/* Nav ---------------------------------------------------------------------- */
+nav.ob1{
+  background:rgba(253,251,247,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--hairline);padding:14px 0;position:sticky;top:0;z-index:90;
+}
+nav.ob1 .wrap{display:flex;align-items:center;gap:28px}
+.logo{font-weight:700;font-size:20px;letter-spacing:.02em;color:var(--navy);text-decoration:none}
+.logo span{color:var(--orange)}
+nav.ob1 a.nl{color:var(--charcoal);text-decoration:none;font-size:16px;font-weight:500;position:relative}
+nav.ob1 a.nl:after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:2px;background:var(--orange);transition:width .28s var(--ease-out)}
+nav.ob1 a.nl:hover:after,nav.ob1 a.nl[aria-current]:after{width:100%}
+nav.ob1 .cta{margin-left:auto;background:var(--orange);color:#fff;padding:10px 20px;border-radius:6px;font-weight:600;font-size:14px;text-decoration:none;letter-spacing:.04em;transition:background .2s,transform .2s}
+nav.ob1 .cta:hover{background:#c4633f;transform:translateY(-1px)}
+
+/* Buttons ------------------------------------------------------------------ */
+.btn{display:inline-block;text-decoration:none;font-weight:600;font-size:17px;padding:16px 30px;border-radius:6px;transition:transform .22s var(--ease-out),background .2s,box-shadow .22s}
+.btn-primary{background:var(--orange);color:#fff;box-shadow:0 10px 24px -12px rgba(217,119,87,.7)}
+.btn-primary:hover{background:#c4633f;transform:translateY(-2px);box-shadow:0 16px 30px -12px rgba(217,119,87,.75)}
+.btn-ghost{border:1.5px solid var(--navy);color:var(--navy)}
+.btn-ghost:hover{background:rgba(13,27,42,.05);transform:translateY(-2px)}
+.on-dark .btn-ghost{border-color:var(--t-on-navy);color:var(--t-on-navy)}
+.on-dark .btn-ghost:hover{background:rgba(232,226,214,.08)}
+.btn-row{display:flex;gap:14px;margin-top:28px;flex-wrap:wrap}
+
+/* Sections & sheet title-blocks ------------------------------------------- */
+section{padding:84px 0;position:relative}
+.sheet-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:8px}
+.sheet-no{
+  font-family:var(--serif);font-weight:500;font-size:clamp(64px,8vw,110px);line-height:.8;
+  color:transparent;-webkit-text-stroke:1.5px rgba(74,127,181,.5);user-select:none;flex:none;
+}
+.dark .sheet-no,.on-dark .sheet-no{-webkit-text-stroke:1.5px rgba(232,226,214,.28)}
+.titleblock{
+  font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--stone);border:1px solid var(--hairline);border-radius:4px;padding:10px 16px;
+  display:grid;grid-template-columns:auto auto;gap:2px 26px;background:var(--paper);
+}
+.titleblock b{color:var(--charcoal);font-weight:600}
+.on-dark .titleblock{border-color:var(--hairline-d);background:rgba(232,226,214,.05);color:var(--t-on-navy-dim)}
+.on-dark .titleblock b{color:var(--t-on-navy)}
+
+/* Hero --------------------------------------------------------------------- */
+.hero{padding:88px 0 96px;position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;position:relative;z-index:2}
+.hero-canvas{position:absolute;inset:0;z-index:1;pointer-events:none}
+
+/* Crop marks (drafting sheet corners) */
+.cropmarks{position:absolute;inset:26px;pointer-events:none;z-index:1}
+.cropmarks i{position:absolute;width:16px;height:16px;border-color:rgba(74,127,181,.55);border-style:solid;border-width:0}
+.cropmarks i:nth-child(1){top:0;left:0;border-top-width:1.5px;border-left-width:1.5px}
+.cropmarks i:nth-child(2){top:0;right:0;border-top-width:1.5px;border-right-width:1.5px}
+.cropmarks i:nth-child(3){bottom:0;left:0;border-bottom-width:1.5px;border-left-width:1.5px}
+.cropmarks i:nth-child(4){bottom:0;right:0;border-bottom-width:1.5px;border-right-width:1.5px}
+
+/* Tilt cards (3D) ---------------------------------------------------------- */
+.tilt-wrap{perspective:1200px}
+.tilt{transform-style:preserve-3d;transition:transform .5s var(--ease-out);will-change:transform}
+.tilt .tilt-inner-pop{transform:translateZ(28px)}
+
+/* Scorecard ---------------------------------------------------------------- */
+.scorecard{background:var(--navy);border-radius:12px;padding:38px;color:var(--t-on-navy);box-shadow:var(--shadow-card);position:relative;overflow:hidden}
+.scorecard::after{content:"";position:absolute;inset:0;pointer-events:none;background:
+  linear-gradient(rgba(74,127,181,.12) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(74,127,181,.12) 1px,transparent 1px);
+  background-size:28px 28px;mask-image:radial-gradient(120% 90% at 80% 0%,#000 0%,transparent 70%)}
+.sc-head{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--hairline-d);padding-bottom:14px;margin-bottom:22px;position:relative;z-index:2}
+.sc-head b{font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+.sc-head span{font-size:11.5px;color:var(--t-on-navy-dim);font-family:var(--mono);text-align:right;max-width:46%;line-height:1.4}
+.dial-row{display:flex;gap:28px;align-items:center;position:relative;z-index:2}
+.dial{position:relative;width:180px;height:180px;flex:none}
+.dial svg{transform:rotate(-90deg);overflow:visible}
+.dial .num{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.dial .num b{font-size:48px;font-family:var(--serif);font-weight:600;color:#fff}
+.dial .num i{font-style:normal;font-size:11px;letter-spacing:.12em;color:var(--t-on-navy-dim);font-family:var(--mono)}
+/* static 53% default so the dial never reads as a full ring without JS */
+.dial-arc{stroke-dasharray:483.8;stroke-dashoffset:227.4}
+.findings{flex:1;display:flex;flex-direction:column}
+.finding{display:flex;gap:14px;align-items:baseline;padding:10px 0;border-bottom:1px dashed var(--hairline-d)}
+.finding:last-child{border-bottom:none}
+.finding b{font-family:var(--serif);font-size:32px;font-weight:600;color:var(--orange);min-width:56px}
+.finding.blue b{color:var(--line)}
+.finding span{font-size:15px;color:#c7d3de;line-height:1.5}
+.sc-foot{margin-top:22px;font-size:13px;color:var(--t-on-navy-dim);border-top:1px solid var(--hairline-d);padding-top:14px;position:relative;z-index:2}
+.sc-foot b{color:var(--t-on-navy)}
+
+/* Regulatory ticker -------------------------------------------------------- */
+.ticker{background:var(--navy);color:var(--t-on-navy-dim);overflow:hidden;padding:13px 0;border-top:1px solid var(--hairline-d);border-bottom:1px solid var(--hairline-d)}
+.ticker-track{display:flex;gap:0;width:max-content;animation:tick 46s linear infinite}
+.ticker-seq{display:flex;align-items:center;white-space:nowrap;font-family:var(--mono);font-size:12.5px;letter-spacing:.16em;text-transform:uppercase}
+.ticker-seq span{padding:0 22px}
+.ticker-seq em{font-style:normal;color:var(--orange);padding:0 6px}
+@keyframes tick{to{transform:translateX(-50%)}}
+.ticker:hover .ticker-track{animation-play-state:paused}
+
+/* Stat band ---------------------------------------------------------------- */
+.stat-band{background:var(--navy);color:var(--t-on-navy);padding:48px 0}
+.stat-band .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;text-align:center}
+.stat-band b{display:block;font-family:var(--serif);font-size:44px;font-weight:500;color:#fff}
+.stat-band .u{color:var(--orange)}
+.stat-band span{font-size:16px;color:#b2c3d3}
+
+/* Cards / doors ------------------------------------------------------------ */
+.doors{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:40px}
+.door{background:var(--paper);border:1px solid var(--hairline);border-top:4px solid var(--blue);border-radius:10px;padding:36px;transition:transform .32s var(--ease-out),box-shadow .32s}
+.door:hover{transform:translateY(-6px);box-shadow:0 30px 50px -30px rgba(13,27,42,.4)}
+.door.gaas{border-top-color:var(--orange)}
+.door .tag{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--blue)}
+.door.gaas .tag{color:var(--orange)}
+.door h3{font-size:30px;margin:10px 0 12px}
+.door p{font-size:17px;color:var(--charcoal)}
+.door ul{list-style:none;margin:18px 0 22px}
+.door li{font-size:16px;padding:8px 0 8px 24px;position:relative;border-bottom:1px dashed var(--hairline)}
+.door li::before{content:"";position:absolute;left:2px;top:14px;width:10px;height:10px;border:2px solid var(--orange);border-radius:50%}
+.door a.more{color:var(--navy);font-weight:600;font-size:14px;text-decoration:none;border-bottom:2px solid var(--orange)}
+
+/* Controls grid (agentic five) --------------------------------------------- */
+.controls{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:40px}
+.controls.six{grid-template-columns:repeat(3,1fr)}
+.control{background:var(--paper);border:1px solid var(--hairline);border-radius:8px;padding:24px 18px;text-align:center;transition:transform .3s var(--ease-out),border-color .3s}
+.control:hover{transform:translateY(-4px);border-color:rgba(217,119,87,.5)}
+.control b{display:block;font-family:var(--serif);font-size:21px;font-weight:500;color:var(--navy);margin-bottom:6px}
+.control span{font-size:14.5px;color:#595246;line-height:1.5;display:block}
+.control .dot{width:36px;height:36px;margin:0 auto 12px;border-radius:50%;background:rgba(217,119,87,.14);display:flex;align-items:center;justify-content:center;color:var(--orange);font-weight:700;font-size:14px;font-family:var(--mono)}
+
+/* Scope / audit ledger rows ------------------------------------------------ */
+.ledger{margin-top:40px;border:1px solid var(--hairline);border-radius:10px;overflow:hidden;background:var(--paper)}
+.ledger-row{display:grid;grid-template-columns:120px 1fr 1.3fr;gap:24px;padding:22px 28px;border-bottom:1px dashed var(--hairline);align-items:baseline}
+.ledger-row:last-child{border-bottom:none}
+.ledger-row:hover{background:rgba(74,127,181,.05)}
+.ledger-row .no{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--orange)}
+a.ledger-row{text-decoration:none;color:inherit}
+.ledger-row b{font-family:var(--serif);font-size:20px;font-weight:500;color:var(--navy)}
+.ledger-row span{font-size:15.5px;color:#595246}
+
+/* Chips -------------------------------------------------------------------- */
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px}
+.chip{background:var(--paper);border:1px solid var(--hairline);border-radius:100px;padding:9px 18px;font-size:14.5px;font-weight:500;color:var(--navy)}
+.chip small{color:#595246;font-weight:400}
+.chip.hot{border-color:var(--orange);background:rgba(217,119,87,.08)}
+.arr{color:var(--orange);font-weight:700}
+
+/* Quotes / proof ----------------------------------------------------------- */
+.quote{background:var(--paper);border:1px solid var(--hairline);border-radius:10px;padding:30px}
+.quote p{font-family:var(--serif);font-size:22px;font-style:italic;color:var(--navy);line-height:1.45}
+
+/* Dark proof panel (case study) -------------------------------------------- */
+.case-panel{background:var(--navy);color:var(--t-on-navy);border-radius:12px;padding:52px;margin-top:40px;box-shadow:var(--shadow-card);position:relative;overflow:hidden}
+.case-panel .grid-veil{position:absolute;inset:0;pointer-events:none;background:
+  linear-gradient(rgba(74,127,181,.1) 1px,transparent 1px),linear-gradient(90deg,rgba(74,127,181,.1) 1px,transparent 1px);
+  background-size:32px 32px;mask-image:radial-gradient(130% 100% at 15% 0%,#000,transparent 75%)}
+.case-panel h3{color:#fff;font-size:30px}
+.case-panel p{color:#c7d3de}
+.case-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;margin-top:34px;position:relative;z-index:2}
+.case-stats b{display:block;font-family:var(--serif);font-size:40px;font-weight:500;color:var(--orange)}
+.case-stats .bl b{color:var(--line)}
+.case-stats span{font-size:14px;color:var(--t-on-navy-dim)}
+
+/* FAQ ----------------------------------------------------------------------- */
+details.faq{background:var(--paper);border:1px solid var(--hairline);border-radius:8px;margin-bottom:12px;overflow:hidden}
+details.faq summary{cursor:pointer;padding:20px 24px;font-weight:600;font-size:17.5px;color:var(--navy);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:18px}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq summary:after{content:"+";font-family:var(--serif);font-size:22px;color:var(--orange);flex:none}
+details.faq[open] summary:after{content:"–"}
+details.faq p{padding:0 24px 22px;font-size:16.5px;color:var(--charcoal);max-width:840px}
+
+/* CTA band ------------------------------------------------------------------ */
+.cta-band{background:var(--navy);color:#fff;text-align:center;padding:88px 0;position:relative;overflow:hidden}
+.cta-band h2{color:#fff;font-size:clamp(32px,3.6vw,46px)}
+.cta-band p{color:#b2c3d3;max-width:560px;margin:14px auto 0}
+.cta-band .btn-row{justify-content:center}
+.compass{position:absolute;right:6%;top:50%;width:210px;height:210px;margin-top:-105px;opacity:.14;animation:spin 70s linear infinite;pointer-events:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Footer -------------------------------------------------------------------- */
+footer.ob1{background:var(--charcoal);color:#c2bab0;padding:44px 0;font-size:14px}
+footer.ob1 .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;align-items:center}
+footer.ob1 b{color:#fff}
+footer.ob1 a{color:#c2bab0;text-decoration:none}
+footer.ob1 a:hover{color:#fff}
+.foot-tag{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--orange)}
+
+/* Schematic (SVG blueprint drawings) ---------------------------------------- */
+.schematic{position:relative}
+.schematic svg{width:100%;height:auto}
+.schematic .draw{fill:none;stroke:var(--line);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.schematic .draw.o{stroke:var(--orange)}
+.schematic .draw.faint{stroke:rgba(74,127,181,.4);stroke-width:1}
+.schematic text{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;fill:var(--stone);text-transform:uppercase}
+.schematic .lbl-o{fill:var(--orange)}
+.on-dark .schematic .draw{stroke:#7fa8cd}
+.on-dark .schematic text{fill:var(--t-on-navy-dim)}
+/* draw-on-scroll: js sets stroke-dasharray/offset then animates */
+.schematic .draw{transition:none}
+
+/* Reveal engine ------------------------------------------------------------- */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease-out),transform .8s var(--ease-out)}
+.reveal.on{opacity:1;transform:none}
+.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}
+.reveal.d4{transition-delay:.32s}.reveal.d5{transition-delay:.4s}
+
+/* Breadcrumb rail (vertical pages) ------------------------------------------ */
+.rail{position:fixed;left:18px;top:50%;transform:translateY(-50%);z-index:80;display:flex;flex-direction:column;gap:14px}
+.rail a{width:9px;height:9px;border-radius:50%;border:1.5px solid var(--stone);display:block;transition:background .25s,border-color .25s,transform .25s}
+.rail a.on{background:var(--orange);border-color:var(--orange);transform:scale(1.25)}
+@media(max-width:1360px){.rail{display:none}}
+
+/* Responsive ---------------------------------------------------------------- */
+@media(max-width:980px){
+  .hero .wrap{grid-template-columns:1fr}
+  .doors,.quotes{grid-template-columns:1fr}
+  .controls,.controls.six{grid-template-columns:repeat(2,1fr)}
+  .case-stats{grid-template-columns:repeat(2,1fr)}
+  .ledger-row{grid-template-columns:70px 1fr;gap:10px}
+  .ledger-row span{grid-column:2}
+  .stat-band .wrap{grid-template-columns:1fr;gap:22px}
+  .sheet-head{flex-direction:column;align-items:flex-start;gap:10px}
+  .titleblock{display:none}
+  nav.ob1 .wrap{flex-wrap:wrap;gap:8px 18px}
+  nav.ob1 a.nl{font-size:14px}
+  nav.ob1 .cta{padding:8px 14px;font-size:12.5px}
+  .wrap{padding:0 22px}
+  .compass{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none}
+  .ticker-track{animation:none}
+}
+
+</style>
+<noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "OB.1 AI Solutions",
+  "description": "AI governance audits and implementation for professional services firms: CPAs, consultancies, agencies, and engineering firms.",
+  "url": "https://ob1ai.co/professional-services",
+  "email": "admin@ob1ai.co",
+  "telephone": "+1-234-602-0500",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Cleveland",
+    "addressRegion": "OH",
+    "addressCountry": "US"
+  },
+  "areaServed": ["Ohio", "United States"],
+  "slogan": "Rules Before Tools"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does an AI audit for a professional services firm actually check?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is an 82-point diagnostic across six dimensions: business context, technology maturity, automation opportunities, data infrastructure, decision authority, and investment readiness. For a CPA firm, consultancy, agency, or engineering firm, that means mapping which tools touch client data, who signs off before model output reaches a deliverable, and where an engagement letter is silent on AI use."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this cover GLBA Safeguards and AICPA confidentiality requirements?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The audit maps AI touchpoints against the AICPA Code of Professional Conduct confidentiality rule, peer review documentation standards, and the GLBA Safeguards Rule where client financial data is in scope. You get a rubric your counsel can review, not a generic checklist."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Our engagement letters do not mention AI. Is that a real exposure?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. If a letter is silent on AI use and a model touches client data or drafts part of the work product, the client learns about it after the fact if at all. That is an E&O conversation waiting to happen. The audit flags every engagement type where this gap exists."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is this different from a generic AI policy template?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A template tells staff what not to do. The audit tells you where your actual exposure sits: which tools your people already use, which client data can reach them, and which deliverables carry model-drafted content nobody with a license reviewed. Then it builds controls around those specific gaps."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does the engagement cost and how long does it take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is a fixed-phase, flat-fee engagement, scoped in one call once we understand your practice areas and headcount. No hourly surprises. Timelines and next steps come out of that first conversation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if our vendor deprecates the model our workflow was built on?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your governance rider or covered hours (whichever applies) trigger a re-audit of that workflow before the deprecation date. We re-scope the controls against the replacement model rather than letting staff quietly adapt on their own."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if a model's behavior drifts between updates, even without a formal deprecation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Drift shows up first in the review gate, drafts that used to pass clean start needing more correction. That is a signal we build into the audit trail, not something staff are left to notice on their own and quietly work around."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you handle new state or federal rules on AI use in client work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "New regulation gets mapped against your existing controls under GaaS, and flagged to counsel for review before it becomes a compliance gap instead of a planning item."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav class="ob1">
+  <div class="wrap">
+    <a href="index.html" class="logo">OB<span>.1</span> AI SOLUTIONS</a>
+    <a class="nl" href="index.html">Home</a>
+    <a href="law.html" class="nl">Law</a>
+    <a href="professional-services.html" class="nl" aria-current="page">Professional Services</a>
+    <a href="manufacturing.html" class="nl">Manufacturing</a>
+    <a href="healthcare.html" class="nl">Healthcare</a>
+    <a href="https://ob1ai.co/services" class="cta">GET YOUR READINESS SCORE</a>
+  </div>
+</nav>
+
+<header class="hero grid-bg" id="top">
+  <canvas class="hero-canvas" data-density="1"></canvas>
+  <div class="cropmarks" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">AI Audit · Professional Services Firms</p>
+      <h1>Your product is judgment. Prove it is still yours.</h1>
+      <p class="lede">CPAs, consultancies, agencies, and engineering firms sell judgment with a name attached to it. When a model drafts the analysis and no one with a license checks it, that name is exposed and no one decided it should be.</p>
+      <div class="btn-row">
+        <a href="https://ob1ai.co/services" class="btn btn-primary">Get Your AI Readiness Score</a>
+        <a href="mailto:chris@ob1ai.co" class="btn btn-ghost">Talk to Chris</a>
+      </div>
+      <p class="micro">Fixed-phase, flat-fee engagement, scoped in one call. No dollar figure until we know your practice.</p>
+    </div>
+    <div class="tilt-wrap reveal d2">
+      <div class="scorecard tilt">
+        <div class="tilt-inner-pop">
+          <div class="sc-head">
+            <b>Readiness Scorecard</b>
+            <span>SAMPLE · SIX-DIMENSION AUDIT</span>
+          </div>
+          <div class="dial-row">
+            <div class="dial">
+              <svg viewBox="0 0 180 180" aria-hidden="true">
+                <circle cx="90" cy="90" r="77" fill="none" stroke="rgba(232,226,214,.14)" stroke-width="11"></circle>
+                <circle class="dial-arc" cx="90" cy="90" r="77" fill="none" stroke="#D97757" stroke-width="11" stroke-linecap="round" data-score="53"></circle>
+              </svg>
+              <div class="num">
+                <b>53</b>
+                <i>/ 100</i>
+              </div>
+            </div>
+            <div class="findings">
+              <div class="finding">
+                <b data-count="21">21</b>
+                <span>automation opportunities found across intake, drafting, and review</span>
+              </div>
+              <div class="finding blue">
+                <b data-count="6.2" data-decimals="1" data-suffix="x">6.2x</b>
+                <span>projected Year-1 ROI once controls are in place</span>
+              </div>
+              <div class="finding">
+                <b data-count="9">9</b>
+                <span>quick wins deployable inside the first 30 days</span>
+              </div>
+            </div>
+          </div>
+          <p class="sc-foot">Scored across <b>business context, technology maturity, automation opportunities, data infrastructure, decision authority,</b> and <b>investment readiness.</b> Figures shown are the anonymized manufacturing audit, projected.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="ticker">
+  <div class="ticker-track">
+    <div class="ticker-seq">
+      <span>AICPA CONFIDENTIALITY</span><em>·</em>
+      <span>PEER REVIEW STANDARDS</span><em>·</em>
+      <span>GLBA SAFEGUARDS RULE</span><em>·</em>
+      <span>ENGAGEMENT LETTER SCOPE</span><em>·</em>
+      <span>WORK PRODUCT INTEGRITY</span><em>·</em>
+      <span>E&amp;O EXPOSURE</span><em>·</em>
+      <span>CLIENT DATA BOUNDARY</span><em>·</em>
+    </div>
+    <div class="ticker-seq">
+      <span>AICPA CONFIDENTIALITY</span><em>·</em>
+      <span>PEER REVIEW STANDARDS</span><em>·</em>
+      <span>GLBA SAFEGUARDS RULE</span><em>·</em>
+      <span>ENGAGEMENT LETTER SCOPE</span><em>·</em>
+      <span>WORK PRODUCT INTEGRITY</span><em>·</em>
+      <span>E&amp;O EXPOSURE</span><em>·</em>
+      <span>CLIENT DATA BOUNDARY</span><em>·</em>
+    </div>
+  </div>
+</div>
+
+<main>
+
+<section id="s1">
+  <div class="wrap">
+    <div class="sheet-head reveal">
+      <div>
+        <span class="sheet-no">01</span>
+      </div>
+      <div class="titleblock">
+        <span>SHEET</span><b>01 / 07</b>
+        <span>TITLE</span><b>THE STAKES</b>
+        <span>SCALE</span><b>NTS</b>
+        <span>DATE</span><b>2026</b>
+        <span>DRAWN BY</span><b>OB.1</b>
+      </div>
+    </div>
+    <h2 class="reveal">The moments where judgment quietly stops being yours</h2>
+    <p class="lede reveal">Nobody decides to hand a client's file to a model with no supervision. It happens one paste, one shortcut, one deadline at a time. These are the moments that actually create exposure.</p>
+    <div class="ledger reveal d2">
+      <div class="ledger-row">
+        <span class="no">R-01</span>
+        <b>A staff accountant pastes client financials into a public chatbot</b>
+        <span>The confidentiality clause in your engagement letter breaks and no one at the firm is told.</span>
+      </div>
+      <div class="ledger-row">
+        <span class="no">R-02</span>
+        <b>A deliverable ships with model-drafted analysis no partner read line by line</b>
+        <span>Your name and your license are on judgment the firm did not actually exercise.</span>
+      </div>
+      <div class="ledger-row">
+        <span class="no">R-03</span>
+        <b>Engagement letters never mention AI use</b>
+        <span>Clients find out after the fact, if they find out at all. That is an E&amp;O conversation waiting to start.</span>
+      </div>
+      <div class="ledger-row">
+        <span class="no">R-04</span>
+        <b>A model trained on one client's work resurfaces it in another client's session</b>
+        <span>The wall between engagements, the one your firm's reputation depends on, evaporates without a decision.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="s2">
+  <div class="wrap">
+    <div class="sheet-head reveal">
+      <div>
+        <span class="sheet-no">02</span>
+      </div>
+      <div class="titleblock">
+        <span>SHEET</span><b>02 / 07</b>
+        <span>TITLE</span><b>THE AUDIT</b>
+        <span>SCALE</span><b>NTS</b>
+        <span>DATE</span><b>2026</b>
+        <span>DRAWN BY</span><b>OB.1</b>
+      </div>
+    </div>
+    <h2 class="reveal">An 82-point diagnostic, six dimensions, one practice</h2>
+    <p class="lede reveal">We do not audit "AI" in the abstract. We audit your intake process, your drafting workflow, your review gates, and the systems that hold client data, and we score what we find.</p>
+
+    <div class="ledger reveal d2">
+      <div class="ledger-row">
+        <span class="no">D-01</span>
+        <b>Business Context</b>
+        <span>Practice areas, client mix, and where confidentiality obligations are strictest.</span>
+      </div>
+      <div class="ledger-row">
+        <span class="no">D-02</span>
+        <b>Technology Maturity</b>
+        <span>What tools your people already use, sanctioned or not, and what those tools can see.</span>
+      </div>
+      <div class="ledger-row">
+        <span class="no">D-03</span>
+        <b>Automation Opportunities</b>
+        <span>Where a model could shorten drafting or research time without touching client-identifying data.</span>
+      </div>
+      <div class="ledger-row">
+        <span class="no">D-04</span>
+        <b>Data Infrastructure</b>
+        <span>Where client files live, who can move them, and whether a model vendor is quietly inside that boundary.</span>
+      </div>
+      <div class="ledger-row">
+        <span class="no">D-05</span>
+        <b>Decision Authority</b>
+        <span>Who signs off before model output reaches a client deliverable, and whether that gate is written down.</span>
+      </div>
+      <div class="ledger-row">
+        <span class="no">D-06</span>
+        <b>Investment Readiness</b>
+        <span>What the firm can implement now versus what needs a governance decision from the partners first.</span>
+      </div>
+    </div>
+
+    <div class="schematic reveal d3" style="margin-top:48px">
+      <svg viewBox="0 0 720 420" role="img" aria-label="Schematic of an engagement workflow showing client data moving through intake, an AI-assisted drafting zone bounded by an E and O boundary, a partner review gate, and final work product delivery.">
+        <!-- outer frame -->
+        <rect class="draw faint" x="20" y="20" width="680" height="380"></rect>
+
+        <!-- client node -->
+        <rect class="draw" x="44" y="176" width="108" height="68" rx="4"></rect>
+        <text x="98" y="205" text-anchor="middle">CLIENT</text>
+        <text x="98" y="220" text-anchor="middle">FILE</text>
+
+        <!-- engagement letter node -->
+        <rect class="draw" x="196" y="176" width="120" height="68" rx="4"></rect>
+        <text x="256" y="205" text-anchor="middle">ENGAGEMENT</text>
+        <text x="256" y="220" text-anchor="middle">LETTER</text>
+
+        <!-- connector client -> letter -->
+        <path class="draw" d="M152 210 L196 210"></path>
+
+        <!-- E and O boundary, dashed box around AI drafting zone -->
+        <rect class="draw o" x="352" y="70" width="200" height="280" rx="6" stroke-dasharray="6 6"></rect>
+        <text x="452" y="58" text-anchor="middle" class="lbl-o">E&amp;O BOUNDARY</text>
+
+        <!-- AI drafting node inside boundary -->
+        <rect class="draw" x="376" y="118" width="152" height="64" rx="4"></rect>
+        <text x="452" y="146" text-anchor="middle">MODEL-ASSISTED</text>
+        <text x="452" y="161" text-anchor="middle">DRAFTING</text>
+
+        <!-- connector letter -> drafting -->
+        <path class="draw" d="M316 210 L352 210 L352 150 L376 150"></path>
+
+        <!-- review gate node inside boundary -->
+        <rect class="draw o" x="376" y="234" width="152" height="64" rx="4"></rect>
+        <text x="452" y="262" text-anchor="middle" class="lbl-o">REVIEW GATE</text>
+        <text x="452" y="277" text-anchor="middle" class="lbl-o">PARTNER SIGN-OFF</text>
+
+        <!-- connector drafting -> review gate -->
+        <path class="draw" d="M452 182 L452 234"></path>
+
+        <!-- work product node, outside boundary -->
+        <rect class="draw" x="588" y="176" width="104" height="68" rx="4"></rect>
+        <text x="640" y="203" text-anchor="middle">WORK</text>
+        <text x="640" y="218" text-anchor="middle">PRODUCT</text>
+
+        <!-- connector review gate -> work product, exits boundary -->
+        <path class="draw" d="M528 266 L560 266 L560 210 L588 210"></path>
+
+        <!-- escalation path, review gate loops back to drafting on fail -->
+        <path class="draw faint" d="M376 250 L340 250 L340 150 L376 150" stroke-dasharray="3 5"></path>
+        <text x="298" y="146" text-anchor="middle">REVISE</text>
+
+        <!-- delivery arrow bottom -->
+        <path class="draw" d="M640 244 L640 300 L98 300 L98 244" stroke-dasharray="4 4"></path>
+        <text x="369" y="316" text-anchor="middle">DELIVERY TO CLIENT, LOGGED</text>
+
+        <!-- audit trail marks -->
+        <circle class="draw o" cx="98" cy="210" r="3"></circle>
+        <circle class="draw o" cx="256" cy="210" r="3"></circle>
+        <circle class="draw o" cx="452" cy="150" r="3"></circle>
+        <circle class="draw o" cx="452" cy="266" r="3"></circle>
+        <circle class="draw o" cx="640" cy="210" r="3"></circle>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section id="s3">
+  <div class="wrap">
+    <div class="sheet-head reveal">
+      <div>
+        <span class="sheet-no">03</span>
+      </div>
+      <div class="titleblock">
+        <span>SHEET</span><b>03 / 07</b>
+        <span>TITLE</span><b>TWO DOORS</b>
+        <span>SCALE</span><b>NTS</b>
+        <span>DATE</span><b>2026</b>
+        <span>DRAWN BY</span><b>OB.1</b>
+      </div>
+    </div>
+    <h2 class="reveal">Fix it once, or keep it right</h2>
+    <p class="lede reveal">Both start with the same audit. What happens after depends on how your practice is built and how fast the tools you use are changing.</p>
+    <div class="doors">
+      <div class="door reveal">
+        <span class="tag">One-Time</span>
+        <h3>Operational Blueprint</h3>
+        <p>A single, fixed-phase engagement. We audit the practice, design the controls, and hand your team a governed workflow with the guardrails already built in.</p>
+        <ul>
+          <li>Full 82-point diagnostic across all six dimensions</li>
+          <li>Engagement letter language addressing AI use, ready for counsel review</li>
+          <li>Access controls scoped by matter, client, and role</li>
+          <li>Partner review gates built into the drafting workflow</li>
+        </ul>
+        <a href="mailto:chris@ob1ai.co" class="more">Scope a Blueprint &rarr;</a>
+      </div>
+      <div class="door gaas reveal d2">
+        <span class="tag">Continuous</span>
+        <h3>Governance-as-a-Service</h3>
+        <p>Models change quarterly. Regulations do not wait for your next planning cycle. GaaS keeps your controls current as both move.</p>
+        <ul>
+          <li>Quarterly re-audit as vendors update models under you</li>
+          <li>Covered hours for new tool requests from any practice group</li>
+          <li>Governance rider baked into every rollout, not bolted on after</li>
+          <li>Direct line to counsel-gated guidance when regulation shifts</li>
+        </ul>
+        <a href="mailto:chris@ob1ai.co" class="more">Talk about GaaS &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="s4">
+  <div class="wrap">
+    <div class="sheet-head reveal">
+      <div>
+        <span class="sheet-no">04</span>
+      </div>
+      <div class="titleblock">
+        <span>SHEET</span><b>04 / 07</b>
+        <span>TITLE</span><b>FIVE CONTROLS</b>
+        <span>SCALE</span><b>NTS</b>
+        <span>DATE</span><b>2026</b>
+        <span>DRAWN BY</span><b>OB.1</b>
+      </div>
+    </div>
+    <h2 class="reveal">Five controls, every deployment</h2>
+    <p class="lede reveal">This is what "governed" means in practice, not in a policy binder.</p>
+    <div class="controls">
+      <div class="control reveal">
+        <span class="dot">01</span>
+        <b>Trusted Data</b>
+        <span>The model only ever sees the client files it is scoped to touch, nothing from an engagement it has no letter for.</span>
+      </div>
+      <div class="control reveal d2">
+        <span class="dot">02</span>
+        <b>Right-Sized Access</b>
+        <span>A model reading tax workpapers cannot also reach a separate client's audit files.</span>
+      </div>
+      <div class="control reveal d3">
+        <span class="dot">03</span>
+        <b>Guardrails</b>
+        <span>Hard limits on what the model can draft unsupervised versus what always routes to a human first.</span>
+      </div>
+      <div class="control reveal d4">
+        <span class="dot">04</span>
+        <b>Human Escalation</b>
+        <span>A named partner or manager reviews anything that leaves the guardrail, before it reaches a client.</span>
+      </div>
+      <div class="control reveal d5">
+        <span class="dot">05</span>
+        <b>Full Audit Trail</b>
+        <span>Every draft, every review, every sign-off logged, so "who approved this" has a documented answer.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="s5">
+  <div class="wrap">
+    <div class="sheet-head reveal">
+      <div>
+        <span class="sheet-no">05</span>
+      </div>
+      <div class="titleblock">
+        <span>SHEET</span><b>05 / 07</b>
+        <span>TITLE</span><b>WHEN MODELS MOVE</b>
+        <span>SCALE</span><b>NTS</b>
+        <span>DATE</span><b>2026</b>
+        <span>DRAWN BY</span><b>OB.1</b>
+      </div>
+    </div>
+    <h2 class="reveal">Models change quietly. Your controls should not.</h2>
+    <p class="lede reveal">A vendor updates a model and your drafting workflow behaves differently overnight. Nobody voted on that. Two things keep the ground steady.</p>
+    <div class="doors">
+      <div class="door reveal">
+        <span class="tag">In every build</span>
+        <h3>Governance Rider</h3>
+        <p>Every Operational Blueprint contract includes a rider that names what happens when a vendor deprecates or retrains a model your firm depends on. It is written down before you need it, not negotiated after.</p>
+      </div>
+      <div class="door gaas reveal d2">
+        <span class="tag">In every quarter</span>
+        <h3>Covered Hours</h3>
+        <p>Governance-as-a-Service includes covered hours each quarter specifically for re-checking controls against whatever the model vendors changed since the last review.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:40px">
+      <details class="faq reveal">
+        <summary>What happens if our vendor deprecates the model our workflow was built on?</summary>
+        <p>Your governance rider or covered hours (whichever applies) trigger a re-audit of that workflow before the deprecation date. We re-scope the controls against the replacement model rather than letting staff quietly adapt on their own.</p>
+      </details>
+      <details class="faq reveal d2">
+        <summary>What if a model's behavior drifts between updates, even without a formal deprecation?</summary>
+        <p>Drift shows up first in the review gate, drafts that used to pass clean start needing more correction. That is a signal we build into the audit trail, not something staff are left to notice on their own and quietly work around.</p>
+      </details>
+      <details class="faq reveal d3">
+        <summary>How do you handle new state or federal rules on AI use in client work?</summary>
+        <p>New regulation gets mapped against your existing controls under GaaS, and flagged to counsel for review before it becomes a compliance gap instead of a planning item.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="s6">
+  <div class="wrap">
+    <div class="sheet-head reveal">
+      <div>
+        <span class="sheet-no">06</span>
+      </div>
+      <div class="titleblock">
+        <span>SHEET</span><b>06 / 07</b>
+        <span>TITLE</span><b>PROOF</b>
+        <span>SCALE</span><b>NTS</b>
+        <span>DATE</span><b>2026</b>
+        <span>DRAWN BY</span><b>OB.1</b>
+      </div>
+    </div>
+    <h2 class="reveal">Different industry, same discipline</h2>
+    <p class="lede reveal">The audit shown here ran on a mid-size manufacturer. The dimensions we scored, and the discipline behind the score, are the same ones we bring to a CPA firm, a consultancy, or an engineering practice. Featured by Audity, the AI readiness assessment platform.</p>
+    <div class="case-panel reveal d2">
+      <div class="grid-veil" aria-hidden="true"></div>
+      <h3>The anonymized audit, projected figures</h3>
+      <p>A 53/100 readiness score. Twenty-one opportunities found in six dimensions. A projected annual value once controls were in place, and a payback period measured in months, not years.</p>
+      <div class="case-stats">
+        <div>
+          <b data-count="53">53</b>
+          <span>Readiness score / 100</span>
+        </div>
+        <div>
+          <b data-count="487" data-prefix="$" data-suffix="K">$487K</b>
+          <span>Projected annual value</span>
+        </div>
+        <div class="bl">
+          <b data-count="6.2" data-decimals="1" data-suffix="x">6.2x</b>
+          <span>Projected Year-1 ROI</span>
+        </div>
+        <div>
+          <b data-count="1.9" data-decimals="1" data-suffix="-month">1.9-month</b>
+          <span>Payback, projected</span>
+        </div>
+      </div>
+    </div>
+    <p class="micro reveal d3">For professional services, the counsel-gated rubric maps directly to AICPA confidentiality standards, peer review documentation requirements, and the GLBA Safeguards Rule where client financial data is involved.</p>
+  </div>
+</section>
+
+<section id="s7">
+  <div class="wrap">
+    <div class="sheet-head reveal">
+      <div>
+        <span class="sheet-no">07</span>
+      </div>
+      <div class="titleblock">
+        <span>SHEET</span><b>07 / 07</b>
+        <span>TITLE</span><b>STRAIGHT ANSWERS</b>
+        <span>SCALE</span><b>NTS</b>
+        <span>DATE</span><b>2026</b>
+        <span>DRAWN BY</span><b>OB.1</b>
+      </div>
+    </div>
+    <h2 class="reveal">Straight answers</h2>
+    <div style="margin-top:32px">
+      <details class="faq reveal" open>
+        <summary>What does an AI audit for a professional services firm actually check?</summary>
+        <p>It is an 82-point diagnostic across six dimensions: business context, technology maturity, automation opportunities, data infrastructure, decision authority, and investment readiness. For a CPA firm, consultancy, agency, or engineering firm, that means mapping which tools touch client data, who signs off before model output reaches a deliverable, and where an engagement letter is silent on AI use.</p>
+      </details>
+      <details class="faq reveal d2">
+        <summary>Does this cover GLBA Safeguards and AICPA confidentiality requirements?</summary>
+        <p>Yes. The audit maps AI touchpoints against the AICPA Code of Professional Conduct confidentiality rule, peer review documentation standards, and the GLBA Safeguards Rule where client financial data is in scope. You get a rubric your counsel can review, not a generic checklist.</p>
+      </details>
+      <details class="faq reveal d3">
+        <summary>Our engagement letters do not mention AI. Is that a real exposure?</summary>
+        <p>Yes. If a letter is silent on AI use and a model touches client data or drafts part of the work product, the client learns about it after the fact if at all. That is an E&amp;O conversation waiting to happen. The audit flags every engagement type where this gap exists.</p>
+      </details>
+      <details class="faq reveal d4">
+        <summary>How is this different from a generic AI policy template?</summary>
+        <p>A template tells staff what not to do. The audit tells you where your actual exposure sits: which tools your people already use, which client data can reach them, and which deliverables carry model-drafted content nobody with a license reviewed. Then it builds controls around those specific gaps.</p>
+      </details>
+      <details class="faq reveal d5">
+        <summary>What does the engagement cost and how long does it take?</summary>
+        <p>It is a fixed-phase, flat-fee engagement, scoped in one call once we understand your practice areas and headcount. No hourly surprises. Timelines and next steps come out of that first conversation.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<section class="cta-band grid-bg on-dark">
+  <svg class="compass" viewBox="0 0 200 200" aria-hidden="true">
+    <circle class="draw" cx="100" cy="100" r="88" stroke="#4A7FB5"></circle>
+    <circle class="draw faint" cx="100" cy="100" r="66" stroke="#4A7FB5"></circle>
+    <path class="draw" d="M100 20 L100 180" stroke="#4A7FB5"></path>
+    <path class="draw" d="M20 100 L180 100" stroke="#4A7FB5"></path>
+    <path class="draw o" d="M100 34 L112 100 L100 166 L88 100 Z" stroke="#D97757"></path>
+  </svg>
+  <div class="wrap">
+    <h2 class="reveal">If a partner had to sign off on every prompt today, could they?</h2>
+    <p class="reveal d2">That is the question the audit answers. Not whether your firm should use AI, but whether the judgment behind it is still yours.</p>
+    <div class="btn-row reveal d3">
+      <a href="https://ob1ai.co/services" class="btn btn-primary">Get Your AI Readiness Score</a>
+      <a href="mailto:chris@ob1ai.co" class="btn btn-ghost">Talk to Chris</a>
+    </div>
+  </div>
+</section>
+
+<footer class="ob1">
+  <div class="wrap">
+    <div>
+      <b>OB.1 AI Solutions</b> · Cleveland, Ohio · <a href="mailto:admin@ob1ai.co">admin@ob1ai.co</a> · <a href="tel:+12346020500">(234) 602-0500</a>
+      <div class="foot-tag">RULES BEFORE TOOLS</div>
+    </div>
+    <div>&copy; 2026 OB.1 AI Solutions</div>
+  </div>
+</footer>
+
+<nav class="rail" aria-label="Section navigation">
+  <a href="#s1" aria-label="The Stakes"></a>
+  <a href="#s2" aria-label="The Audit"></a>
+  <a href="#s3" aria-label="Two Doors"></a>
+  <a href="#s4" aria-label="Five Controls"></a>
+  <a href="#s5" aria-label="When Models Move"></a>
+  <a href="#s6" aria-label="Proof"></a>
+  <a href="#s7" aria-label="Straight Answers"></a>
+</nav>
+
+<script>
+/* OB.1 motion engine · reveals, count-ups, dial arcs, SVG draw-on-scroll,
+   3D tilt cards, hero particle field, section rail. No dependencies. */
+(function(){
+  'use strict';
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- Scroll reveals ---- */
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target); }
+    });
+  },{threshold:.14,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+  /* ---- Count-up numbers: <b data-count="53" data-suffix="%" data-decimals="1"> ---- */
+  function countUp(el){
+    var target = parseFloat(el.dataset.count), dec = parseInt(el.dataset.decimals||'0',10);
+    var pre = el.dataset.prefix||'', suf = el.dataset.suffix||'', dur = 1500, t0 = null;
+    if(reduced){ el.textContent = pre + target.toFixed(dec) + suf; return; }
+    function tick(ts){
+      if(!t0) t0 = ts;
+      var k = Math.min((ts-t0)/dur,1), e = 1-Math.pow(1-k,3);
+      el.textContent = pre + (target*e).toFixed(dec) + suf;
+      if(k<1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  var cio = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting){ countUp(e.target); cio.unobserve(e.target); }
+    });
+  },{threshold:.5});
+  document.querySelectorAll('[data-count]').forEach(function(el){ cio.observe(el); });
+
+  /* ---- Dial arc: <circle class="dial-arc" data-score="53" r="77"> ---- */
+  var dio = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting) return;
+      var c = e.target, r = parseFloat(c.getAttribute('r')), C = 2*Math.PI*r;
+      var score = parseFloat(c.dataset.score);
+      c.style.strokeDasharray = C;
+      c.style.strokeDashoffset = C;
+      c.getBoundingClientRect();
+      c.style.transition = reduced ? 'none' : 'stroke-dashoffset 1.6s cubic-bezier(.2,.7,.2,1)';
+      c.style.strokeDashoffset = C - C*(score/100);
+      dio.unobserve(c);
+    });
+  },{threshold:.5});
+  document.querySelectorAll('.dial-arc').forEach(function(el){ dio.observe(el); });
+
+  /* ---- Fail-open: anything not yet revealed shows itself shortly after load,
+     so non-scrolling renderers (search engines, print, capture) see full content. */
+  var armFns = [];
+  window.addEventListener('load', function(){
+    setTimeout(function(){
+      document.querySelectorAll('.reveal:not(.on)').forEach(function(el){
+        el.classList.add('on'); io.unobserve(el);
+      });
+      armFns.forEach(function(f){ f(); });
+    }, 4000);
+  });
+
+  /* ---- SVG draw-on-scroll: every .schematic .draw path animates its stroke ---- */
+  function prepDraw(p,i){
+    var len; try{ len = p.getTotalLength(); }catch(e){ return; }
+    p.style.strokeDasharray = len;
+    p.style.strokeDashoffset = len;
+    p.dataset.len = len; p.dataset.idx = i;
+  }
+  document.querySelectorAll('.schematic').forEach(function(s){
+    var paths = s.querySelectorAll('.draw');
+    paths.forEach(prepDraw);
+    var texts = s.querySelectorAll('text');
+    texts.forEach(function(t){ t.style.opacity = 0; t.style.transition = 'opacity .7s ease'; });
+    var fired = false;
+    function fire(){
+      if(fired) return; fired = true;
+      paths.forEach(function(p){
+        if(!p.dataset.len) return;
+        var d = 120*parseInt(p.dataset.idx,10);
+        p.style.transition = reduced ? 'none' : 'stroke-dashoffset 1.5s cubic-bezier(.2,.7,.2,1) '+d+'ms';
+        p.style.strokeDashoffset = 0;
+      });
+      var base = reduced?0:900;
+      texts.forEach(function(t,i){ setTimeout(function(){ t.style.opacity = 1; }, base + i*90); });
+      sio.disconnect();
+    }
+    var sio = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting) fire(); });
+    },{threshold:.3});
+    sio.observe(s);
+    armFns.push(fire);
+  });
+
+  /* ---- 3D tilt: pointer-tracked, desktop only ---- */
+  if(!reduced && matchMedia('(pointer:fine)').matches){
+    document.querySelectorAll('.tilt-wrap').forEach(function(w){
+      var card = w.querySelector('.tilt'); if(!card) return;
+      w.addEventListener('pointermove', function(ev){
+        var r = w.getBoundingClientRect();
+        var x = (ev.clientX-r.left)/r.width - .5, y = (ev.clientY-r.top)/r.height - .5;
+        card.style.transform = 'rotateY('+(x*7)+'deg) rotateX('+(-y*7)+'deg)';
+      });
+      w.addEventListener('pointerleave', function(){ card.style.transform = ''; });
+    });
+  }
+
+  /* ---- Hero particle field: <canvas class="hero-canvas" data-density="1"> ----
+     Drifting plotter points + short connective linework, brand tinted, very low key. */
+  document.querySelectorAll('canvas.hero-canvas').forEach(function(cv){
+    if(reduced) return;
+    var ctx = cv.getContext('2d'), pts = [], W, H, raf;
+    var dark = cv.dataset.theme === 'dark';
+    function size(){
+      var r = cv.parentElement.getBoundingClientRect();
+      W = cv.width = r.width * devicePixelRatio;
+      H = cv.height = r.height * devicePixelRatio;
+      cv.style.width = r.width+'px'; cv.style.height = r.height+'px';
+      var n = Math.min(70, Math.floor(r.width/22) * (parseFloat(cv.dataset.density||'1')));
+      pts = [];
+      for(var i=0;i<n;i++) pts.push({
+        x:Math.random()*W, y:Math.random()*H,
+        vx:(Math.random()-.5)*.14*devicePixelRatio, vy:(Math.random()-.5)*.14*devicePixelRatio,
+        o:Math.random()*.5+.2, hot:Math.random()<.12
+      });
+    }
+    function step(){
+      ctx.clearRect(0,0,W,H);
+      var linkD = 130*devicePixelRatio;
+      for(var i=0;i<pts.length;i++){
+        var p = pts[i];
+        p.x += p.vx; p.y += p.vy;
+        if(p.x<0||p.x>W) p.vx*=-1;
+        if(p.y<0||p.y>H) p.vy*=-1;
+        for(var j=i+1;j<pts.length;j++){
+          var q = pts[j], dx = p.x-q.x, dy = p.y-q.y, d = Math.sqrt(dx*dx+dy*dy);
+          if(d<linkD){
+            ctx.strokeStyle = dark
+              ? 'rgba(127,168,205,'+(.13*(1-d/linkD))+')'
+              : 'rgba(74,127,181,'+(.15*(1-d/linkD))+')';
+            ctx.lineWidth = devicePixelRatio*.7;
+            ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.lineTo(q.x,q.y); ctx.stroke();
+          }
+        }
+        ctx.fillStyle = p.hot
+          ? 'rgba(217,119,87,'+(p.o*.9)+')'
+          : (dark ? 'rgba(127,168,205,'+(p.o*.7)+')' : 'rgba(46,94,142,'+(p.o*.6)+')');
+        ctx.beginPath(); ctx.arc(p.x,p.y,(p.hot?2.2:1.5)*devicePixelRatio,0,7); ctx.fill();
+      }
+      raf = requestAnimationFrame(step);
+    }
+    var vio = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){ if(!raf) step(); }
+        else { cancelAnimationFrame(raf); raf = null; }
+      });
+    });
+    size(); vio.observe(cv);
+    addEventListener('resize', function(){ size(); });
+  });
+
+  /* ---- Section rail: <div class="rail"><a href="#s1">... highlights on scroll ---- */
+  var rail = document.querySelector('.rail');
+  if(rail){
+    var links = [].slice.call(rail.querySelectorAll('a'));
+    var secs = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+    var rio = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){
+          links.forEach(function(a){ a.classList.remove('on'); });
+          var i = secs.indexOf(e.target);
+          if(i>-1) links[i].classList.add('on');
+        }
+      });
+    },{rootMargin:'-45% 0px -45% 0px'});
+    secs.forEach(function(s){ if(s) rio.observe(s); });
+  }
+})();
+
+</script>
+<div style="position:fixed;bottom:0;left:0;right:0;z-index:999;background:#3D3832;color:#fff;font:600 11px/1.5 'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase;padding:7px 16px;text-align:center">OFFLINE REVIEW COPY &middot; OB.1 VERTICAL LANDING PAGES &middot; <span style="color:#D97757">RULES BEFORE TOOLS</span></div><div style="height:32px"></div>
+</body>
+</html>

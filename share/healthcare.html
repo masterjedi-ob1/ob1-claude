@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Audit for Healthcare Organizations | OB.1 AI Solutions · Rules Before Tools</title>
+<meta name="description" content="AI audit for healthcare organizations and digital health teams. A HIPAA-aware governance diagnostic that finds where AI touches PHI before regulators do.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2712%27 fill=%27%230D1B2A%27/%3E%3Ctext x=%2732%27 y=%2746%27 font-family=%27Georgia,serif%27 font-size=%2736%27 font-style=%27italic%27 fill=%27%23D97757%27 text-anchor=%27middle%27%3E.1%3C/text%3E%3C/svg%3E">
+<link rel="canonical" href="https://ob1ai.co/healthcare">
+<meta property="og:title" content="AI Audit for Healthcare Organizations | OB.1 AI Solutions">
+<meta property="og:description" content="A HIPAA-aware AI governance diagnostic for provider groups and digital health teams. Rules before tools.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ob1ai.co/healthcare">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Audit for Healthcare Organizations | OB.1 AI Solutions">
+<meta name="twitter:description" content="A HIPAA-aware AI governance diagnostic for provider groups and digital health teams. Rules before tools.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ==========================================================================
+   OB.1 AI SOLUTIONS · Architectural Blueprint Design System · v1.0
+   Vertical landing pages: Law · Professional Services · Manufacturing · Healthcare
+   Canvas: parchment. Structure: blueprint navy. Accent: sunset orange (<=15%).
+   Type: Newsreader (display serif) · Source Sans 3 (UI/body) · JetBrains Mono (drafting annotations)
+   ========================================================================== */
+
+:root{
+  --parchment:#F5F0E8;
+  --paper:#FDFBF7;
+  --cream:#E8DFD0;
+  --navy:#0D1B2A;
+  --navy-2:#1B3A5C;
+  --blue:#2E5E8E;
+  --line:#4A7FB5;
+  --orange:#D97757;
+  --amber:#E09070;
+  --charcoal:#3D3832;
+  --stone:#8B8178;
+  --ink:#2A2622;
+  --hairline:rgba(61,56,50,.18);
+  --hairline-d:rgba(232,226,214,.14);
+  --t-on-navy:#E8E2D6;
+  --t-on-navy-dim:#a5bbcf;
+  --serif:'Newsreader',Georgia,serif;
+  --sans:'Source Sans 3','Helvetica Neue',Arial,sans-serif;
+  --mono:'JetBrains Mono','Fira Code',Consolas,monospace;
+  --shadow-card:0 24px 60px -24px rgba(13,27,42,.45);
+  --shadow-soft:0 2px 8px rgba(13,27,42,.12);
+  --ease-out:cubic-bezier(.2,.7,.2,1);
+  --maxw:1280px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);
+  background:var(--parchment);
+  color:var(--ink);
+  line-height:1.62;
+  font-size:18px;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg,canvas{max-width:100%;display:block}
+a{color:inherit}
+::selection{background:rgba(217,119,87,.28)}
+
+.serif{font-family:var(--serif)}
+.mono{font-family:var(--mono)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 40px}
+
+/* Blueprint grid canvases -------------------------------------------------- */
+.grid-bg{
+  background-image:
+    linear-gradient(rgba(74,127,181,.07) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(74,127,181,.07) 1px,transparent 1px),
+    linear-gradient(rgba(74,127,181,.045) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(74,127,181,.045) 1px,transparent 1px);
+  background-size:120px 120px,120px 120px,24px 24px,24px 24px;
+}
+.dark .grid-bg,.grid-bg.dark{
+  background-image:
+    linear-gradient(rgba(74,127,181,.14) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(74,127,181,.14) 1px,transparent 1px),
+    linear-gradient(rgba(74,127,181,.07) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(74,127,181,.07) 1px,transparent 1px);
+  background-size:120px 120px,120px 120px,24px 24px,24px 24px;
+}
+
+/* Type scale --------------------------------------------------------------- */
+.eyebrow{
+  color:var(--orange);font-size:13px;font-weight:700;letter-spacing:.2em;
+  text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:14px;
+}
+.eyebrow::before{content:"";width:34px;height:2px;background:var(--orange);flex:none}
+h1{font-family:var(--serif);font-weight:500;font-size:clamp(40px,5vw,64px);line-height:1.05;color:var(--navy);letter-spacing:-.01em}
+h2{font-family:var(--serif);font-weight:500;font-size:clamp(30px,3.4vw,44px);line-height:1.1;color:var(--navy);margin-bottom:14px;letter-spacing:-.005em}
+h3{font-family:var(--serif);font-weight:500;color:var(--navy)}
+.lede{font-size:21px;color:var(--charcoal);max-width:680px;margin-top:20px}
+.micro{font-size:15px;color:#595246;margin-top:12px}
+.dim{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;color:var(--stone);text-transform:uppercase}
+
+/* Nav ---------------------------------------------------------------------- */
+nav.ob1{
+  background:rgba(253,251,247,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--hairline);padding:14px 0;position:sticky;top:0;z-index:90;
+}
+nav.ob1 .wrap{display:flex;align-items:center;gap:28px}
+.logo{font-weight:700;font-size:20px;letter-spacing:.02em;color:var(--navy);text-decoration:none}
+.logo span{color:var(--orange)}
+nav.ob1 a.nl{color:var(--charcoal);text-decoration:none;font-size:16px;font-weight:500;position:relative}
+nav.ob1 a.nl:after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:2px;background:var(--orange);transition:width .28s var(--ease-out)}
+nav.ob1 a.nl:hover:after,nav.ob1 a.nl[aria-current]:after{width:100%}
+nav.ob1 .cta{margin-left:auto;background:var(--orange);color:#fff;padding:10px 20px;border-radius:6px;font-weight:600;font-size:14px;text-decoration:none;letter-spacing:.04em;transition:background .2s,transform .2s}
+nav.ob1 .cta:hover{background:#c4633f;transform:translateY(-1px)}
+
+/* Buttons ------------------------------------------------------------------ */
+.btn{display:inline-block;text-decoration:none;font-weight:600;font-size:17px;padding:16px 30px;border-radius:6px;transition:transform .22s var(--ease-out),background .2s,box-shadow .22s}
+.btn-primary{background:var(--orange);color:#fff;box-shadow:0 10px 24px -12px rgba(217,119,87,.7)}
+.btn-primary:hover{background:#c4633f;transform:translateY(-2px);box-shadow:0 16px 30px -12px rgba(217,119,87,.75)}
+.btn-ghost{border:1.5px solid var(--navy);color:var(--navy)}
+.btn-ghost:hover{background:rgba(13,27,42,.05);transform:translateY(-2px)}
+.on-dark .btn-ghost{border-color:var(--t-on-navy);color:var(--t-on-navy)}
+.on-dark .btn-ghost:hover{background:rgba(232,226,214,.08)}
+.btn-row{display:flex;gap:14px;margin-top:28px;flex-wrap:wrap}
+
+/* Sections & sheet title-blocks ------------------------------------------- */
+section{padding:84px 0;position:relative}
+.sheet-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:8px}
+.sheet-no{
+  font-family:var(--serif);font-weight:500;font-size:clamp(64px,8vw,110px);line-height:.8;
+  color:transparent;-webkit-text-stroke:1.5px rgba(74,127,181,.5);user-select:none;flex:none;
+}
+.dark .sheet-no,.on-dark .sheet-no{-webkit-text-stroke:1.5px rgba(232,226,214,.28)}
+.titleblock{
+  font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--stone);border:1px solid var(--hairline);border-radius:4px;padding:10px 16px;
+  display:grid;grid-template-columns:auto auto;gap:2px 26px;background:var(--paper);
+}
+.titleblock b{color:var(--charcoal);font-weight:600}
+.on-dark .titleblock{border-color:var(--hairline-d);background:rgba(232,226,214,.05);color:var(--t-on-navy-dim)}
+.on-dark .titleblock b{color:var(--t-on-navy)}
+
+/* Hero --------------------------------------------------------------------- */
+.hero{padding:88px 0 96px;position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;position:relative;z-index:2}
+.hero-canvas{position:absolute;inset:0;z-index:1;pointer-events:none}
+
+/* Crop marks (drafting sheet corners) */
+.cropmarks{position:absolute;inset:26px;pointer-events:none;z-index:1}
+.cropmarks i{position:absolute;width:16px;height:16px;border-color:rgba(74,127,181,.55);border-style:solid;border-width:0}
+.cropmarks i:nth-child(1){top:0;left:0;border-top-width:1.5px;border-left-width:1.5px}
+.cropmarks i:nth-child(2){top:0;right:0;border-top-width:1.5px;border-right-width:1.5px}
+.cropmarks i:nth-child(3){bottom:0;left:0;border-bottom-width:1.5px;border-left-width:1.5px}
+.cropmarks i:nth-child(4){bottom:0;right:0;border-bottom-width:1.5px;border-right-width:1.5px}
+
+/* Tilt cards (3D) ---------------------------------------------------------- */
+.tilt-wrap{perspective:1200px}
+.tilt{transform-style:preserve-3d;transition:transform .5s var(--ease-out);will-change:transform}
+.tilt .tilt-inner-pop{transform:translateZ(28px)}
+
+/* Scorecard ---------------------------------------------------------------- */
+.scorecard{background:var(--navy);border-radius:12px;padding:38px;color:var(--t-on-navy);box-shadow:var(--shadow-card);position:relative;overflow:hidden}
+.scorecard::after{content:"";position:absolute;inset:0;pointer-events:none;background:
+  linear-gradient(rgba(74,127,181,.12) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(74,127,181,.12) 1px,transparent 1px);
+  background-size:28px 28px;mask-image:radial-gradient(120% 90% at 80% 0%,#000 0%,transparent 70%)}
+.sc-head{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--hairline-d);padding-bottom:14px;margin-bottom:22px;position:relative;z-index:2}
+.sc-head b{font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+.sc-head span{font-size:11.5px;color:var(--t-on-navy-dim);font-family:var(--mono);text-align:right;max-width:46%;line-height:1.4}
+.dial-row{display:flex;gap:28px;align-items:center;position:relative;z-index:2}
+.dial{position:relative;width:180px;height:180px;flex:none}
+.dial svg{transform:rotate(-90deg);overflow:visible}
+.dial .num{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.dial .num b{font-size:48px;font-family:var(--serif);font-weight:600;color:#fff}
+.dial .num i{font-style:normal;font-size:11px;letter-spacing:.12em;color:var(--t-on-navy-dim);font-family:var(--mono)}
+/* static 53% default so the dial never reads as a full ring without JS */
+.dial-arc{stroke-dasharray:483.8;stroke-dashoffset:227.4}
+.findings{flex:1;display:flex;flex-direction:column}
+.finding{display:flex;gap:14px;align-items:baseline;padding:10px 0;border-bottom:1px dashed var(--hairline-d)}
+.finding:last-child{border-bottom:none}
+.finding b{font-family:var(--serif);font-size:32px;font-weight:600;color:var(--orange);min-width:56px}
+.finding.blue b{color:var(--line)}
+.finding span{font-size:15px;color:#c7d3de;line-height:1.5}
+.sc-foot{margin-top:22px;font-size:13px;color:var(--t-on-navy-dim);border-top:1px solid var(--hairline-d);padding-top:14px;position:relative;z-index:2}
+.sc-foot b{color:var(--t-on-navy)}
+
+/* Regulatory ticker -------------------------------------------------------- */
+.ticker{background:var(--navy);color:var(--t-on-navy-dim);overflow:hidden;padding:13px 0;border-top:1px solid var(--hairline-d);border-bottom:1px solid var(--hairline-d)}
+.ticker-track{display:flex;gap:0;width:max-content;animation:tick 46s linear infinite}
+.ticker-seq{display:flex;align-items:center;white-space:nowrap;font-family:var(--mono);font-size:12.5px;letter-spacing:.16em;text-transform:uppercase}
+.ticker-seq span{padding:0 22px}
+.ticker-seq em{font-style:normal;color:var(--orange);padding:0 6px}
+@keyframes tick{to{transform:translateX(-50%)}}
+.ticker:hover .ticker-track{animation-play-state:paused}
+
+/* Stat band ---------------------------------------------------------------- */
+.stat-band{background:var(--navy);color:var(--t-on-navy);padding:48px 0}
+.stat-band .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;text-align:center}
+.stat-band b{display:block;font-family:var(--serif);font-size:44px;font-weight:500;color:#fff}
+.stat-band .u{color:var(--orange)}
+.stat-band span{font-size:16px;color:#b2c3d3}
+
+/* Cards / doors ------------------------------------------------------------ */
+.doors{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:40px}
+.door{background:var(--paper);border:1px solid var(--hairline);border-top:4px solid var(--blue);border-radius:10px;padding:36px;transition:transform .32s var(--ease-out),box-shadow .32s}
+.door:hover{transform:translateY(-6px);box-shadow:0 30px 50px -30px rgba(13,27,42,.4)}
+.door.gaas{border-top-color:var(--orange)}
+.door .tag{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--blue)}
+.door.gaas .tag{color:var(--orange)}
+.door h3{font-size:30px;margin:10px 0 12px}
+.door p{font-size:17px;color:var(--charcoal)}
+.door ul{list-style:none;margin:18px 0 22px}
+.door li{font-size:16px;padding:8px 0 8px 24px;position:relative;border-bottom:1px dashed var(--hairline)}
+.door li::before{content:"";position:absolute;left:2px;top:14px;width:10px;height:10px;border:2px solid var(--orange);border-radius:50%}
+.door a.more{color:var(--navy);font-weight:600;font-size:14px;text-decoration:none;border-bottom:2px solid var(--orange)}
+
+/* Controls grid (agentic five) --------------------------------------------- */
+.controls{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:40px}
+.controls.six{grid-template-columns:repeat(3,1fr)}
+.control{background:var(--paper);border:1px solid var(--hairline);border-radius:8px;padding:24px 18px;text-align:center;transition:transform .3s var(--ease-out),border-color .3s}
+.control:hover{transform:translateY(-4px);border-color:rgba(217,119,87,.5)}
+.control b{display:block;font-family:var(--serif);font-size:21px;font-weight:500;color:var(--navy);margin-bottom:6px}
+.control span{font-size:14.5px;color:#595246;line-height:1.5;display:block}
+.control .dot{width:36px;height:36px;margin:0 auto 12px;border-radius:50%;background:rgba(217,119,87,.14);display:flex;align-items:center;justify-content:center;color:var(--orange);font-weight:700;font-size:14px;font-family:var(--mono)}
+
+/* Scope / audit ledger rows ------------------------------------------------ */
+.ledger{margin-top:40px;border:1px solid var(--hairline);border-radius:10px;overflow:hidden;background:var(--paper)}
+.ledger-row{display:grid;grid-template-columns:120px 1fr 1.3fr;gap:24px;padding:22px 28px;border-bottom:1px dashed var(--hairline);align-items:baseline}
+.ledger-row:last-child{border-bottom:none}
+.ledger-row:hover{background:rgba(74,127,181,.05)}
+.ledger-row .no{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--orange)}
+a.ledger-row{text-decoration:none;color:inherit}
+.ledger-row b{font-family:var(--serif);font-size:20px;font-weight:500;color:var(--navy)}
+.ledger-row span{font-size:15.5px;color:#595246}
+
+/* Chips -------------------------------------------------------------------- */
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px}
+.chip{background:var(--paper);border:1px solid var(--hairline);border-radius:100px;padding:9px 18px;font-size:14.5px;font-weight:500;color:var(--navy)}
+.chip small{color:#595246;font-weight:400}
+.chip.hot{border-color:var(--orange);background:rgba(217,119,87,.08)}
+.arr{color:var(--orange);font-weight:700}
+
+/* Quotes / proof ----------------------------------------------------------- */
+.quote{background:var(--paper);border:1px solid var(--hairline);border-radius:10px;padding:30px}
+.quote p{font-family:var(--serif);font-size:22px;font-style:italic;color:var(--navy);line-height:1.45}
+
+/* Dark proof panel (case study) -------------------------------------------- */
+.case-panel{background:var(--navy);color:var(--t-on-navy);border-radius:12px;padding:52px;margin-top:40px;box-shadow:var(--shadow-card);position:relative;overflow:hidden}
+.case-panel .grid-veil{position:absolute;inset:0;pointer-events:none;background:
+  linear-gradient(rgba(74,127,181,.1) 1px,transparent 1px),linear-gradient(90deg,rgba(74,127,181,.1) 1px,transparent 1px);
+  background-size:32px 32px;mask-image:radial-gradient(130% 100% at 15% 0%,#000,transparent 75%)}
+.case-panel h3{color:#fff;font-size:30px}
+.case-panel p{color:#c7d3de}
+.case-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;margin-top:34px;position:relative;z-index:2}
+.case-stats b{display:block;font-family:var(--serif);font-size:40px;font-weight:500;color:var(--orange)}
+.case-stats .bl b{color:var(--line)}
+.case-stats span{font-size:14px;color:var(--t-on-navy-dim)}
+
+/* FAQ ----------------------------------------------------------------------- */
+details.faq{background:var(--paper);border:1px solid var(--hairline);border-radius:8px;margin-bottom:12px;overflow:hidden}
+details.faq summary{cursor:pointer;padding:20px 24px;font-weight:600;font-size:17.5px;color:var(--navy);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:18px}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq summary:after{content:"+";font-family:var(--serif);font-size:22px;color:var(--orange);flex:none}
+details.faq[open] summary:after{content:"–"}
+details.faq p{padding:0 24px 22px;font-size:16.5px;color:var(--charcoal);max-width:840px}
+
+/* CTA band ------------------------------------------------------------------ */
+.cta-band{background:var(--navy);color:#fff;text-align:center;padding:88px 0;position:relative;overflow:hidden}
+.cta-band h2{color:#fff;font-size:clamp(32px,3.6vw,46px)}
+.cta-band p{color:#b2c3d3;max-width:560px;margin:14px auto 0}
+.cta-band .btn-row{justify-content:center}
+.compass{position:absolute;right:6%;top:50%;width:210px;height:210px;margin-top:-105px;opacity:.14;animation:spin 70s linear infinite;pointer-events:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Footer -------------------------------------------------------------------- */
+footer.ob1{background:var(--charcoal);color:#c2bab0;padding:44px 0;font-size:14px}
+footer.ob1 .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;align-items:center}
+footer.ob1 b{color:#fff}
+footer.ob1 a{color:#c2bab0;text-decoration:none}
+footer.ob1 a:hover{color:#fff}
+.foot-tag{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--orange)}
+
+/* Schematic (SVG blueprint drawings) ---------------------------------------- */
+.schematic{position:relative}
+.schematic svg{width:100%;height:auto}
+.schematic .draw{fill:none;stroke:var(--line);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.schematic .draw.o{stroke:var(--orange)}
+.schematic .draw.faint{stroke:rgba(74,127,181,.4);stroke-width:1}
+.schematic text{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;fill:var(--stone);text-transform:uppercase}
+.schematic .lbl-o{fill:var(--orange)}
+.on-dark .schematic .draw{stroke:#7fa8cd}
+.on-dark .schematic text{fill:var(--t-on-navy-dim)}
+/* draw-on-scroll: js sets stroke-dasharray/offset then animates */
+.schematic .draw{transition:none}
+
+/* Reveal engine ------------------------------------------------------------- */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease-out),transform .8s var(--ease-out)}
+.reveal.on{opacity:1;transform:none}
+.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}
+.reveal.d4{transition-delay:.32s}.reveal.d5{transition-delay:.4s}
+
+/* Breadcrumb rail (vertical pages) ------------------------------------------ */
+.rail{position:fixed;left:18px;top:50%;transform:translateY(-50%);z-index:80;display:flex;flex-direction:column;gap:14px}
+.rail a{width:9px;height:9px;border-radius:50%;border:1.5px solid var(--stone);display:block;transition:background .25s,border-color .25s,transform .25s}
+.rail a.on{background:var(--orange);border-color:var(--orange);transform:scale(1.25)}
+@media(max-width:1360px){.rail{display:none}}
+
+/* Responsive ---------------------------------------------------------------- */
+@media(max-width:980px){
+  .hero .wrap{grid-template-columns:1fr}
+  .doors,.quotes{grid-template-columns:1fr}
+  .controls,.controls.six{grid-template-columns:repeat(2,1fr)}
+  .case-stats{grid-template-columns:repeat(2,1fr)}
+  .ledger-row{grid-template-columns:70px 1fr;gap:10px}
+  .ledger-row span{grid-column:2}
+  .stat-band .wrap{grid-template-columns:1fr;gap:22px}
+  .sheet-head{flex-direction:column;align-items:flex-start;gap:10px}
+  .titleblock{display:none}
+  nav.ob1 .wrap{flex-wrap:wrap;gap:8px 18px}
+  nav.ob1 a.nl{font-size:14px}
+  nav.ob1 .cta{padding:8px 14px;font-size:12.5px}
+  .wrap{padding:0 22px}
+  .compass{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none}
+  .ticker-track{animation:none}
+}
+
+</style>
+<noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "OB.1 AI Solutions",
+  "description": "AI governance audits and Governance-as-a-Service for healthcare organizations, provider groups, and digital health companies.",
+  "url": "https://ob1ai.co/healthcare",
+  "email": "admin@ob1ai.co",
+  "telephone": "+1-234-602-0500",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Cleveland",
+    "addressRegion": "OH",
+    "addressCountry": "US"
+  },
+  "areaServed": ["Ohio", "United States"],
+  "slogan": "Rules Before Tools"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does an AI audit replace our HIPAA risk assessment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. It sits next to it. A HIPAA risk assessment tests your security controls. Our audit tests where AI tools touch PHI, who authorized them, and whether a BAA covers the model vendor."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if a vendor's AI feature was never disclosed to us?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "More common than you would think. The audit maps every AI touchpoint in your stack, including features bundled into tools you already pay for, so you can see what needs a BAA and what needs to be turned off."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you need access to patient records to run this?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The audit reviews systems, contracts, and workflows, not patient data itself. Nothing PHI-bearing crosses into our process."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is this different from an IT security audit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "IT security asks if your systems are locked down. This asks a narrower question: where is AI operating inside those systems, under whose authority, and what happens when it is wrong."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "We are a small provider group. Is this built for us?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. This is built for provider groups and digital health teams, not hospital IT departments. The scope adjusts to your footprint."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens when a model version changes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every build we deliver includes a governance rider that specifies what happens when the underlying model deprecates, changes behavior, or gets retired. You are never caught by a vendor's changelog."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if the model starts behaving differently after an update?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Covered Hours are built into every Governance-as-a-Service quarter. Behavior drift gets caught in scheduled review, not by a patient complaint."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if HIPAA guidance or FDA rules change?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Regulatory shifts, an OCR bulletin, a new FDA SaMD clarification, get folded into your next review cycle so your controls stay current without a special engagement."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav class="ob1">
+  <div class="wrap">
+    <a href="index.html" class="logo">OB<span>.1</span> AI SOLUTIONS</a>
+    <a href="index.html" class="nl">Home</a>
+    <a href="law.html" class="nl">Law</a>
+    <a href="healthcare.html" class="nl" aria-current="page">Healthcare</a>
+    <a href="manufacturing.html" class="nl">Manufacturing</a>
+    <a href="professional-services.html" class="nl">Professional Services</a>
+    <a href="https://ob1ai.co/services" class="cta">GET YOUR READINESS SCORE</a>
+  </div>
+</nav>
+
+<div class="rail">
+  <a href="#s1" aria-label="The Stakes"></a>
+  <a href="#s2" aria-label="The Audit"></a>
+  <a href="#s3" aria-label="Two Doors"></a>
+  <a href="#s4" aria-label="Five Controls"></a>
+  <a href="#s5" aria-label="When Models Move"></a>
+  <a href="#s6" aria-label="Proof"></a>
+  <a href="#s7" aria-label="Straight Answers"></a>
+</div>
+
+<header class="hero grid-bg" id="top">
+  <canvas class="hero-canvas" data-density="1"></canvas>
+  <div class="cropmarks" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">AI Audit · Healthcare Organizations</div>
+      <h1>First, do no harm now includes what your models do unsupervised.</h1>
+      <p class="lede">Provider groups and digital health teams are shipping AI into intake, triage
+      notes, prior auth, and patient messaging faster than anyone is governing it. We audit where
+      those tools touch PHI, who authorized them, and what happens when one gets it wrong.</p>
+      <div class="btn-row">
+        <a href="https://ob1ai.co/services" class="btn btn-primary">Get Your AI Readiness Score</a>
+        <a href="mailto:chris@ob1ai.co" class="btn btn-ghost">Talk to Chris</a>
+      </div>
+      <p class="micro">Fixed-phase, flat-fee engagement, scoped in one call. No pricing games, no PHI required to start.</p>
+    </div>
+    <div class="tilt-wrap reveal d2">
+      <div class="scorecard tilt">
+        <div class="tilt-inner-pop">
+          <div class="sc-head">
+            <b>AI Readiness Audit</b>
+            <span>82-point diagnostic</span>
+          </div>
+          <div class="dial-row">
+            <div class="dial">
+              <svg viewBox="0 0 180 180" width="180" height="180">
+                <circle cx="90" cy="90" r="77" fill="none" stroke="rgba(232,226,214,.14)" stroke-width="10"></circle>
+                <circle class="dial-arc" data-score="53" cx="90" cy="90" r="77" fill="none" stroke="#D97757" stroke-width="10" stroke-linecap="round"></circle>
+              </svg>
+              <div class="num"><b>53</b><i>/ 100</i></div>
+            </div>
+            <div class="findings">
+              <div class="finding"><b data-count="21">21</b><span>AI opportunities identified across intake, documentation, and coordination</span></div>
+              <div class="finding blue"><b data-count="6.2" data-decimals="1" data-suffix="x">6.2x</b><span>projected Year-1 ROI once governed use replaces shadow use</span></div>
+              <div class="finding"><b data-count="9">9</b><span>quick wins ready to deploy inside 30 days, no roadmap required</span></div>
+            </div>
+          </div>
+          <div class="sc-foot">Scored across six dimensions: <b>business context, technology maturity,
+          automation opportunities, data infrastructure, decision authority, investment readiness.</b>
+          Figures reflect an anonymized manufacturing audit; projected.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="ticker">
+  <div class="ticker-track">
+    <div class="ticker-seq">
+      <span>HIPAA PRIVACY RULE</span><em>·</em>
+      <span>HIPAA SECURITY RULE</span><em>·</em>
+      <span>MINIMUM NECESSARY</span><em>·</em>
+      <span>BAA COVERAGE</span><em>·</em>
+      <span>21 CFR PART 11</span><em>·</em>
+      <span>FDA SaMD</span><em>·</em>
+      <span>OCR ENFORCEMENT</span><em>·</em>
+      <span>PATIENT TRUST</span><em>·</em>
+    </div>
+    <div class="ticker-seq">
+      <span>HIPAA PRIVACY RULE</span><em>·</em>
+      <span>HIPAA SECURITY RULE</span><em>·</em>
+      <span>MINIMUM NECESSARY</span><em>·</em>
+      <span>BAA COVERAGE</span><em>·</em>
+      <span>21 CFR PART 11</span><em>·</em>
+      <span>FDA SaMD</span><em>·</em>
+      <span>OCR ENFORCEMENT</span><em>·</em>
+      <span>PATIENT TRUST</span><em>·</em>
+    </div>
+  </div>
+</div>
+
+<section id="s1">
+  <div class="wrap">
+    <div class="sheet-head reveal">
+      <div>
+        <div class="sheet-no">01</div>
+      </div>
+      <div class="titleblock">
+        <span>SHEET</span><b>01 / 07</b>
+        <span>TITLE</span><b>THE STAKES</b>
+        <span>SCALE</span><b>N.T.S.</b>
+        <span>DRAWN BY</span><b>OB.1</b>
+      </div>
+    </div>
+    <h2 class="reveal">The moments where AI quietly becomes a compliance event</h2>
+    <p class="lede reveal d1">None of these start as incidents. They start as someone trying to save
+    twenty minutes. By the time anyone asks a question, PHI has already moved.</p>
+    <div class="ledger reveal d2">
+      <div class="ledger-row">
+        <span class="no">R-01</span>
+        <b>PHI drifts into a consumer chatbot</b>
+        <span>A care coordinator pastes patient notes into a public AI tool to draft a summary faster. That prompt is now a HIPAA Security Rule exposure nobody approved.</span>
+      </div>
+      <div class="ledger-row">
+        <span class="no">R-02</span>
+        <b>A vendor's AI feature ships without a BAA</b>
+        <span>An EHR add-on quietly routes records through a model subprocessor that was never named in any signed business associate agreement.</span>
+      </div>
+      <div class="ledger-row">
+        <span class="no">R-03</span>
+        <b>Minimum necessary erodes</b>
+        <span>An assistant built with broad read access surfaces PHI far beyond the single task it was built for, because nobody scoped it down.</span>
+      </div>
+      <div class="ledger-row">
+        <span class="no">R-04</span>
+        <b>Part 11 records go unsupervised</b>
+        <span>An AI tool touches records governed by 21 CFR Part 11 with no audit trail proving who changed what, and when.</span>
+      </div>
+      <div class="ledger-row">
+        <span class="no">R-05</span>
+        <b>A feature crosses the SaMD line</b>
+        <span>A clinical decision support tool starts making recommendations no one flagged as a device question for the FDA.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="s2">
+  <div class="wrap">
+    <div class="sheet-head reveal">
+      <div><div class="sheet-no">02</div></div>
+      <div class="titleblock">
+        <span>SHEET</span><b>02 / 07</b>
+        <span>TITLE</span><b>THE AUDIT</b>
+        <span>SCALE</span><b>1:1</b>
+        <span>DRAWN BY</span><b>OB.1</b>
+      </div>
+    </div>
+    <h2 class="reveal">One diagnostic, six dimensions, mapped to how your organization actually runs</h2>
+    <p class="lede reveal d1">The audit is 82 points across six dimensions: business context,
+    technology maturity, automation opportunities, data infrastructure, decision authority, and
+    investment readiness. For healthcare, that means walking the floor the way PHI actually moves,
+    not the way the org chart says it should.</p>
+
+    <div class="schematic reveal d2" aria-hidden="true" role="img" aria-label="Blueprint diagram of a clinic ward with exam rooms, a records room, a BAA gate, and a continuous patient vitals trace">
+      <svg viewBox="0 0 720 420" width="720" height="420">
+        <rect class="draw" x="40" y="20" width="640" height="220" rx="2"></rect>
+        <line class="draw faint" x1="40" y1="140" x2="680" y2="140"></line>
+
+        <rect class="draw" x="50" y="30" width="120" height="100" rx="2"></rect>
+        <rect class="draw" x="210" y="30" width="120" height="100" rx="2"></rect>
+        <rect class="draw" x="370" y="30" width="120" height="100" rx="2"></rect>
+        <rect class="draw" x="530" y="30" width="120" height="100" rx="2"></rect>
+
+        <line class="draw faint" x1="90" y1="130" x2="120" y2="130"></line>
+        <line class="draw faint" x1="250" y1="130" x2="280" y2="130"></line>
+        <line class="draw faint" x1="410" y1="130" x2="440" y2="130"></line>
+        <line class="draw faint" x1="570" y1="130" x2="600" y2="130"></line>
+
+        <rect class="draw faint" x="60" y="160" width="140" height="60" rx="2"></rect>
+        <rect class="draw o" x="460" y="150" width="180" height="80" rx="2"></rect>
+
+        <line class="draw o" x1="430" y1="140" x2="430" y2="152"></line>
+        <line class="draw o" x1="452" y1="140" x2="452" y2="152"></line>
+
+        <path class="draw" d="M600,180 a14,14 0 1,1 0.01,0"></path>
+        <path class="draw" d="M596,180 v-14 a8,8 0 0,1 16,0 v14" transform="translate(0,-16)"></path>
+
+        <path class="draw" d="M148,140 l6,-8 6,8 -6,8 z"></path>
+
+        <path class="draw o" d="M40,360 L60,360 L66,354 L72,360 L76,372 L80,304 L84,384 L90,360 L106,360 L112,344 L120,360 L200,360
+          L220,360 L226,354 L232,360 L236,372 L240,304 L244,384 L250,360 L266,360 L272,344 L280,360 L360,360
+          L380,360 L386,354 L392,360 L396,372 L400,304 L404,384 L410,360 L426,360 L432,344 L440,360 L520,360
+          L540,360 L546,354 L552,360 L556,372 L560,304 L564,384 L570,360 L586,360 L592,344 L600,360 L680,360"></path>
+
+        <text x="46" y="14">PHI PERIMETER</text>
+        <text x="60" y="24">EXAM ROOMS ×4</text>
+        <text x="65" y="185">MIN. NECESSARY</text>
+        <text x="390" y="146">BAA GATE</text>
+        <text x="466" y="144">PART 11 RECORDS</text>
+        <text x="40" y="398">CONTINUOUS PATIENT DATA TRACE</text>
+      </svg>
+    </div>
+
+    <div class="controls six reveal d3">
+      <div class="control"><div class="dot">01</div><b>Business Context</b><span>Who touches PHI, for what task, under which BAA.</span></div>
+      <div class="control"><div class="dot">02</div><b>Tech Maturity</b><span>What's live, what's shadow, what's bundled into a vendor feature.</span></div>
+      <div class="control"><div class="dot">03</div><b>Automation Ops</b><span>Where AI removes friction without widening PHI exposure.</span></div>
+      <div class="control"><div class="dot">04</div><b>Data Infrastructure</b><span>Where records live, who can query them, and how minimum necessary holds.</span></div>
+      <div class="control"><div class="dot">05</div><b>Decision Authority</b><span>Who can approve a new AI tool touching patient data, and who can veto one.</span></div>
+      <div class="control"><div class="dot">06</div><b>Investment Readiness</b><span>What's fundable now versus what needs a governance fix first.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="s3">
+  <div class="wrap">
+    <div class="sheet-head reveal">
+      <div><div class="sheet-no">03</div></div>
+      <div class="titleblock">
+        <span>SHEET</span><b>03 / 07</b>
+        <span>TITLE</span><b>TWO DOORS</b>
+        <span>SCALE</span><b>N.T.S.</b>
+        <span>DRAWN BY</span><b>OB.1</b>
+      </div>
+    </div>
+    <h2 class="reveal">Two ways to close the gap</h2>
+    <p class="lede reveal d1">One is a project. One is a discipline. Most healthcare organizations
+    start with the first and graduate into the second once AI is load-bearing.</p>
+    <div class="doors reveal d2">
+      <div class="door">
+        <div class="tag">One-Time</div>
+        <h3>Operational Blueprint</h3>
+        <p>A fixed-phase build: the 82-point audit, a governed rollout plan for your highest-value AI
+        use cases, and the controls that keep PHI inside its lane from day one.</p>
+        <ul>
+          <li>Full six-dimension diagnostic and readiness score</li>
+          <li>BAA and minimum-necessary review of every AI touchpoint</li>
+          <li>A build plan for one to three governed use cases</li>
+          <li>Handoff documentation your compliance team can defend</li>
+        </ul>
+        <a href="https://ob1ai.co/services" class="more">See the Operational Blueprint →</a>
+      </div>
+      <div class="door gaas">
+        <div class="tag">Continuous</div>
+        <h3>Governance-as-a-Service</h3>
+        <p>Quarterly review, Covered Hours for drift, and a standing rider so model changes never
+        become someone's HIPAA finding.</p>
+        <ul>
+          <li>Quarterly re-audit as tools, staff, and vendors change</li>
+          <li>Covered Hours for behavior drift and new model versions</li>
+          <li>Governance rider for every AI vendor contract you sign</li>
+          <li>A direct line before a new tool goes live, not after</li>
+        </ul>
+        <a href="https://ob1ai.co/services" class="more">See Governance-as-a-Service →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="s4">
+  <div class="wrap">
+    <div class="sheet-head reveal">
+      <div><div class="sheet-no">04</div></div>
+      <div class="titleblock">
+        <span>SHEET</span><b>04 / 07</b>
+        <span>TITLE</span><b>FIVE CONTROLS</b>
+        <span>SCALE</span><b>N.T.S.</b>
+        <span>DRAWN BY</span><b>OB.1</b>
+      </div>
+    </div>
+    <h2 class="reveal">Every build runs on five controls</h2>
+    <p class="lede reveal d1">These aren't policy language. They are what we actually build into the
+    system before it touches a patient record.</p>
+    <div class="controls reveal d2">
+      <div class="control"><div class="dot">1</div><b>Trusted Data</b><span>Sources are named and scoped before a model reads them, not discovered after.</span></div>
+      <div class="control"><div class="dot">2</div><b>Right-Sized Access</b><span>An agent can't surface PHI it may never need to answer the question it was asked.</span></div>
+      <div class="control"><div class="dot">3</div><b>Guardrails</b><span>Defined boundaries on what the tool can say, do, and escalate, in writing.</span></div>
+      <div class="control"><div class="dot">4</div><b>Human Escalation</b><span>A clinician or supervisor sits in the loop wherever judgment, not lookup, is required.</span></div>
+      <div class="control"><div class="dot">5</div><b>Full Audit Trail</b><span>Every AI touch on a record is logged the way Part 11 expects it to be.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="s5">
+  <div class="wrap">
+    <div class="sheet-head reveal">
+      <div><div class="sheet-no">05</div></div>
+      <div class="titleblock">
+        <span>SHEET</span><b>05 / 07</b>
+        <span>TITLE</span><b>WHEN MODELS MOVE</b>
+        <span>SCALE</span><b>N.T.S.</b>
+        <span>DRAWN BY</span><b>OB.1</b>
+      </div>
+    </div>
+    <h2 class="reveal">Models change. Your governance shouldn't have to scramble.</h2>
+    <p class="lede reveal d1">A model vendor deprecates a version, changes behavior mid-quarter, or
+    a regulator issues new guidance. Neither should be the reason a patient interaction goes wrong.</p>
+    <div class="doors reveal d2">
+      <div class="door">
+        <div class="tag">In Every Build</div>
+        <h3>Governance Rider</h3>
+        <p>Every contract we deliver includes a rider that specifies what happens when the
+        underlying model deprecates, changes behavior, or gets retired. It's written down before
+        anyone needs it.</p>
+      </div>
+      <div class="door gaas">
+        <div class="tag">In Every GaaS Quarter</div>
+        <h3>Covered Hours</h3>
+        <p>Standing hours reserved to catch behavior drift, re-validate guardrails, and fold in new
+        regulatory guidance, so review happens on a calendar, not after a complaint.</p>
+      </div>
+    </div>
+    <div class="reveal d3" style="margin-top:32px">
+      <details class="faq" open>
+        <summary>What happens when a model version changes?</summary>
+        <p>Every build we deliver includes a governance rider that specifies what happens when the
+        underlying model deprecates, changes behavior, or gets retired. You are never caught by a
+        vendor's changelog.</p>
+      </details>
+      <details class="faq">
+        <summary>What if the model starts behaving differently after an update?</summary>
+        <p>Covered Hours are built into every Governance-as-a-Service quarter. Behavior drift gets
+        caught in scheduled review, not by a patient complaint.</p>
+      </details>
+      <details class="faq">
+        <summary>What if HIPAA guidance or FDA rules change?</summary>
+        <p>Regulatory shifts, an OCR bulletin, a new FDA SaMD clarification, get folded into your
+        next review cycle so your controls stay current without a special engagement.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="s6">
+  <div class="wrap">
+    <div class="sheet-head reveal">
+      <div><div class="sheet-no">06</div></div>
+      <div class="titleblock">
+        <span>SHEET</span><b>06 / 07</b>
+        <span>TITLE</span><b>PROOF</b>
+        <span>SCALE</span><b>N.T.S.</b>
+        <span>DRAWN BY</span><b>OB.1</b>
+      </div>
+    </div>
+    <h2 class="reveal">Different industry, same discipline</h2>
+    <p class="lede reveal d1">This audit was run on a manufacturing floor, not a clinic. The
+    numbers below are that engagement's, anonymized and projected. The method doesn't change
+    because the regulation does: find where AI is running unsupervised, score it, fix the highest-value gaps first.</p>
+    <div class="case-panel reveal d2">
+      <div class="grid-veil" aria-hidden="true"></div>
+      <h3>82-Point Audit, Anonymized Manufacturing Client</h3>
+      <p>Six dimensions scored, twenty-one opportunities mapped, and a governance plan projected
+      to pay for itself inside Year 1. Featured by Audity, the AI readiness assessment platform.</p>
+      <div class="case-stats">
+        <div><b data-count="53">53</b><span>Readiness score out of 100</span></div>
+        <div><b data-count="487" data-prefix="$" data-suffix="K">$487K</b><span>Projected annual value</span></div>
+        <div class="bl"><b data-count="6.2" data-decimals="1" data-suffix="x">6.2x</b><span>Projected Year-1 ROI</span></div>
+        <div><b data-count="1.9" data-decimals="1">1.9</b><span>Month payback, projected</span></div>
+      </div>
+    </div>
+    <p class="micro reveal d3" style="margin-top:24px">A counsel-gated rubric for healthcare exists
+    for engagements that need it, built against HIPAA, 21 CFR Part 11, and the FDA SaMD framework.
+    We name it when your legal team asks, not before.</p>
+  </div>
+</section>
+
+<section id="s7">
+  <div class="wrap">
+    <div class="sheet-head reveal">
+      <div><div class="sheet-no">07</div></div>
+      <div class="titleblock">
+        <span>SHEET</span><b>07 / 07</b>
+        <span>TITLE</span><b>STRAIGHT ANSWERS</b>
+        <span>SCALE</span><b>N.T.S.</b>
+        <span>DRAWN BY</span><b>OB.1</b>
+      </div>
+    </div>
+    <h2 class="reveal">Questions we actually get from healthcare leaders</h2>
+    <div class="reveal d1" style="margin-top:32px">
+      <details class="faq" open>
+        <summary>Does an AI audit replace our HIPAA risk assessment?</summary>
+        <p>No. It sits next to it. A HIPAA risk assessment tests your security controls. Our audit
+        tests where AI tools touch PHI, who authorized them, and whether a BAA covers the model
+        vendor.</p>
+      </details>
+      <details class="faq">
+        <summary>What if a vendor's AI feature was never disclosed to us?</summary>
+        <p>More common than you would think. The audit maps every AI touchpoint in your stack,
+        including features bundled into tools you already pay for, so you can see what needs a BAA
+        and what needs to be turned off.</p>
+      </details>
+      <details class="faq">
+        <summary>Do you need access to patient records to run this?</summary>
+        <p>No. The audit reviews systems, contracts, and workflows, not patient data itself.
+        Nothing PHI-bearing crosses into our process.</p>
+      </details>
+      <details class="faq">
+        <summary>How is this different from an IT security audit?</summary>
+        <p>IT security asks if your systems are locked down. This asks a narrower question: where
+        is AI operating inside those systems, under whose authority, and what happens when it is
+        wrong.</p>
+      </details>
+      <details class="faq">
+        <summary>We are a small provider group. Is this built for us?</summary>
+        <p>Yes. This is built for provider groups and digital health teams, not hospital IT
+        departments. The scope adjusts to your footprint.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band grid-bg on-dark">
+  <svg class="compass" viewBox="0 0 100 100" aria-hidden="true">
+    <circle cx="50" cy="50" r="46" fill="none" stroke="#4A7FB5" stroke-width="1"></circle>
+    <circle cx="50" cy="50" r="34" fill="none" stroke="#4A7FB5" stroke-width="1"></circle>
+    <line x1="50" y1="4" x2="50" y2="96" stroke="#4A7FB5" stroke-width="1"></line>
+    <line x1="4" y1="50" x2="96" y2="50" stroke="#4A7FB5" stroke-width="1"></line>
+    <path d="M50,14 L58,50 L50,86 L42,50 Z" fill="none" stroke="#4A7FB5" stroke-width="1"></path>
+  </svg>
+  <div class="wrap">
+    <h2 class="reveal">What would an auditor find in your prompt logs today?</h2>
+    <p class="reveal d1">Most healthcare leaders don't know, and that's the risk. A 53-point score
+    is a starting line, not a verdict. Let's find out where you stand.</p>
+    <div class="btn-row reveal d2">
+      <a href="https://ob1ai.co/services" class="btn btn-primary">Get Your AI Readiness Score</a>
+      <a href="mailto:chris@ob1ai.co" class="btn btn-ghost">Talk to Chris</a>
+    </div>
+  </div>
+</section>
+
+<footer class="ob1">
+  <div class="wrap">
+    <div>
+      <b>OB.1 AI Solutions</b> · Cleveland, Ohio · <a href="mailto:admin@ob1ai.co">admin@ob1ai.co</a> · <a href="tel:+12346020500">(234) 602-0500</a>
+      <div class="foot-tag">RULES BEFORE TOOLS</div>
+    </div>
+    <div>© 2026 OB.1 AI Solutions</div>
+  </div>
+</footer>
+
+<script>
+/* OB.1 motion engine · reveals, count-ups, dial arcs, SVG draw-on-scroll,
+   3D tilt cards, hero particle field, section rail. No dependencies. */
+(function(){
+  'use strict';
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- Scroll reveals ---- */
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target); }
+    });
+  },{threshold:.14,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+  /* ---- Count-up numbers: <b data-count="53" data-suffix="%" data-decimals="1"> ---- */
+  function countUp(el){
+    var target = parseFloat(el.dataset.count), dec = parseInt(el.dataset.decimals||'0',10);
+    var pre = el.dataset.prefix||'', suf = el.dataset.suffix||'', dur = 1500, t0 = null;
+    if(reduced){ el.textContent = pre + target.toFixed(dec) + suf; return; }
+    function tick(ts){
+      if(!t0) t0 = ts;
+      var k = Math.min((ts-t0)/dur,1), e = 1-Math.pow(1-k,3);
+      el.textContent = pre + (target*e).toFixed(dec) + suf;
+      if(k<1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  var cio = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting){ countUp(e.target); cio.unobserve(e.target); }
+    });
+  },{threshold:.5});
+  document.querySelectorAll('[data-count]').forEach(function(el){ cio.observe(el); });
+
+  /* ---- Dial arc: <circle class="dial-arc" data-score="53" r="77"> ---- */
+  var dio = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting) return;
+      var c = e.target, r = parseFloat(c.getAttribute('r')), C = 2*Math.PI*r;
+      var score = parseFloat(c.dataset.score);
+      c.style.strokeDasharray = C;
+      c.style.strokeDashoffset = C;
+      c.getBoundingClientRect();
+      c.style.transition = reduced ? 'none' : 'stroke-dashoffset 1.6s cubic-bezier(.2,.7,.2,1)';
+      c.style.strokeDashoffset = C - C*(score/100);
+      dio.unobserve(c);
+    });
+  },{threshold:.5});
+  document.querySelectorAll('.dial-arc').forEach(function(el){ dio.observe(el); });
+
+  /* ---- Fail-open: anything not yet revealed shows itself shortly after load,
+     so non-scrolling renderers (search engines, print, capture) see full content. */
+  var armFns = [];
+  window.addEventListener('load', function(){
+    setTimeout(function(){
+      document.querySelectorAll('.reveal:not(.on)').forEach(function(el){
+        el.classList.add('on'); io.unobserve(el);
+      });
+      armFns.forEach(function(f){ f(); });
+    }, 4000);
+  });
+
+  /* ---- SVG draw-on-scroll: every .schematic .draw path animates its stroke ---- */
+  function prepDraw(p,i){
+    var len; try{ len = p.getTotalLength(); }catch(e){ return; }
+    p.style.strokeDasharray = len;
+    p.style.strokeDashoffset = len;
+    p.dataset.len = len; p.dataset.idx = i;
+  }
+  document.querySelectorAll('.schematic').forEach(function(s){
+    var paths = s.querySelectorAll('.draw');
+    paths.forEach(prepDraw);
+    var texts = s.querySelectorAll('text');
+    texts.forEach(function(t){ t.style.opacity = 0; t.style.transition = 'opacity .7s ease'; });
+    var fired = false;
+    function fire(){
+      if(fired) return; fired = true;
+      paths.forEach(function(p){
+        if(!p.dataset.len) return;
+        var d = 120*parseInt(p.dataset.idx,10);
+        p.style.transition = reduced ? 'none' : 'stroke-dashoffset 1.5s cubic-bezier(.2,.7,.2,1) '+d+'ms';
+        p.style.strokeDashoffset = 0;
+      });
+      var base = reduced?0:900;
+      texts.forEach(function(t,i){ setTimeout(function(){ t.style.opacity = 1; }, base + i*90); });
+      sio.disconnect();
+    }
+    var sio = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting) fire(); });
+    },{threshold:.3});
+    sio.observe(s);
+    armFns.push(fire);
+  });
+
+  /* ---- 3D tilt: pointer-tracked, desktop only ---- */
+  if(!reduced && matchMedia('(pointer:fine)').matches){
+    document.querySelectorAll('.tilt-wrap').forEach(function(w){
+      var card = w.querySelector('.tilt'); if(!card) return;
+      w.addEventListener('pointermove', function(ev){
+        var r = w.getBoundingClientRect();
+        var x = (ev.clientX-r.left)/r.width - .5, y = (ev.clientY-r.top)/r.height - .5;
+        card.style.transform = 'rotateY('+(x*7)+'deg) rotateX('+(-y*7)+'deg)';
+      });
+      w.addEventListener('pointerleave', function(){ card.style.transform = ''; });
+    });
+  }
+
+  /* ---- Hero particle field: <canvas class="hero-canvas" data-density="1"> ----
+     Drifting plotter points + short connective linework, brand tinted, very low key. */
+  document.querySelectorAll('canvas.hero-canvas').forEach(function(cv){
+    if(reduced) return;
+    var ctx = cv.getContext('2d'), pts = [], W, H, raf;
+    var dark = cv.dataset.theme === 'dark';
+    function size(){
+      var r = cv.parentElement.getBoundingClientRect();
+      W = cv.width = r.width * devicePixelRatio;
+      H = cv.height = r.height * devicePixelRatio;
+      cv.style.width = r.width+'px'; cv.style.height = r.height+'px';
+      var n = Math.min(70, Math.floor(r.width/22) * (parseFloat(cv.dataset.density||'1')));
+      pts = [];
+      for(var i=0;i<n;i++) pts.push({
+        x:Math.random()*W, y:Math.random()*H,
+        vx:(Math.random()-.5)*.14*devicePixelRatio, vy:(Math.random()-.5)*.14*devicePixelRatio,
+        o:Math.random()*.5+.2, hot:Math.random()<.12
+      });
+    }
+    function step(){
+      ctx.clearRect(0,0,W,H);
+      var linkD = 130*devicePixelRatio;
+      for(var i=0;i<pts.length;i++){
+        var p = pts[i];
+        p.x += p.vx; p.y += p.vy;
+        if(p.x<0||p.x>W) p.vx*=-1;
+        if(p.y<0||p.y>H) p.vy*=-1;
+        for(var j=i+1;j<pts.length;j++){
+          var q = pts[j], dx = p.x-q.x, dy = p.y-q.y, d = Math.sqrt(dx*dx+dy*dy);
+          if(d<linkD){
+            ctx.strokeStyle = dark
+              ? 'rgba(127,168,205,'+(.13*(1-d/linkD))+')'
+              : 'rgba(74,127,181,'+(.15*(1-d/linkD))+')';
+            ctx.lineWidth = devicePixelRatio*.7;
+            ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.lineTo(q.x,q.y); ctx.stroke();
+          }
+        }
+        ctx.fillStyle = p.hot
+          ? 'rgba(217,119,87,'+(p.o*.9)+')'
+          : (dark ? 'rgba(127,168,205,'+(p.o*.7)+')' : 'rgba(46,94,142,'+(p.o*.6)+')');
+        ctx.beginPath(); ctx.arc(p.x,p.y,(p.hot?2.2:1.5)*devicePixelRatio,0,7); ctx.fill();
+      }
+      raf = requestAnimationFrame(step);
+    }
+    var vio = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){ if(!raf) step(); }
+        else { cancelAnimationFrame(raf); raf = null; }
+      });
+    });
+    size(); vio.observe(cv);
+    addEventListener('resize', function(){ size(); });
+  });
+
+  /* ---- Section rail: <div class="rail"><a href="#s1">... highlights on scroll ---- */
+  var rail = document.querySelector('.rail');
+  if(rail){
+    var links = [].slice.call(rail.querySelectorAll('a'));
+    var secs = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+    var rio = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){
+          links.forEach(function(a){ a.classList.remove('on'); });
+          var i = secs.indexOf(e.target);
+          if(i>-1) links[i].classList.add('on');
+        }
+      });
+    },{rootMargin:'-45% 0px -45% 0px'});
+    secs.forEach(function(s){ if(s) rio.observe(s); });
+  }
+})();
+
+</script>
+<div style="position:fixed;bottom:0;left:0;right:0;z-index:999;background:#3D3832;color:#fff;font:600 11px/1.5 'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase;padding:7px 16px;text-align:center">OFFLINE REVIEW COPY &middot; OB.1 VERTICAL LANDING PAGES &middot; <span style="color:#D97757">RULES BEFORE TOOLS</span></div><div style="height:32px"></div>
+</body>
+</html>
