@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Audit for Professional Services Firms | OB.1 AI Solutions · Rules Before Tools</title>
+<meta name="description" content="AI audit for professional services firms: CPAs, consultancies, agencies, engineering firms. A 6-dimension AI governance diagnostic that protects client confidentiality and work product.">
+<link rel="canonical" href="https://ob1ai.co/professional-services">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="AI Audit for Professional Services Firms | OB.1 AI Solutions">
+<meta property="og:description" content="A 6-dimension AI governance diagnostic for CPAs, consultancies, agencies, and engineering firms. Protect client confidentiality and the work product your name is on.">
+<meta property="og:url" content="https://ob1ai.co/professional-services">
+<meta property="og:site_name" content="OB.1 AI Solutions">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Audit for Professional Services Firms | OB.1 AI Solutions">
+<meta name="twitter:description" content="A 6-dimension AI governance diagnostic for CPAs, consultancies, agencies, and engineering firms. Protect client confidentiality and the work product your name is on.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/ob1.css">
+<noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "OB.1 AI Solutions",
+  "description": "AI governance audits and implementation for professional services firms: CPAs, consultancies, agencies, and engineering firms.",
+  "url": "https://ob1ai.co/professional-services",
+  "email": "admin@ob1ai.co",
+  "telephone": "+1-234-602-0500",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Cleveland",
+    "addressRegion": "OH",
+    "addressCountry": "US"
+  },
+  "areaServed": ["Ohio", "United States"],
+  "slogan": "Rules Before Tools"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does an AI audit for a professional services firm actually check?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is an 82-point diagnostic across six dimensions: business context, technology maturity, automation opportunities, data infrastructure, decision authority, and investment readiness. For a CPA firm, consultancy, agency, or engineering firm, that means mapping which tools touch client data, who signs off before model output reaches a deliverable, and where an engagement letter is silent on AI use."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this cover GLBA Safeguards and AICPA confidentiality requirements?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The audit maps AI touchpoints against the AICPA Code of Professional Conduct confidentiality rule, peer review documentation standards, and the GLBA Safeguards Rule where client financial data is in scope. You get a rubric your counsel can review, not a generic checklist."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Our engagement letters do not mention AI. Is that a real exposure?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. If a letter is silent on AI use and a model touches client data or drafts part of the work product, the client learns about it after the fact if at all. That is an E&O conversation waiting to happen. The audit flags every engagement type where this gap exists."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is this different from a generic AI policy template?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A template tells staff what not to do. The audit tells you where your actual exposure sits: which tools your people already use, which client data can reach them, and which deliverables carry model-drafted content nobody with a license reviewed. Then it builds controls around those specific gaps."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does the engagement cost and how long does it take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is a fixed-phase, flat-fee engagement, scoped in one call once we understand your practice areas and headcount. No hourly surprises. Timelines and next steps come out of that first conversation."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav class="ob1">
+  <div class="wrap">
+    <a href="/" class="logo">OB<span>.1</span> AI SOLUTIONS</a>
+    <a href="/law" class="nl">Law</a>
+    <a href="/professional-services" class="nl" aria-current="page">Professional Services</a>
+    <a href="/manufacturing" class="nl">Manufacturing</a>
+    <a href="/healthcare" class="nl">Healthcare</a>
+    <a href="https://ob1ai.co/services" class="cta">GET YOUR READINESS SCORE</a>
+  </div>
+</nav>
+
+<header class="hero grid-bg" id="top">
+  <canvas class="hero-canvas" data-density="1"></canvas>
+  <div class="cropmarks" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">AI Audit · Professional Services Firms</p>
+      <h1>Your product is judgment. Prove it is still yours.</h1>
+      <p class="lede">CPAs, consultancies, agencies, and engineering firms sell judgment with a name attached to it. When a model drafts the analysis and no one with a license checks it, that name is exposed and no one decided it should be.</p>
+      <div class="btn-row">
+        <a href="https://ob1ai.co/services" class="btn btn-primary">Get Your AI Readiness Score</a>
+        <a href="mailto:chris@ob1ai.co" class="btn btn-ghost">Talk to Chris</a>
+      </div>
+      <p class="micro">Fixed-phase, flat-fee engagement, scoped in one call. No dollar figure until we know your practice.</p>
+    </div>
+    <div class="tilt-wrap reveal d2">
+      <div class="scorecard tilt">
+        <div class="tilt-inner-pop">
+          <div class="sc-head">
+            <b>Readiness Scorecard</b>
+            <span>SAMPLE · SIX-DIMENSION AUDIT</span>
+          </div>
+          <div class="dial-row">
+            <div class="dial">
+              <svg viewBox="0 0 180 180" aria-hidden="true">
+                <circle cx="90" cy="90" r="77" fill="none" stroke="rgba(232,226,214,.14)" stroke-width="11"></circle>
+                <circle class="dial-arc" cx="90" cy="90" r="77" fill="none" stroke="#D97757" stroke-width="11" stroke-linecap="round" data-score="53"></circle>
+              </svg>
+              <div class="num">
+                <b>53</b>
+                <i>/ 100</i>
+              </div>
+            </div>
+            <div class="findings">
+              <div class="finding">
+                <b data-count="21">0</b>
+                <span>automation opportunities found across intake, drafting, and review</span>
+              </div>
+              <div class="finding blue">
+                <b data-count="6.2" data-decimals="1" data-suffix="x">0</b>
+                <span>projected Year-1 ROI once controls are in place</span>
+              </div>
+              <div class="finding">
+                <b data-count="9">0</b>
+                <span>quick wins deployable inside the first 30 days</span>
+              </div>
+            </div>
+          </div>
+          <p class="sc-foot">Scored across <b>business context, technology maturity, automation opportunities, data infrastructure, decision authority,</b> and <b>investment readiness.</b> Figures shown are the anonymized manufacturing audit, projected.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <div class="ticker-seq">
+      <span>AICPA CONFIDENTIALITY</span><em>·</em>
+      <span>PEER REVIEW STANDARDS</span><em>·</em>
+      <span>GLBA SAFEGUARDS RULE</span><em>·</em>
+      <span>ENGAGEMENT LETTER SCOPE</span><em>·</em>
+      <span>WORK PRODUCT INTEGRITY</span><em>·</em>
+      <span>E&amp;O EXPOSURE</span><em>·</em>
+      <span>CLIENT DATA BOUNDARY</span><em>·</em>
+    </div>
+    <div class="ticker-seq">
+      <span>AICPA CONFIDENTIALITY</span><em>·</em>
+      <span>PEER REVIEW STANDARDS</span><em>·</em>
+      <span>GLBA SAFEGUARDS RULE</span><em>·</em>
+      <span>ENGAGEMENT LETTER SCOPE</span><em>·</em>
+      <span>WORK PRODUCT INTEGRITY</span><em>·</em>
+      <span>E&amp;O EXPOSURE</span><em>·</em>
+      <span>CLIENT DATA BOUNDARY</span><em>·</em>
+    </div>
+  </div>
+</div>
+
+<main>
+
+<section id="s1">
+  <div class="wrap">
+    <div class="sheet-head reveal">
+      <div>
+        <span class="sheet-no">01</span>
+      </div>
+      <div class="titleblock">
+        <span>SHEET</span><b>01 / 07</b>
+        <span>TITLE</span><b>THE STAKES</b>
+        <span>SCALE</span><b>NTS</b>
+        <span>DATE</span><b>2026</b>
+        <span>DRAWN BY</span><b>OB.1</b>
+      </div>
+    </div>
+    <h2 class="reveal">The moments where judgment quietly stops being yours</h2>
+    <p class="lede reveal">Nobody decides to hand a client's file to a model with no supervision. It happens one paste, one shortcut, one deadline at a time. These are the moments that actually create exposure.</p>
+    <div class="ledger reveal d2">
+      <div class="ledger-row">
+        <span class="no">R-01</span>
+        <b>A staff accountant pastes client financials into a public chatbot</b>
+        <span>The confidentiality clause in your engagement letter breaks and no one at the firm is told.</span>
+      </div>
+      <div class="ledger-row">
+        <span class="no">R-02</span>
+        <b>A deliverable ships with model-drafted analysis no partner read line by line</b>
+        <span>Your name and your license are on judgment the firm did not actually exercise.</span>
+      </div>
+      <div class="ledger-row">
+        <span class="no">R-03</span>
+        <b>Engagement letters never mention AI use</b>
+        <span>Clients find out after the fact, if they find out at all. That is an E&amp;O conversation waiting to start.</span>
+      </div>
+      <div class="ledger-row">
+        <span class="no">R-04</span>
+        <b>A model trained on one client's work resurfaces it in another client's session</b>
+        <span>The wall between engagements, the one your firm's reputation depends on, evaporates without a decision.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="s2">
+  <div class="wrap">
+    <div class="sheet-head reveal">
+      <div>
+        <span class="sheet-no">02</span>
+      </div>
+      <div class="titleblock">
+        <span>SHEET</span><b>02 / 07</b>
+        <span>TITLE</span><b>THE AUDIT</b>
+        <span>SCALE</span><b>NTS</b>
+        <span>DATE</span><b>2026</b>
+        <span>DRAWN BY</span><b>OB.1</b>
+      </div>
+    </div>
+    <h2 class="reveal">An 82-point diagnostic, six dimensions, one practice</h2>
+    <p class="lede reveal">We do not audit "AI" in the abstract. We audit your intake process, your drafting workflow, your review gates, and the systems that hold client data, and we score what we find.</p>
+
+    <div class="ledger reveal d2">
+      <div class="ledger-row">
+        <span class="no">D-01</span>
+        <b>Business Context</b>
+        <span>Practice areas, client mix, and where confidentiality obligations are strictest.</span>
+      </div>
+      <div class="ledger-row">
+        <span class="no">D-02</span>
+        <b>Technology Maturity</b>
+        <span>What tools your people already use, sanctioned or not, and what those tools can see.</span>
+      </div>
+      <div class="ledger-row">
+        <span class="no">D-03</span>
+        <b>Automation Opportunities</b>
+        <span>Where a model could shorten drafting or research time without touching client-identifying data.</span>
+      </div>
+      <div class="ledger-row">
+        <span class="no">D-04</span>
+        <b>Data Infrastructure</b>
+        <span>Where client files live, who can move them, and whether a model vendor is quietly inside that boundary.</span>
+      </div>
+      <div class="ledger-row">
+        <span class="no">D-05</span>
+        <b>Decision Authority</b>
+        <span>Who signs off before model output reaches a client deliverable, and whether that gate is written down.</span>
+      </div>
+      <div class="ledger-row">
+        <span class="no">D-06</span>
+        <b>Investment Readiness</b>
+        <span>What the firm can implement now versus what needs a governance decision from the partners first.</span>
+      </div>
+    </div>
+
+    <div class="schematic reveal d3" style="margin-top:48px">
+      <svg viewBox="0 0 720 420" role="img" aria-label="Schematic of an engagement workflow showing client data moving through intake, an AI-assisted drafting zone bounded by an E and O boundary, a partner review gate, and final work product delivery.">
+        <!-- outer frame -->
+        <rect class="draw faint" x="20" y="20" width="680" height="380"></rect>
+
+        <!-- client node -->
+        <rect class="draw" x="44" y="176" width="108" height="68" rx="4"></rect>
+        <text x="98" y="205" text-anchor="middle">CLIENT</text>
+        <text x="98" y="220" text-anchor="middle">FILE</text>
+
+        <!-- engagement letter node -->
+        <rect class="draw" x="196" y="176" width="120" height="68" rx="4"></rect>
+        <text x="256" y="205" text-anchor="middle">ENGAGEMENT</text>
+        <text x="256" y="220" text-anchor="middle">LETTER</text>
+
+        <!-- connector client -> letter -->
+        <path class="draw" d="M152 210 L196 210"></path>
+
+        <!-- E and O boundary, dashed box around AI drafting zone -->
+        <rect class="draw o" x="352" y="70" width="200" height="280" rx="6" stroke-dasharray="6 6"></rect>
+        <text x="452" y="58" text-anchor="middle" class="lbl-o">E&amp;O BOUNDARY</text>
+
+        <!-- AI drafting node inside boundary -->
+        <rect class="draw" x="376" y="118" width="152" height="64" rx="4"></rect>
+        <text x="452" y="146" text-anchor="middle">MODEL-ASSISTED</text>
+        <text x="452" y="161" text-anchor="middle">DRAFTING</text>
+
+        <!-- connector letter -> drafting -->
+        <path class="draw" d="M316 210 L352 210 L352 150 L376 150"></path>
+
+        <!-- review gate node inside boundary -->
+        <rect class="draw o" x="376" y="234" width="152" height="64" rx="4"></rect>
+        <text x="452" y="262" text-anchor="middle" class="lbl-o">REVIEW GATE</text>
+        <text x="452" y="277" text-anchor="middle" class="lbl-o">PARTNER SIGN-OFF</text>
+
+        <!-- connector drafting -> review gate -->
+        <path class="draw" d="M452 182 L452 234"></path>
+
+        <!-- work product node, outside boundary -->
+        <rect class="draw" x="588" y="176" width="104" height="68" rx="4"></rect>
+        <text x="640" y="203" text-anchor="middle">WORK</text>
+        <text x="640" y="218" text-anchor="middle">PRODUCT</text>
+
+        <!-- connector review gate -> work product, exits boundary -->
+        <path class="draw" d="M528 266 L560 266 L560 210 L588 210"></path>
+
+        <!-- escalation path, review gate loops back to drafting on fail -->
+        <path class="draw faint" d="M376 250 L340 250 L340 150 L376 150" stroke-dasharray="3 5"></path>
+        <text x="298" y="146" text-anchor="middle">REVISE</text>
+
+        <!-- delivery arrow bottom -->
+        <path class="draw" d="M640 244 L640 300 L98 300 L98 244" stroke-dasharray="4 4"></path>
+        <text x="369" y="316" text-anchor="middle">DELIVERY TO CLIENT, LOGGED</text>
+
+        <!-- audit trail marks -->
+        <circle class="draw o" cx="98" cy="210" r="3"></circle>
+        <circle class="draw o" cx="256" cy="210" r="3"></circle>
+        <circle class="draw o" cx="452" cy="150" r="3"></circle>
+        <circle class="draw o" cx="452" cy="266" r="3"></circle>
+        <circle class="draw o" cx="640" cy="210" r="3"></circle>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section id="s3">
+  <div class="wrap">
+    <div class="sheet-head reveal">
+      <div>
+        <span class="sheet-no">03</span>
+      </div>
+      <div class="titleblock">
+        <span>SHEET</span><b>03 / 07</b>
+        <span>TITLE</span><b>TWO DOORS</b>
+        <span>SCALE</span><b>NTS</b>
+        <span>DATE</span><b>2026</b>
+        <span>DRAWN BY</span><b>OB.1</b>
+      </div>
+    </div>
+    <h2 class="reveal">Fix it once, or keep it right</h2>
+    <p class="lede reveal">Both start with the same audit. What happens after depends on how your practice is built and how fast the tools you use are changing.</p>
+    <div class="doors">
+      <div class="door reveal">
+        <span class="tag">One-Time</span>
+        <h3>Operational Blueprint</h3>
+        <p>A single, fixed-phase engagement. We audit the practice, design the controls, and hand your team a governed workflow with the guardrails already built in.</p>
+        <ul>
+          <li>Full 82-point diagnostic across all six dimensions</li>
+          <li>Engagement letter language addressing AI use, ready for counsel review</li>
+          <li>Access controls scoped by matter, client, and role</li>
+          <li>Partner review gates built into the drafting workflow</li>
+        </ul>
+        <a href="mailto:chris@ob1ai.co" class="more">Scope a Blueprint &rarr;</a>
+      </div>
+      <div class="door gaas reveal d2">
+        <span class="tag">Continuous</span>
+        <h3>Governance-as-a-Service</h3>
+        <p>Models change quarterly. Regulations do not wait for your next planning cycle. GaaS keeps your controls current as both move.</p>
+        <ul>
+          <li>Quarterly re-audit as vendors update models under you</li>
+          <li>Covered hours for new tool requests from any practice group</li>
+          <li>Governance rider baked into every rollout, not bolted on after</li>
+          <li>Direct line to counsel-gated guidance when regulation shifts</li>
+        </ul>
+        <a href="mailto:chris@ob1ai.co" class="more">Talk about GaaS &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="s4">
+  <div class="wrap">
+    <div class="sheet-head reveal">
+      <div>
+        <span class="sheet-no">04</span>
+      </div>
+      <div class="titleblock">
+        <span>SHEET</span><b>04 / 07</b>
+        <span>TITLE</span><b>FIVE CONTROLS</b>
+        <span>SCALE</span><b>NTS</b>
+        <span>DATE</span><b>2026</b>
+        <span>DRAWN BY</span><b>OB.1</b>
+      </div>
+    </div>
+    <h2 class="reveal">Five controls, every deployment</h2>
+    <p class="lede reveal">This is what "governed" means in practice, not in a policy binder.</p>
+    <div class="controls">
+      <div class="control reveal">
+        <span class="dot">01</span>
+        <b>Trusted Data</b>
+        <span>The model only ever sees the client files it is scoped to touch, nothing from an engagement it has no letter for.</span>
+      </div>
+      <div class="control reveal d2">
+        <span class="dot">02</span>
+        <b>Right-Sized Access</b>
+        <span>A model reading tax workpapers cannot also reach a separate client's audit files.</span>
+      </div>
+      <div class="control reveal d3">
+        <span class="dot">03</span>
+        <b>Guardrails</b>
+        <span>Hard limits on what the model can draft unsupervised versus what always routes to a human first.</span>
+      </div>
+      <div class="control reveal d4">
+        <span class="dot">04</span>
+        <b>Human Escalation</b>
+        <span>A named partner or manager reviews anything that leaves the guardrail, before it reaches a client.</span>
+      </div>
+      <div class="control reveal d5">
+        <span class="dot">05</span>
+        <b>Full Audit Trail</b>
+        <span>Every draft, every review, every sign-off logged, so "who approved this" has a documented answer.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="s5">
+  <div class="wrap">
+    <div class="sheet-head reveal">
+      <div>
+        <span class="sheet-no">05</span>
+      </div>
+      <div class="titleblock">
+        <span>SHEET</span><b>05 / 07</b>
+        <span>TITLE</span><b>WHEN MODELS MOVE</b>
+        <span>SCALE</span><b>NTS</b>
+        <span>DATE</span><b>2026</b>
+        <span>DRAWN BY</span><b>OB.1</b>
+      </div>
+    </div>
+    <h2 class="reveal">Models change quietly. Your controls should not.</h2>
+    <p class="lede reveal">A vendor updates a model and your drafting workflow behaves differently overnight. Nobody voted on that. Two things keep the ground steady.</p>
+    <div class="doors">
+      <div class="door reveal">
+        <span class="tag">In every build</span>
+        <h3>Governance Rider</h3>
+        <p>Every Operational Blueprint contract includes a rider that names what happens when a vendor deprecates or retrains a model your firm depends on. It is written down before you need it, not negotiated after.</p>
+      </div>
+      <div class="door gaas reveal d2">
+        <span class="tag">In every quarter</span>
+        <h3>Covered Hours</h3>
+        <p>Governance-as-a-Service includes covered hours each quarter specifically for re-checking controls against whatever the model vendors changed since the last review.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:40px">
+      <details class="faq reveal">
+        <summary>What happens if our vendor deprecates the model our workflow was built on?</summary>
+        <p>Your governance rider or covered hours (whichever applies) trigger a re-audit of that workflow before the deprecation date. We re-scope the controls against the replacement model rather than letting staff quietly adapt on their own.</p>
+      </details>
+      <details class="faq reveal d2">
+        <summary>What if a model's behavior drifts between updates, even without a formal deprecation?</summary>
+        <p>Drift shows up first in the review gate, drafts that used to pass clean start needing more correction. That is a signal we build into the audit trail, not something staff are left to notice on their own and quietly work around.</p>
+      </details>
+      <details class="faq reveal d3">
+        <summary>How do you handle new state or federal rules on AI use in client work?</summary>
+        <p>New regulation gets mapped against your existing controls under GaaS, and flagged to counsel for review before it becomes a compliance gap instead of a planning item.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="s6">
+  <div class="wrap">
+    <div class="sheet-head reveal">
+      <div>
+        <span class="sheet-no">06</span>
+      </div>
+      <div class="titleblock">
+        <span>SHEET</span><b>06 / 07</b>
+        <span>TITLE</span><b>PROOF</b>
+        <span>SCALE</span><b>NTS</b>
+        <span>DATE</span><b>2026</b>
+        <span>DRAWN BY</span><b>OB.1</b>
+      </div>
+    </div>
+    <h2 class="reveal">Different industry, same discipline</h2>
+    <p class="lede reveal">The audit shown here ran on a mid-size manufacturer. The dimensions we scored, and the discipline behind the score, are the same ones we bring to a CPA firm, a consultancy, or an engineering practice. Featured by Audity, the AI readiness assessment platform.</p>
+    <div class="case-panel reveal d2">
+      <div class="grid-veil" aria-hidden="true"></div>
+      <h3>The anonymized audit, projected figures</h3>
+      <p>A 53/100 readiness score. Twenty-one opportunities found in six dimensions. A projected annual value once controls were in place, and a payback period measured in months, not years.</p>
+      <div class="case-stats">
+        <div>
+          <b data-count="53">0</b>
+          <span>Readiness score / 100</span>
+        </div>
+        <div>
+          <b data-count="487" data-prefix="$" data-suffix="K">0</b>
+          <span>Projected annual value</span>
+        </div>
+        <div class="bl">
+          <b data-count="6.2" data-decimals="1" data-suffix="x">0</b>
+          <span>Projected Year-1 ROI</span>
+        </div>
+        <div>
+          <b data-count="1.9" data-decimals="1">0</b>
+          <span>Month payback</span>
+        </div>
+      </div>
+    </div>
+    <p class="micro reveal d3">For professional services, the counsel-gated rubric maps directly to AICPA confidentiality standards, peer review documentation requirements, and the GLBA Safeguards Rule where client financial data is involved.</p>
+  </div>
+</section>
+
+<section id="s7">
+  <div class="wrap">
+    <div class="sheet-head reveal">
+      <div>
+        <span class="sheet-no">07</span>
+      </div>
+      <div class="titleblock">
+        <span>SHEET</span><b>07 / 07</b>
+        <span>TITLE</span><b>STRAIGHT ANSWERS</b>
+        <span>SCALE</span><b>NTS</b>
+        <span>DATE</span><b>2026</b>
+        <span>DRAWN BY</span><b>OB.1</b>
+      </div>
+    </div>
+    <h2 class="reveal">Straight answers</h2>
+    <div style="margin-top:32px">
+      <details class="faq reveal" open>
+        <summary>What does an AI audit for a professional services firm actually check?</summary>
+        <p>It is an 82-point diagnostic across six dimensions: business context, technology maturity, automation opportunities, data infrastructure, decision authority, and investment readiness. For a CPA firm, consultancy, agency, or engineering firm, that means mapping which tools touch client data, who signs off before model output reaches a deliverable, and where an engagement letter is silent on AI use.</p>
+      </details>
+      <details class="faq reveal d2">
+        <summary>Does this cover GLBA Safeguards and AICPA confidentiality requirements?</summary>
+        <p>Yes. The audit maps AI touchpoints against the AICPA Code of Professional Conduct confidentiality rule, peer review documentation standards, and the GLBA Safeguards Rule where client financial data is in scope. You get a rubric your counsel can review, not a generic checklist.</p>
+      </details>
+      <details class="faq reveal d3">
+        <summary>Our engagement letters do not mention AI. Is that a real exposure?</summary>
+        <p>Yes. If a letter is silent on AI use and a model touches client data or drafts part of the work product, the client learns about it after the fact if at all. That is an E&amp;O conversation waiting to happen. The audit flags every engagement type where this gap exists.</p>
+      </details>
+      <details class="faq reveal d4">
+        <summary>How is this different from a generic AI policy template?</summary>
+        <p>A template tells staff what not to do. The audit tells you where your actual exposure sits: which tools your people already use, which client data can reach them, and which deliverables carry model-drafted content nobody with a license reviewed. Then it builds controls around those specific gaps.</p>
+      </details>
+      <details class="faq reveal d5">
+        <summary>What does the engagement cost and how long does it take?</summary>
+        <p>It is a fixed-phase, flat-fee engagement, scoped in one call once we understand your practice areas and headcount. No hourly surprises. Timelines and next steps come out of that first conversation.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<section class="cta-band grid-bg on-dark">
+  <svg class="compass" viewBox="0 0 200 200" aria-hidden="true">
+    <circle class="draw" cx="100" cy="100" r="88" stroke="#4A7FB5"></circle>
+    <circle class="draw faint" cx="100" cy="100" r="66" stroke="#4A7FB5"></circle>
+    <path class="draw" d="M100 20 L100 180" stroke="#4A7FB5"></path>
+    <path class="draw" d="M20 100 L180 100" stroke="#4A7FB5"></path>
+    <path class="draw o" d="M100 34 L112 100 L100 166 L88 100 Z" stroke="#D97757"></path>
+  </svg>
+  <div class="wrap">
+    <h2 class="reveal">If a partner had to sign off on every prompt today, could they?</h2>
+    <p class="reveal d2">That is the question the audit answers. Not whether your firm should use AI, but whether the judgment behind it is still yours.</p>
+    <div class="btn-row reveal d3">
+      <a href="https://ob1ai.co/services" class="btn btn-primary">Get Your AI Readiness Score</a>
+      <a href="mailto:chris@ob1ai.co" class="btn btn-ghost">Talk to Chris</a>
+    </div>
+  </div>
+</section>
+
+<footer class="ob1">
+  <div class="wrap">
+    <div>
+      <b>OB.1 AI Solutions</b> · Cleveland, Ohio · <a href="mailto:admin@ob1ai.co">admin@ob1ai.co</a> · <a href="tel:+12346020500">(234) 602-0500</a>
+      <div class="foot-tag">RULES BEFORE TOOLS</div>
+    </div>
+    <div>&copy; 2026 OB.1 AI Solutions</div>
+  </div>
+</footer>
+
+<nav class="rail" aria-label="Section navigation">
+  <a href="#s1" aria-label="The Stakes"></a>
+  <a href="#s2" aria-label="The Audit"></a>
+  <a href="#s3" aria-label="Two Doors"></a>
+  <a href="#s4" aria-label="Five Controls"></a>
+  <a href="#s5" aria-label="When Models Move"></a>
+  <a href="#s6" aria-label="Proof"></a>
+  <a href="#s7" aria-label="Straight Answers"></a>
+</nav>
+
+<script src="js/ob1.js" defer></script>
+</body>
+</html>
