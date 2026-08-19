@@ -39,3 +39,13 @@ Source Sans 3 + Newsreader, parchment/navy/orange). Deploy to Vercel, iterate, p
 - T9 attempt 2 (worker): invalid, split files across non-atomic deployments; discarded.
 - T9 attempt 3 (LEAD): build-time bootstrap. 3-file deploy (vercel.json + package.json + build.js) to EXISTING project ob1-blueprint, target preview; build.js pulls the site from the public repo tarball pinned to commit b5881d1 and stages site/ as output. Deployment dpl_BpX3zZUY8Gnevi7LFaJB5iMAwTvy READY; build log lists all 10 files in output. Team SSO protects *.vercel.app URLs; 23h share link minted for review.
 - NOTE for redeploys: bump SHA in build.js (or grant project-creation on Vercel and create a dedicated ob1-verticals project).
+
+## Handoff (Aug 19)
+- HANDOFF.md authored (commit 661ea1e): scope, design system, per-vertical regulatory spine,
+  verification evidence, deploy state, open decisions (B1 price anchor, B4 counsel naming, hosting).
+- share/*.html (commit 199995a): self-contained offline review copies, CSS+JS inlined, clean-URL links
+  rewritten to local filenames. Verified via Playwright from file://: 5/5 render, 0 hscroll, 0 console errors.
+  Regeneration script in share/README.md. /site remains source of truth.
+- Fresh Vercel share link minted (expires 2026-08-20 ~19:20 UTC), used in HANDOFF.md and Slack.
+- Sent to Kathy Clancy via Slack DM (D0BBDEAQM5F, ts 1787171184.715909): live link, 5 raw HTML
+  download links, HANDOFF.md link, and the three flags (no stock/AI imagery, no FW naming, projected labels).
