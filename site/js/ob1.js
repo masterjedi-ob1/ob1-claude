@@ -48,6 +48,18 @@
   },{threshold:.5});
   document.querySelectorAll('.dial-arc').forEach(function(el){ dio.observe(el); });
 
+  /* ---- Fail-open: anything not yet revealed shows itself shortly after load,
+     so non-scrolling renderers (search engines, print, capture) see full content. */
+  var armFns = [];
+  window.addEventListener('load', function(){
+    setTimeout(function(){
+      document.querySelectorAll('.reveal:not(.on)').forEach(function(el){
+        el.classList.add('on'); io.unobserve(el);
+      });
+      armFns.forEach(function(f){ f(); });
+    }, 4000);
+  });
+
   /* ---- SVG draw-on-scroll: every .schematic .draw path animates its stroke ---- */
   function prepDraw(p,i){
     var len; try{ len = p.getTotalLength(); }catch(e){ return; }
@@ -60,21 +72,24 @@
     paths.forEach(prepDraw);
     var texts = s.querySelectorAll('text');
     texts.forEach(function(t){ t.style.opacity = 0; t.style.transition = 'opacity .7s ease'; });
-    var sio = new IntersectionObserver(function(es){
-      es.forEach(function(e){
-        if(!e.isIntersecting) return;
-        paths.forEach(function(p){
-          if(!p.dataset.len) return;
-          var d = 120*parseInt(p.dataset.idx,10);
-          p.style.transition = reduced ? 'none' : 'stroke-dashoffset 1.5s cubic-bezier(.2,.7,.2,1) '+d+'ms';
-          p.style.strokeDashoffset = 0;
-        });
-        var base = reduced?0:900;
-        texts.forEach(function(t,i){ setTimeout(function(){ t.style.opacity = 1; }, base + i*90); });
-        sio.unobserve(e.target);
+    var fired = false;
+    function fire(){
+      if(fired) return; fired = true;
+      paths.forEach(function(p){
+        if(!p.dataset.len) return;
+        var d = 120*parseInt(p.dataset.idx,10);
+        p.style.transition = reduced ? 'none' : 'stroke-dashoffset 1.5s cubic-bezier(.2,.7,.2,1) '+d+'ms';
+        p.style.strokeDashoffset = 0;
       });
+      var base = reduced?0:900;
+      texts.forEach(function(t,i){ setTimeout(function(){ t.style.opacity = 1; }, base + i*90); });
+      sio.disconnect();
+    }
+    var sio = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting) fire(); });
     },{threshold:.3});
     sio.observe(s);
+    armFns.push(fire);
   });
 
   /* ---- 3D tilt: pointer-tracked, desktop only ---- */
