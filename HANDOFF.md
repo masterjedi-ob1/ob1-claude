@@ -117,8 +117,8 @@ Each page is grounded in that industry's real compliance regimes, not generic AI
 ## 5. Deployment
 
 **Live preview:** https://ob1-blueprint-9pis884ir-ob1ai.vercel.app
-**Share link (bypasses SSO, expires Aug 20 ~7:20 PM UTC):**
-https://ob1-blueprint-9pis884ir-ob1ai.vercel.app/?_vercel_share=HSAGlkgxQZW2C73R5gMF6UcIG84uaN1X
+**Share link (bypasses SSO, expires Aug 21 ~2:48 PM UTC):**
+https://ob1-blueprint-9pis884ir-ob1ai.vercel.app/?_vercel_share=RGSadLGo7o40vXBa0u0edLPBXOdzLqyF
 
 Routes: `/` · `/law` · `/professional-services` · `/manufacturing` · `/healthcare`
 

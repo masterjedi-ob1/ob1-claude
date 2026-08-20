@@ -62,3 +62,7 @@ Source Sans 3 + Newsreader, parchment/navy/orange). Deploy to Vercel, iterate, p
   industry" section). Her robots.txt needs no change. NOT deployed; targets a repo outside this scope.
 - Kathy independently flagged Frantz Ward still in the /governance meta description, which matches the
   B4 handling on our pages.
+- Aug 20 ~15:48 UTC: prior share token expired at 19:20 UTC, so minted a fresh one
+  (RGSadLGo7o40vXBa0u0edLPBXOdzLqyF, expires 2026-08-21 ~14:48 UTC) and updated HANDOFF.md.
+  Kathy's Slack copy still carries the OLD token; her 5 raw HTML downloads do not expire, so she is
+  not blocked. Awaiting Chris before DMing her the replacement link.
