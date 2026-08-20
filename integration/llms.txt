@@ -1,0 +1,25 @@
+# OB.1 AI Solutions
+
+> Audit-first AI consulting and Governance as a Service (GaaS) for mid-market companies. Rules Before Tools: OB.1 maps, governs, and monitors AI adoption before tools get deployed, with a lawyer-in-the-loop methodology.
+
+OB.1 AI Solutions helps mid-market executives (CEO, COO, CRO, CCO, General Counsel, CISO) in finance, insurance, healthcare, manufacturing, and professional services adopt AI safely. The signature deliverable is the Operational Blueprint: a diagnostic that produces an AI readiness scorecard, a prioritized opportunity map, and an implementation roadmap. Governance as a Service extends that into continuous, adaptive governance: policy generation, agentic monitoring of business data, and ongoing compliance support. Based in Northeast Ohio, serving the United States.
+
+## Pages
+
+- [Home](https://ob1ai.co/): Company overview and AI readiness assessment
+- [Services](https://ob1ai.co/services): The Operational Blueprint engagement model, from diagnostic to build
+- [About](https://ob1ai.co/about): Company background and founder Chris McCarthy
+- [The Workshop](https://ob1ai.co/workshop): Content and resources
+
+## AI audit by industry
+
+- [Law Firms](https://ob1ai.co/law): AI audit for law firms. ABA Model Rules 1.1, 1.6, and 5.3, privilege and work-product exposure, supervision of model-drafted work.
+- [Professional Services](https://ob1ai.co/professional-services): AI audit for CPA firms, consultancies, agencies, and engineering firms. AICPA confidentiality, peer review, GLBA Safeguards, E&O exposure, engagement-letter scope.
+- [Manufacturing](https://ob1ai.co/manufacturing): AI audit for manufacturers. CMMC 2.0, ITAR/EAR, CUI handling, NIST 800-171, IEC 62443 for OT/IT convergence, ISO 9001 quality records.
+- [Healthcare](https://ob1ai.co/healthcare): AI audit for provider groups and digital health teams. HIPAA Privacy and Security, minimum necessary, BAA coverage, 21 CFR Part 11, FDA SaMD boundary.
+
+## Contact
+
+- Email: admin@ob1ai.co
+- Phone: +1 (234) 602-0500
+- LinkedIn: https://www.linkedin.com/company/ob1-ai

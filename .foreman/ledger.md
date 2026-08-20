@@ -49,3 +49,16 @@ Source Sans 3 + Newsreader, parchment/navy/orange). Deploy to Vercel, iterate, p
 - Fresh Vercel share link minted (expires 2026-08-20 ~19:20 UTC), used in HANDOFF.md and Slack.
 - Sent to Kathy Clancy via Slack DM (D0BBDEAQM5F, ts 1787171184.715909): live link, 5 raw HTML
   download links, HANDOFF.md link, and the three flags (no stock/AI imagery, no FW naming, projected labels).
+
+## Kathy review round 1 (Aug 19 eve)
+- Kathy sent feedback on the CURRENT ob1ai.co site + seo-fixes-for-chris.zip (her Jul 5 SEO package,
+  targets repo ob1-blueprint-website-v2, still not deployed; ob1ai.co/llms.txt 404s).
+- Checked her 4 points against OUR pages: (1) no Skill Builder ✓ (2) exactly 2 CTAs, her two picks ✓
+  (4) zero unverifiable stats (no 99%/450+/50+ claims) ✓ (3) 90-day guarantee NOT present — gap, she
+  says "everyone loves this," candidate to add pending Chris approval (it is an offer term).
+- COLLISION FOUND: her package and ours each ship a sitemap.xml for ob1ai.co; deploying both means one
+  overwrites the other. Her llms.txt also predates the verticals.
+- Fix staged in integration/: merged sitemap.xml (10 URLs) + merged llms.txt (adds an "AI audit by
+  industry" section). Her robots.txt needs no change. NOT deployed; targets a repo outside this scope.
+- Kathy independently flagged Frantz Ward still in the /governance meta description, which matches the
+  B4 handling on our pages.
