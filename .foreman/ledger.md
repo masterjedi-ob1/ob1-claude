@@ -66,3 +66,6 @@ Source Sans 3 + Newsreader, parchment/navy/orange). Deploy to Vercel, iterate, p
   (RGSadLGo7o40vXBa0u0edLPBXOdzLqyF, expires 2026-08-21 ~14:48 UTC) and updated HANDOFF.md.
   Kathy's Slack copy still carries the OLD token; her 5 raw HTML downloads do not expire, so she is
   not blocked. Awaiting Chris before DMing her the replacement link.
+- Aug 21 ~06:00 UTC: refreshed share token again ahead of the 14:48 UTC expiry. New token
+  3ZpK1IsvotvLBF6iW7PrQRXkI4hQU2ED, expires 2026-08-22 ~05:00 UTC. HANDOFF.md updated.
+  Still no review feedback from Kathy on the vertical pages.
