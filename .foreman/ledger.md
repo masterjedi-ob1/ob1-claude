@@ -69,3 +69,7 @@ Source Sans 3 + Newsreader, parchment/navy/orange). Deploy to Vercel, iterate, p
 - Aug 21 ~06:00 UTC: refreshed share token again ahead of the 14:48 UTC expiry. New token
   3ZpK1IsvotvLBF6iW7PrQRXkI4hQU2ED, expires 2026-08-22 ~05:00 UTC. HANDOFF.md updated.
   Still no review feedback from Kathy on the vertical pages.
+- Aug 21 ~23:26 UTC: refreshed share token ahead of the 05:00 UTC expiry. New token
+  a9KX7wARpfFSRjnbJiucQvWa3GsYJYrO, expires 2026-08-22 ~22:26 UTC. HANDOFF.md updated.
+  Review still idle: no page feedback from Kathy since Aug 19, no PR comments, no decisions from Chris.
+  Check-in cadence widened to ~24h.
