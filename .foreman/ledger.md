@@ -73,3 +73,7 @@ Source Sans 3 + Newsreader, parchment/navy/orange). Deploy to Vercel, iterate, p
   a9KX7wARpfFSRjnbJiucQvWa3GsYJYrO, expires 2026-08-22 ~22:26 UTC. HANDOFF.md updated.
   Review still idle: no page feedback from Kathy since Aug 19, no PR comments, no decisions from Chris.
   Check-in cadence widened to ~24h.
+- Aug 22 ~20:28 UTC: refreshed share token ahead of the 22:26 UTC expiry. New token
+  MFPKyQPjztHqXm1HuPMXxGEovsJrG5LB, expires 2026-08-23 ~19:28 UTC. HANDOFF.md updated.
+  Review idle 4 days (since Aug 19): no page feedback, no PR comments, no decisions. Chris and Kathy
+  are active on the separate ob1-blueprint-website-v2 repo. Proposed to Chris standing the watch down.
