@@ -117,10 +117,15 @@ Each page is grounded in that industry's real compliance regimes, not generic AI
 ## 5. Deployment
 
 **Live preview:** https://ob1-blueprint-9pis884ir-ob1ai.vercel.app
-**Share link (bypasses SSO, expires Aug 23 ~7:28 PM UTC):**
-https://ob1-blueprint-9pis884ir-ob1ai.vercel.app/?_vercel_share=MFPKyQPjztHqXm1HuPMXxGEovsJrG5LB
+**Share link (bypasses SSO, expires Aug 24 ~6:21 PM UTC, then goes stale (see note below)):**
+https://ob1-blueprint-9pis884ir-ob1ai.vercel.app/?_vercel_share=to6MwMOyfhFQJ13BdzYAP3fNF3bFkoMc
 
 Routes: `/` · `/law` · `/professional-services` · `/manufacturing` · `/healthcare`
+
+> **Link status (Aug 23):** automated refreshes have stopped. Vercel share links last ~23 hours, so
+> this one lapses Aug 24 and the preview then requires a Vercel login (team SSO protects
+> `*.vercel.app`). Anyone on the team can mint a new one from the Vercel dashboard, or ask Claude to.
+> The offline copies in `share/` never expire and need no login.
 
 **⚠️ Why this is a preview and not production:** the connected Vercel account returned
 `403 forbidden: You don't have permission to create a project` in both team and personal scope, so a
