@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Audit for Healthcare Organizations | OB.1 AI Solutions · Rules Before Tools</title>
+<meta name="description" content="AI audit for healthcare organizations and digital health teams. A HIPAA-aware governance diagnostic that finds where AI touches PHI before regulators do.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2712%27 fill=%27%230D1B2A%27/%3E%3Ctext x=%2732%27 y=%2746%27 font-family=%27Georgia,serif%27 font-size=%2736%27 font-style=%27italic%27 fill=%27%23D97757%27 text-anchor=%27middle%27%3E.1%3C/text%3E%3C/svg%3E">
+<link rel="canonical" href="https://ob1ai.co/healthcare">
+<meta property="og:title" content="AI Audit for Healthcare Organizations | OB.1 AI Solutions">
+<meta property="og:description" content="A HIPAA-aware AI governance diagnostic for provider groups and digital health teams. Rules before tools.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ob1ai.co/healthcare">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Audit for Healthcare Organizations | OB.1 AI Solutions">
+<meta name="twitter:description" content="A HIPAA-aware AI governance diagnostic for provider groups and digital health teams. Rules before tools.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/ob1.css">
+<noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "OB.1 AI Solutions",
+  "description": "AI governance audits and Governance-as-a-Service for healthcare organizations, provider groups, and digital health companies.",
+  "url": "https://ob1ai.co/healthcare",
+  "email": "admin@ob1ai.co",
+  "telephone": "+1-234-602-0500",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Cleveland",
+    "addressRegion": "OH",
+    "addressCountry": "US"
+  },
+  "areaServed": ["Ohio", "United States"],
+  "slogan": "Rules Before Tools"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does an AI audit replace our HIPAA risk assessment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. It sits next to it. A HIPAA risk assessment tests your security controls. Our audit tests where AI tools touch PHI, who authorized them, and whether a BAA covers the model vendor."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if a vendor's AI feature was never disclosed to us?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "More common than you would think. The audit maps every AI touchpoint in your stack, including features bundled into tools you already pay for, so you can see what needs a BAA and what needs to be turned off."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you need access to patient records to run this?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The audit reviews systems, contracts, and workflows, not patient data itself. Nothing PHI-bearing crosses into our process."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is this different from an IT security audit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "IT security asks if your systems are locked down. This asks a narrower question: where is AI operating inside those systems, under whose authority, and what happens when it is wrong."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "We are a small provider group. Is this built for us?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. This is built for provider groups and digital health teams, not hospital IT departments. The scope adjusts to your footprint."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens when a model version changes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every build we deliver includes a governance rider that specifies what happens when the underlying model deprecates, changes behavior, or gets retired. You are never caught by a vendor's changelog."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if the model starts behaving differently after an update?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Covered Hours are built into every Governance-as-a-Service quarter. Behavior drift gets caught in scheduled review, not by a patient complaint."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if HIPAA guidance or FDA rules change?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Regulatory shifts, an OCR bulletin, a new FDA SaMD clarification, get folded into your next review cycle so your controls stay current without a special engagement."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav class="ob1">
+  <div class="wrap">
+    <a href="/" class="logo">OB<span>.1</span> AI SOLUTIONS</a>
+    <a href="/" class="nl">Home</a>
+    <a href="/law" class="nl">Law</a>
+    <a href="/healthcare" class="nl" aria-current="page">Healthcare</a>
+    <a href="/manufacturing" class="nl">Manufacturing</a>
+    <a href="/professional-services" class="nl">Professional Services</a>
+    <a href="https://ob1ai.co/services" class="cta">GET YOUR READINESS SCORE</a>
+  </div>
+</nav>
+
+<div class="rail">
+  <a href="#s1" aria-label="The Stakes"></a>
+  <a href="#s2" aria-label="The Audit"></a>
+  <a href="#s3" aria-label="Two Doors"></a>
+  <a href="#s4" aria-label="Five Controls"></a>
+  <a href="#s5" aria-label="When Models Move"></a>
+  <a href="#s6" aria-label="Proof"></a>
+  <a href="#s7" aria-label="Straight Answers"></a>
+</div>
+
+<header class="hero grid-bg" id="top">
+  <canvas class="hero-canvas" data-density="1"></canvas>
+  <div class="cropmarks" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">AI Audit · Healthcare Organizations</div>
+      <h1>First, do no harm now includes what your models do unsupervised.</h1>
+      <p class="lede">Provider groups and digital health teams are shipping AI into intake, triage
+      notes, prior auth, and patient messaging faster than anyone is governing it. We audit where
+      those tools touch PHI, who authorized them, and what happens when one gets it wrong.</p>
+      <div class="btn-row">
+        <a href="https://ob1ai.co/services" class="btn btn-primary">Get Your AI Readiness Score</a>
+        <a href="mailto:chris@ob1ai.co" class="btn btn-ghost">Talk to Chris</a>
+      </div>
+      <p class="micro">Fixed-phase, flat-fee engagement, scoped in one call. No pricing games, no PHI required to start.</p>
+    </div>
+    <div class="tilt-wrap reveal d2">
+      <div class="scorecard tilt">
+        <div class="tilt-inner-pop">
+          <div class="sc-head">
+            <b>AI Readiness Audit</b>
+            <span>82-point diagnostic</span>
+          </div>
+          <div class="dial-row">
+            <div class="dial">
+              <svg viewBox="0 0 180 180" width="180" height="180">
+                <circle cx="90" cy="90" r="77" fill="none" stroke="rgba(232,226,214,.14)" stroke-width="10"></circle>
+                <circle class="dial-arc" data-score="53" cx="90" cy="90" r="77" fill="none" stroke="#D97757" stroke-width="10" stroke-linecap="round"></circle>
+              </svg>
+              <div class="num"><b>53</b><i>/ 100</i></div>
+            </div>
+            <div class="findings">
+              <div class="finding"><b data-count="21">21</b><span>AI opportunities identified across intake, documentation, and coordination</span></div>
+              <div class="finding blue"><b data-count="6.2" data-decimals="1" data-suffix="x">6.2x</b><span>projected Year-1 ROI once governed use replaces shadow use</span></div>
+              <div class="finding"><b data-count="9">9</b><span>quick wins ready to deploy inside 30 days, no roadmap required</span></div>
+            </div>
+          </div>
+          <div class="sc-foot">Scored across six dimensions: <b>business context, technology maturity,
+          automation opportunities, data infrastructure, decision authority, investment readiness.</b>
+          Figures reflect an anonymized manufacturing audit; projected.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="ticker">
+  <div class="ticker-track">
+    <div class="ticker-seq">
+      <span>HIPAA PRIVACY RULE</span><em>·</em>
+      <span>HIPAA SECURITY RULE</span><em>·</em>
+      <span>MINIMUM NECESSARY</span><em>·</em>
+      <span>BAA COVERAGE</span><em>·</em>
+      <span>21 CFR PART 11</span><em>·</em>
+      <span>FDA SaMD</span><em>·</em>
+      <span>OCR ENFORCEMENT</span><em>·</em>
+      <span>PATIENT TRUST</span><em>·</em>
+    </div>
+    <div class="ticker-seq">
+      <span>HIPAA PRIVACY RULE</span><em>·</em>
+      <span>HIPAA SECURITY RULE</span><em>·</em>
+      <span>MINIMUM NECESSARY</span><em>·</em>
+      <span>BAA COVERAGE</span><em>·</em>
+      <span>21 CFR PART 11</span><em>·</em>
+      <span>FDA SaMD</span><em>·</em>
+      <span>OCR ENFORCEMENT</span><em>·</em>
+      <span>PATIENT TRUST</span><em>·</em>
+    </div>
+  </div>
+</div>
+
+<section id="s1">
+  <div class="wrap">
+    <div class="sheet-head reveal">
+      <div>
+        <div class="sheet-no">01</div>
+      </div>
+      <div class="titleblock">
+        <span>SHEET</span><b>01 / 07</b>
+        <span>TITLE</span><b>THE STAKES</b>
+        <span>SCALE</span><b>N.T.S.</b>
+        <span>DRAWN BY</span><b>OB.1</b>
+      </div>
+    </div>
+    <h2 class="reveal">The moments where AI quietly becomes a compliance event</h2>
+    <p class="lede reveal d1">None of these start as incidents. They start as someone trying to save
+    twenty minutes. By the time anyone asks a question, PHI has already moved.</p>
+    <div class="ledger reveal d2">
+      <div class="ledger-row">
+        <span class="no">R-01</span>
+        <b>PHI drifts into a consumer chatbot</b>
+        <span>A care coordinator pastes patient notes into a public AI tool to draft a summary faster. That prompt is now a HIPAA Security Rule exposure nobody approved.</span>
+      </div>
+      <div class="ledger-row">
+        <span class="no">R-02</span>
+        <b>A vendor's AI feature ships without a BAA</b>
+        <span>An EHR add-on quietly routes records through a model subprocessor that was never named in any signed business associate agreement.</span>
+      </div>
+      <div class="ledger-row">
+        <span class="no">R-03</span>
+        <b>Minimum necessary erodes</b>
+        <span>An assistant built with broad read access surfaces PHI far beyond the single task it was built for, because nobody scoped it down.</span>
+      </div>
+      <div class="ledger-row">
+        <span class="no">R-04</span>
+        <b>Part 11 records go unsupervised</b>
+        <span>An AI tool touches records governed by 21 CFR Part 11 with no audit trail proving who changed what, and when.</span>
+      </div>
+      <div class="ledger-row">
+        <span class="no">R-05</span>
+        <b>A feature crosses the SaMD line</b>
+        <span>A clinical decision support tool starts making recommendations no one flagged as a device question for the FDA.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="s2">
+  <div class="wrap">
+    <div class="sheet-head reveal">
+      <div><div class="sheet-no">02</div></div>
+      <div class="titleblock">
+        <span>SHEET</span><b>02 / 07</b>
+        <span>TITLE</span><b>THE AUDIT</b>
+        <span>SCALE</span><b>1:1</b>
+        <span>DRAWN BY</span><b>OB.1</b>
+      </div>
+    </div>
+    <h2 class="reveal">One diagnostic, six dimensions, mapped to how your organization actually runs</h2>
+    <p class="lede reveal d1">The audit is 82 points across six dimensions: business context,
+    technology maturity, automation opportunities, data infrastructure, decision authority, and
+    investment readiness. For healthcare, that means walking the floor the way PHI actually moves,
+    not the way the org chart says it should.</p>
+
+    <div class="schematic reveal d2" aria-hidden="true" role="img" aria-label="Blueprint diagram of a clinic ward with exam rooms, a records room, a BAA gate, and a continuous patient vitals trace">
+      <svg viewBox="0 0 720 420" width="720" height="420">
+        <rect class="draw" x="40" y="20" width="640" height="220" rx="2"></rect>
+        <line class="draw faint" x1="40" y1="140" x2="680" y2="140"></line>
+
+        <rect class="draw" x="50" y="30" width="120" height="100" rx="2"></rect>
+        <rect class="draw" x="210" y="30" width="120" height="100" rx="2"></rect>
+        <rect class="draw" x="370" y="30" width="120" height="100" rx="2"></rect>
+        <rect class="draw" x="530" y="30" width="120" height="100" rx="2"></rect>
+
+        <line class="draw faint" x1="90" y1="130" x2="120" y2="130"></line>
+        <line class="draw faint" x1="250" y1="130" x2="280" y2="130"></line>
+        <line class="draw faint" x1="410" y1="130" x2="440" y2="130"></line>
+        <line class="draw faint" x1="570" y1="130" x2="600" y2="130"></line>
+
+        <rect class="draw faint" x="60" y="160" width="140" height="60" rx="2"></rect>
+        <rect class="draw o" x="460" y="150" width="180" height="80" rx="2"></rect>
+
+        <line class="draw o" x1="430" y1="140" x2="430" y2="152"></line>
+        <line class="draw o" x1="452" y1="140" x2="452" y2="152"></line>
+
+        <path class="draw" d="M600,180 a14,14 0 1,1 0.01,0"></path>
+        <path class="draw" d="M596,180 v-14 a8,8 0 0,1 16,0 v14" transform="translate(0,-16)"></path>
+
+        <path class="draw" d="M148,140 l6,-8 6,8 -6,8 z"></path>
+
+        <path class="draw o" d="M40,360 L60,360 L66,354 L72,360 L76,372 L80,304 L84,384 L90,360 L106,360 L112,344 L120,360 L200,360
+          L220,360 L226,354 L232,360 L236,372 L240,304 L244,384 L250,360 L266,360 L272,344 L280,360 L360,360
+          L380,360 L386,354 L392,360 L396,372 L400,304 L404,384 L410,360 L426,360 L432,344 L440,360 L520,360
+          L540,360 L546,354 L552,360 L556,372 L560,304 L564,384 L570,360 L586,360 L592,344 L600,360 L680,360"></path>
+
+        <text x="46" y="14">PHI PERIMETER</text>
+        <text x="60" y="24">EXAM ROOMS ×4</text>
+        <text x="65" y="185">MIN. NECESSARY</text>
+        <text x="390" y="146">BAA GATE</text>
+        <text x="466" y="144">PART 11 RECORDS</text>
+        <text x="40" y="398">CONTINUOUS PATIENT DATA TRACE</text>
+      </svg>
+    </div>
+
+    <div class="controls six reveal d3">
+      <div class="control"><div class="dot">01</div><b>Business Context</b><span>Who touches PHI, for what task, under which BAA.</span></div>
+      <div class="control"><div class="dot">02</div><b>Tech Maturity</b><span>What's live, what's shadow, what's bundled into a vendor feature.</span></div>
+      <div class="control"><div class="dot">03</div><b>Automation Ops</b><span>Where AI removes friction without widening PHI exposure.</span></div>
+      <div class="control"><div class="dot">04</div><b>Data Infrastructure</b><span>Where records live, who can query them, and how minimum necessary holds.</span></div>
+      <div class="control"><div class="dot">05</div><b>Decision Authority</b><span>Who can approve a new AI tool touching patient data, and who can veto one.</span></div>
+      <div class="control"><div class="dot">06</div><b>Investment Readiness</b><span>What's fundable now versus what needs a governance fix first.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="s3">
+  <div class="wrap">
+    <div class="sheet-head reveal">
+      <div><div class="sheet-no">03</div></div>
+      <div class="titleblock">
+        <span>SHEET</span><b>03 / 07</b>
+        <span>TITLE</span><b>TWO DOORS</b>
+        <span>SCALE</span><b>N.T.S.</b>
+        <span>DRAWN BY</span><b>OB.1</b>
+      </div>
+    </div>
+    <h2 class="reveal">Two ways to close the gap</h2>
+    <p class="lede reveal d1">One is a project. One is a discipline. Most healthcare organizations
+    start with the first and graduate into the second once AI is load-bearing.</p>
+    <div class="doors reveal d2">
+      <div class="door">
+        <div class="tag">One-Time</div>
+        <h3>Operational Blueprint</h3>
+        <p>A fixed-phase build: the 82-point audit, a governed rollout plan for your highest-value AI
+        use cases, and the controls that keep PHI inside its lane from day one.</p>
+        <ul>
+          <li>Full six-dimension diagnostic and readiness score</li>
+          <li>BAA and minimum-necessary review of every AI touchpoint</li>
+          <li>A build plan for one to three governed use cases</li>
+          <li>Handoff documentation your compliance team can defend</li>
+        </ul>
+        <a href="https://ob1ai.co/services" class="more">See the Operational Blueprint →</a>
+      </div>
+      <div class="door gaas">
+        <div class="tag">Continuous</div>
+        <h3>Governance-as-a-Service</h3>
+        <p>Quarterly review, Covered Hours for drift, and a standing rider so model changes never
+        become someone's HIPAA finding.</p>
+        <ul>
+          <li>Quarterly re-audit as tools, staff, and vendors change</li>
+          <li>Covered Hours for behavior drift and new model versions</li>
+          <li>Governance rider for every AI vendor contract you sign</li>
+          <li>A direct line before a new tool goes live, not after</li>
+        </ul>
+        <a href="https://ob1ai.co/services" class="more">See Governance-as-a-Service →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="s4">
+  <div class="wrap">
+    <div class="sheet-head reveal">
+      <div><div class="sheet-no">04</div></div>
+      <div class="titleblock">
+        <span>SHEET</span><b>04 / 07</b>
+        <span>TITLE</span><b>FIVE CONTROLS</b>
+        <span>SCALE</span><b>N.T.S.</b>
+        <span>DRAWN BY</span><b>OB.1</b>
+      </div>
+    </div>
+    <h2 class="reveal">Every build runs on five controls</h2>
+    <p class="lede reveal d1">These aren't policy language. They are what we actually build into the
+    system before it touches a patient record.</p>
+    <div class="controls reveal d2">
+      <div class="control"><div class="dot">1</div><b>Trusted Data</b><span>Sources are named and scoped before a model reads them, not discovered after.</span></div>
+      <div class="control"><div class="dot">2</div><b>Right-Sized Access</b><span>An agent can't surface PHI it may never need to answer the question it was asked.</span></div>
+      <div class="control"><div class="dot">3</div><b>Guardrails</b><span>Defined boundaries on what the tool can say, do, and escalate, in writing.</span></div>
+      <div class="control"><div class="dot">4</div><b>Human Escalation</b><span>A clinician or supervisor sits in the loop wherever judgment, not lookup, is required.</span></div>
+      <div class="control"><div class="dot">5</div><b>Full Audit Trail</b><span>Every AI touch on a record is logged the way Part 11 expects it to be.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="s5">
+  <div class="wrap">
+    <div class="sheet-head reveal">
+      <div><div class="sheet-no">05</div></div>
+      <div class="titleblock">
+        <span>SHEET</span><b>05 / 07</b>
+        <span>TITLE</span><b>WHEN MODELS MOVE</b>
+        <span>SCALE</span><b>N.T.S.</b>
+        <span>DRAWN BY</span><b>OB.1</b>
+      </div>
+    </div>
+    <h2 class="reveal">Models change. Your governance shouldn't have to scramble.</h2>
+    <p class="lede reveal d1">A model vendor deprecates a version, changes behavior mid-quarter, or
+    a regulator issues new guidance. Neither should be the reason a patient interaction goes wrong.</p>
+    <div class="doors reveal d2">
+      <div class="door">
+        <div class="tag">In Every Build</div>
+        <h3>Governance Rider</h3>
+        <p>Every contract we deliver includes a rider that specifies what happens when the
+        underlying model deprecates, changes behavior, or gets retired. It's written down before
+        anyone needs it.</p>
+      </div>
+      <div class="door gaas">
+        <div class="tag">In Every GaaS Quarter</div>
+        <h3>Covered Hours</h3>
+        <p>Standing hours reserved to catch behavior drift, re-validate guardrails, and fold in new
+        regulatory guidance, so review happens on a calendar, not after a complaint.</p>
+      </div>
+    </div>
+    <div class="reveal d3" style="margin-top:32px">
+      <details class="faq" open>
+        <summary>What happens when a model version changes?</summary>
+        <p>Every build we deliver includes a governance rider that specifies what happens when the
+        underlying model deprecates, changes behavior, or gets retired. You are never caught by a
+        vendor's changelog.</p>
+      </details>
+      <details class="faq">
+        <summary>What if the model starts behaving differently after an update?</summary>
+        <p>Covered Hours are built into every Governance-as-a-Service quarter. Behavior drift gets
+        caught in scheduled review, not by a patient complaint.</p>
+      </details>
+      <details class="faq">
+        <summary>What if HIPAA guidance or FDA rules change?</summary>
+        <p>Regulatory shifts, an OCR bulletin, a new FDA SaMD clarification, get folded into your
+        next review cycle so your controls stay current without a special engagement.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="s6">
+  <div class="wrap">
+    <div class="sheet-head reveal">
+      <div><div class="sheet-no">06</div></div>
+      <div class="titleblock">
+        <span>SHEET</span><b>06 / 07</b>
+        <span>TITLE</span><b>PROOF</b>
+        <span>SCALE</span><b>N.T.S.</b>
+        <span>DRAWN BY</span><b>OB.1</b>
+      </div>
+    </div>
+    <h2 class="reveal">Different industry, same discipline</h2>
+    <p class="lede reveal d1">This audit was run on a manufacturing floor, not a clinic. The
+    numbers below are that engagement's, anonymized and projected. The method doesn't change
+    because the regulation does: find where AI is running unsupervised, score it, fix the highest-value gaps first.</p>
+    <div class="case-panel reveal d2">
+      <div class="grid-veil" aria-hidden="true"></div>
+      <h3>82-Point Audit, Anonymized Manufacturing Client</h3>
+      <p>Six dimensions scored, twenty-one opportunities mapped, and a governance plan projected
+      to pay for itself inside Year 1. Featured by Audity, the AI readiness assessment platform.</p>
+      <div class="case-stats">
+        <div><b data-count="53">53</b><span>Readiness score out of 100</span></div>
+        <div><b data-count="487" data-prefix="$" data-suffix="K">$487K</b><span>Projected annual value</span></div>
+        <div class="bl"><b data-count="6.2" data-decimals="1" data-suffix="x">6.2x</b><span>Projected Year-1 ROI</span></div>
+        <div><b data-count="1.9" data-decimals="1">1.9</b><span>Month payback, projected</span></div>
+      </div>
+    </div>
+    <p class="micro reveal d3" style="margin-top:24px">A counsel-gated rubric for healthcare exists
+    for engagements that need it, built against HIPAA, 21 CFR Part 11, and the FDA SaMD framework.
+    We name it when your legal team asks, not before.</p>
+  </div>
+</section>
+
+<section id="s7">
+  <div class="wrap">
+    <div class="sheet-head reveal">
+      <div><div class="sheet-no">07</div></div>
+      <div class="titleblock">
+        <span>SHEET</span><b>07 / 07</b>
+        <span>TITLE</span><b>STRAIGHT ANSWERS</b>
+        <span>SCALE</span><b>N.T.S.</b>
+        <span>DRAWN BY</span><b>OB.1</b>
+      </div>
+    </div>
+    <h2 class="reveal">Questions we actually get from healthcare leaders</h2>
+    <div class="reveal d1" style="margin-top:32px">
+      <details class="faq" open>
+        <summary>Does an AI audit replace our HIPAA risk assessment?</summary>
+        <p>No. It sits next to it. A HIPAA risk assessment tests your security controls. Our audit
+        tests where AI tools touch PHI, who authorized them, and whether a BAA covers the model
+        vendor.</p>
+      </details>
+      <details class="faq">
+        <summary>What if a vendor's AI feature was never disclosed to us?</summary>
+        <p>More common than you would think. The audit maps every AI touchpoint in your stack,
+        including features bundled into tools you already pay for, so you can see what needs a BAA
+        and what needs to be turned off.</p>
+      </details>
+      <details class="faq">
+        <summary>Do you need access to patient records to run this?</summary>
+        <p>No. The audit reviews systems, contracts, and workflows, not patient data itself.
+        Nothing PHI-bearing crosses into our process.</p>
+      </details>
+      <details class="faq">
+        <summary>How is this different from an IT security audit?</summary>
+        <p>IT security asks if your systems are locked down. This asks a narrower question: where
+        is AI operating inside those systems, under whose authority, and what happens when it is
+        wrong.</p>
+      </details>
+      <details class="faq">
+        <summary>We are a small provider group. Is this built for us?</summary>
+        <p>Yes. This is built for provider groups and digital health teams, not hospital IT
+        departments. The scope adjusts to your footprint.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band grid-bg on-dark">
+  <svg class="compass" viewBox="0 0 100 100" aria-hidden="true">
+    <circle cx="50" cy="50" r="46" fill="none" stroke="#4A7FB5" stroke-width="1"></circle>
+    <circle cx="50" cy="50" r="34" fill="none" stroke="#4A7FB5" stroke-width="1"></circle>
+    <line x1="50" y1="4" x2="50" y2="96" stroke="#4A7FB5" stroke-width="1"></line>
+    <line x1="4" y1="50" x2="96" y2="50" stroke="#4A7FB5" stroke-width="1"></line>
+    <path d="M50,14 L58,50 L50,86 L42,50 Z" fill="none" stroke="#4A7FB5" stroke-width="1"></path>
+  </svg>
+  <div class="wrap">
+    <h2 class="reveal">What would an auditor find in your prompt logs today?</h2>
+    <p class="reveal d1">Most healthcare leaders don't know, and that's the risk. A 53-point score
+    is a starting line, not a verdict. Let's find out where you stand.</p>
+    <div class="btn-row reveal d2">
+      <a href="https://ob1ai.co/services" class="btn btn-primary">Get Your AI Readiness Score</a>
+      <a href="mailto:chris@ob1ai.co" class="btn btn-ghost">Talk to Chris</a>
+    </div>
+  </div>
+</section>
+
+<footer class="ob1">
+  <div class="wrap">
+    <div>
+      <b>OB.1 AI Solutions</b> · Cleveland, Ohio · <a href="mailto:admin@ob1ai.co">admin@ob1ai.co</a> · <a href="tel:+12346020500">(234) 602-0500</a>
+      <div class="foot-tag">RULES BEFORE TOOLS</div>
+    </div>
+    <div>© 2026 OB.1 AI Solutions</div>
+  </div>
+</footer>
+
+<script src="js/ob1.js" defer></script>
+</body>
+</html>

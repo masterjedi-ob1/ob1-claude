@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Audit for Manufacturers | OB.1 AI Solutions · Rules Before Tools</title>
+<meta name="description" content="AI audit for manufacturers covering CMMC 2.0, ITAR/EAR, and CUI handling, plus IEC 62443 for OT-IT convergence. Score your shop's AI governance with OB.1.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2712%27 fill=%27%230D1B2A%27/%3E%3Ctext x=%2732%27 y=%2746%27 font-family=%27Georgia,serif%27 font-size=%2736%27 font-style=%27italic%27 fill=%27%23D97757%27 text-anchor=%27middle%27%3E.1%3C/text%3E%3C/svg%3E">
+<link rel="canonical" href="https://ob1ai.co/manufacturing">
+<meta property="og:title" content="AI Audit for Manufacturers | OB.1 AI Solutions">
+<meta property="og:description" content="AI audit for manufacturers covering CMMC 2.0, ITAR/EAR, and CUI handling. Score your shop's AI governance with OB.1 AI Solutions.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ob1ai.co/manufacturing">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Audit for Manufacturers | OB.1 AI Solutions">
+<meta name="twitter:description" content="AI audit for manufacturers covering CMMC 2.0, ITAR/EAR, and CUI handling. Score your shop's AI governance with OB.1 AI Solutions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/ob1.css">
+<noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "OB.1 AI Solutions",
+  "url": "https://ob1ai.co/manufacturing",
+  "email": "admin@ob1ai.co",
+  "telephone": "+1-234-602-0500",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Cleveland",
+    "addressRegion": "OH",
+    "addressCountry": "US"
+  },
+  "areaServed": ["Ohio", "United States"],
+  "description": "AI governance audits and Governance-as-a-Service for manufacturers, covering CMMC 2.0, ITAR/EAR, CUI handling, IEC 62443, and ISO 9001 quality records."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What happens if a vendor deprecates the model our floor tools run on?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every Governance-as-a-Service quarter carries covered hours for exactly this. We re-point the guardrails to the replacement model, re-test the guardrails against the same six dimensions, and confirm nothing on the floor breaks quietly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you handle model behavior drift on the floor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We re-score the tool against its original guardrails on a set cadence. If a scheduling or quoting model starts answering differently than it did at go-live, that shows up in the re-score, not six months later in a customer complaint."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if a new regulation lands mid-engagement?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The governance rider in every build contract and the covered hours in every GaaS quarter both cover this. A CMMC level change or a new export control gets mapped against your current controls, not left for your next audit cycle to catch."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does an AI audit for a manufacturer actually cover?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An 82-point diagnostic across six dimensions: business context, technology maturity, automation opportunity, data infrastructure, decision authority, and investment readiness. Built for shops carrying CUI, export-controlled prints, and ISO 9001 quality records, not a generic SaaS checklist."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "We are not a defense contractor. Does CMMC or ITAR even apply to us?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Plenty of shops touch CUI or export-controlled data two or three tiers down a supply chain without realizing it. The audit tells you where you actually stand instead of guessing from a prime's flowdown clause."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is this different from a cybersecurity audit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A cybersecurity audit looks at your network. This looks at where AI tools touch your data, your floor, and your decisions, then maps that against your CMMC, ITAR, and ISO 9001 exposure specifically."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do we have to hire you to fix what the audit finds?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The audit stands on its own. You get the findings and a prioritized roadmap either way. Some shops run it themselves, some bring us back for the Operational Blueprint build."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does the audit take and what does it cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most shops finish in a few weeks, start to finish. It is a fixed-phase, flat-fee engagement, scoped in one call, so you know the number before we start."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav class="ob1">
+  <div class="wrap">
+    <a href="/" class="logo">OB<span>.1</span> AI SOLUTIONS</a>
+    <a href="/" class="nl">Home</a>
+    <a href="/law" class="nl">Law</a>
+    <a href="/healthcare" class="nl">Healthcare</a>
+    <a href="/manufacturing" class="nl" aria-current="page">Manufacturing</a>
+    <a href="/professional-services" class="nl">Professional Services</a>
+    <a href="https://ob1ai.co/services" class="cta">GET YOUR READINESS SCORE</a>
+  </div>
+</nav>
+
+<div class="rail">
+  <a href="#s1" aria-label="The Stakes"></a>
+  <a href="#s2" aria-label="The Audit"></a>
+  <a href="#s3" aria-label="Two Doors"></a>
+  <a href="#s4" aria-label="Five Controls"></a>
+  <a href="#s5" aria-label="When Models Move"></a>
+  <a href="#s6" aria-label="Proof"></a>
+  <a href="#s7" aria-label="Straight Answers"></a>
+</div>
+
+<header class="hero grid-bg" id="top">
+  <canvas class="hero-canvas" data-density="1"></canvas>
+  <div class="cropmarks"><i></i><i></i><i></i><i></i></div>
+  <div class="wrap">
+    <div class="reveal on">
+      <div class="eyebrow">AI Audit · Manufacturers</div>
+      <h1>You would never run an uncalibrated machine. Your AI is uncalibrated.</h1>
+      <p class="lede">Your CNC cells get calibrated on a schedule. Your quality system gets audited every year. Nobody has calibrated the AI tools running your quotes, your scheduling, or your CUI. We do that in one focused audit.</p>
+      <div class="btn-row">
+        <a href="https://ob1ai.co/services" class="btn btn-primary">Get Your AI Readiness Score</a>
+        <a href="mailto:chris@ob1ai.co" class="btn btn-ghost">Talk to Chris</a>
+      </div>
+      <p class="micro">82-point diagnostic across six dimensions. Built for shops handling controlled data, not a generic SaaS checklist.</p>
+    </div>
+    <div class="tilt-wrap reveal d2 on">
+      <div class="scorecard tilt">
+        <div class="sc-head">
+          <b>Readiness Scorecard</b>
+          <span>ANONYMIZED SHOP AUDIT</span>
+        </div>
+        <div class="dial-row">
+          <div class="dial">
+            <svg width="180" height="180" viewBox="0 0 180 180" aria-hidden="true">
+              <circle cx="90" cy="90" r="77" fill="none" stroke="rgba(232,226,214,.14)" stroke-width="10"></circle>
+              <circle class="dial-arc" data-score="53" cx="90" cy="90" r="77" fill="none" stroke="#D97757" stroke-width="10" stroke-linecap="round"></circle>
+            </svg>
+            <div class="num"><b>53</b><i>/ 100</i></div>
+          </div>
+          <div class="findings">
+            <div class="finding">
+              <b data-count="21">21</b>
+              <span>automation opportunities identified across the floor and back office</span>
+            </div>
+            <div class="finding blue">
+              <b data-count="6.2" data-decimals="1" data-suffix="x">6.2x</b>
+              <span>projected Year-1 ROI</span>
+            </div>
+            <div class="finding">
+              <b data-count="9">9</b>
+              <span>quick wins ready inside 90 days</span>
+            </div>
+          </div>
+        </div>
+        <div class="sc-foot">Scored across business context, technology maturity, automation opportunity, data infrastructure, decision authority, and investment readiness. <b>Anonymized manufacturing audit, projected figures.</b></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="ticker">
+  <div class="ticker-track">
+    <div class="ticker-seq">
+      <span>CMMC 2.0</span><em>·</em><span>ITAR/EAR</span><em>·</em><span>CUI</span><em>·</em><span>IEC 62443</span><em>·</em><span>ISO 9001</span><em>·</em><span>OT/IT CONVERGENCE</span><em>·</em><span>NIST 800-171</span><em>·</em><span>SUPPLY CHAIN FLOWDOWN</span><em>·</em>
+    </div>
+    <div class="ticker-seq">
+      <span>CMMC 2.0</span><em>·</em><span>ITAR/EAR</span><em>·</em><span>CUI</span><em>·</em><span>IEC 62443</span><em>·</em><span>ISO 9001</span><em>·</em><span>OT/IT CONVERGENCE</span><em>·</em><span>NIST 800-171</span><em>·</em><span>SUPPLY CHAIN FLOWDOWN</span><em>·</em>
+    </div>
+  </div>
+</div>
+
+<section id="s1">
+  <div class="wrap">
+    <div class="sheet-head reveal">
+      <div class="sheet-no">01</div>
+      <div class="titleblock">
+        <span>SHEET</span><b>01 / 07</b>
+        <span>TITLE</span><b>THE STAKES</b>
+        <span>SCALE</span><b>NTS</b>
+        <span>DATE</span><b>2026</b>
+        <span>DRAWN BY</span><b>OB.1</b>
+      </div>
+    </div>
+    <h2 class="reveal">The floor already has AI on it. Nobody calibrated it.</h2>
+    <p class="lede reveal">Estimators, schedulers, and quality clerks have all found faster ways to work. Most of those ways were never checked against what your shop is actually obligated to protect.</p>
+    <div class="ledger reveal">
+      <div class="ledger-row">
+        <span class="no">R-01</span>
+        <b>Controlled data walks out through a chatbot</b>
+        <span>An estimator pastes a customer print into a public AI tool to speed up a quote. That print may be CUI. That is a CMMC finding, not a shortcut.</span>
+      </div>
+      <div class="ledger-row">
+        <span class="no">R-02</span>
+        <b>Export-controlled data crosses a border it shouldn't</b>
+        <span>A drawing, a spec, a process parameter goes into a model hosted outside the US. ITAR and EAR do not care that it saved you twenty minutes.</span>
+      </div>
+      <div class="ledger-row">
+        <span class="no">R-03</span>
+        <b>A scheduling agent touches the OT network unsupervised</b>
+        <span>Predictive maintenance and scheduling tools now sit close to machine controllers. IEC 62443 assumes segmentation. Most shops do not have it.</span>
+      </div>
+      <div class="ledger-row">
+        <span class="no">R-04</span>
+        <b>An unreviewed edit lands in a quality record</b>
+        <span>AI drafts a nonconformance report or a corrective action and nobody signs off. Your ISO 9001 auditor will find it before your customer does.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="s2">
+  <div class="wrap">
+    <div class="sheet-head reveal">
+      <div class="sheet-no">02</div>
+      <div class="titleblock">
+        <span>SHEET</span><b>02 / 07</b>
+        <span>TITLE</span><b>THE AUDIT</b>
+        <span>SCALE</span><b>NTS</b>
+        <span>DATE</span><b>2026</b>
+        <span>DRAWN BY</span><b>OB.1</b>
+      </div>
+    </div>
+    <h2 class="reveal">One audit. Six dimensions. Eighty-two points.</h2>
+    <p class="lede reveal">We walk the floor and the org chart. Business context, technology maturity, automation opportunity, data infrastructure, decision authority, and investment readiness, scored dimension by dimension against an 82-point diagnostic built for shops carrying CUI, export-controlled prints, and quality records regulators actually read.</p>
+    <div class="chips reveal">
+      <span class="chip hot">Business Context</span>
+      <span class="chip">Technology Maturity</span>
+      <span class="chip hot">Automation Opportunity</span>
+      <span class="chip">Data Infrastructure</span>
+      <span class="chip hot">Decision Authority</span>
+      <span class="chip">Investment Readiness</span>
+    </div>
+
+    <div class="schematic reveal" style="margin-top:44px">
+      <svg viewBox="0 0 720 420" role="img" aria-hidden="true">
+        <!-- building outline -->
+        <path class="draw" d="M60,50 L660,50 L660,370 L60,370 Z"></path>
+        <!-- conveyor line -->
+        <path class="draw" d="M90,325 L630,325"></path>
+        <path class="draw faint" d="M220,317 L220,333"></path>
+        <path class="draw faint" d="M400,317 L400,333"></path>
+        <!-- CNC cell 01 -->
+        <path class="draw" d="M90,90 L180,90 L180,170 L90,170 Z"></path>
+        <!-- CNC cell 02 -->
+        <path class="draw" d="M210,90 L300,90 L300,170 L210,170 Z"></path>
+        <!-- CNC cell 03 -->
+        <path class="draw o" d="M330,90 L420,90 L420,170 L330,170 Z"></path>
+        <path class="draw o faint" d="M360,130 L390,130 M375,115 L375,145"></path>
+        <!-- quality gate -->
+        <path class="draw" d="M470,90 L580,90 L580,150 L470,150 Z"></path>
+        <!-- CUI vault -->
+        <path class="draw o" d="M470,200 L560,200 L560,270 L470,270 Z"></path>
+        <path class="draw o faint" d="M505,225 a10,10 0 1,0 20,0 a10,10 0 1,0 -20,0 M515,235 L515,250"></path>
+        <!-- OT/IT governance boundary, drawn as dashed segments -->
+        <path class="draw faint" d="M75,75 L280,75"></path>
+        <path class="draw faint" d="M340,75 L575,75"></path>
+        <path class="draw faint" d="M575,75 L575,180"></path>
+        <path class="draw faint" d="M575,225 L575,290"></path>
+        <path class="draw faint" d="M575,290 L400,290"></path>
+        <path class="draw faint" d="M340,290 L75,290"></path>
+        <path class="draw faint" d="M75,290 L75,190"></path>
+        <path class="draw faint" d="M75,150 L75,75"></path>
+        <!-- IT desk icon -->
+        <path class="draw faint" d="M605,105 L650,105 L650,135 L605,135 Z M617,135 L617,145 L638,145 L638,135"></path>
+        <!-- data flow arrow, CNC cell 03 to conveyor -->
+        <path class="draw o" d="M375,170 L375,300 M365,290 L375,300 L385,290"></path>
+
+        <text x="90" y="84">CNC CELL 01</text>
+        <text x="210" y="84">CNC CELL 02</text>
+        <text x="330" y="84" class="lbl-o">CNC CELL 03</text>
+        <text x="90" y="313">CONVEYOR LINE</text>
+        <text x="470" y="84">QUALITY GATE</text>
+        <text x="470" y="195" class="lbl-o">CUI VAULT</text>
+        <text x="80" y="66">OT/IT BOUNDARY</text>
+        <text x="470" y="300">CMMC 2.0</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section id="s3">
+  <div class="wrap">
+    <div class="sheet-head reveal">
+      <div class="sheet-no">03</div>
+      <div class="titleblock">
+        <span>SHEET</span><b>03 / 07</b>
+        <span>TITLE</span><b>TWO DOORS</b>
+        <span>SCALE</span><b>NTS</b>
+        <span>DATE</span><b>2026</b>
+        <span>DRAWN BY</span><b>OB.1</b>
+      </div>
+    </div>
+    <h2 class="reveal">Two doors out of the audit</h2>
+    <p class="lede reveal">The audit ends with a report either way. What you do with it depends on how the floor is set up to keep changing.</p>
+    <div class="doors">
+      <div class="door reveal">
+        <span class="tag">One-Time Build</span>
+        <h3>Operational Blueprint</h3>
+        <p>We fix what the audit finds. Access rules, guardrails on the tools already running the floor, and a governance rider written into every AI contract you sign next.</p>
+        <ul>
+          <li>Segment OT from the tools that touch it</li>
+          <li>Rewrite access so a quoting tool can't see a print it has no reason to open</li>
+          <li>Stand up an audit trail your ISO auditor can read</li>
+          <li>Close the CMMC and ITAR gaps the audit surfaced</li>
+        </ul>
+        <a href="https://ob1ai.co/services" class="more">See what's included</a>
+      </div>
+      <div class="door gaas reveal d2">
+        <span class="tag">Continuous</span>
+        <h3>Governance-as-a-Service</h3>
+        <p>Models change. So does your customer list, your export classification, and your CMMC level. We keep the guardrails current every quarter, not just the day we leave.</p>
+        <ul>
+          <li>Quarterly re-score against the same six dimensions</li>
+          <li>Covered hours when a new tool shows up on the floor</li>
+          <li>A direct line when a regulation moves before your team notices</li>
+          <li>Documentation kept current for your next assessment</li>
+        </ul>
+        <a href="https://ob1ai.co/services" class="more">See what's included</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="s4">
+  <div class="wrap">
+    <div class="sheet-head reveal">
+      <div class="sheet-no">04</div>
+      <div class="titleblock">
+        <span>SHEET</span><b>04 / 07</b>
+        <span>TITLE</span><b>FIVE CONTROLS</b>
+        <span>SCALE</span><b>NTS</b>
+        <span>DATE</span><b>2026</b>
+        <span>DRAWN BY</span><b>OB.1</b>
+      </div>
+    </div>
+    <h2 class="reveal">Five controls, every build</h2>
+    <p class="lede reveal">Every Operational Blueprint and every GaaS quarter carries the same five, adapted to what is actually on your floor.</p>
+    <div class="controls">
+      <div class="control reveal"><span class="dot">01</span><b>Trusted Data</b><span>Every model draws from data you can name the source of. No CUI in a prompt nobody logged.</span></div>
+      <div class="control reveal d1"><span class="dot">02</span><b>Right-Sized Access</b><span>A quoting tool doesn't get to see a print it has no reason to open.</span></div>
+      <div class="control reveal d2"><span class="dot">03</span><b>Guardrails</b><span>Hard stops before a model touches ITAR-classified data or an OT control point.</span></div>
+      <div class="control reveal d3"><span class="dot">04</span><b>Human Escalation</b><span>A person signs off before an AI-drafted CAPA or NCR becomes the record.</span></div>
+      <div class="control reveal d4"><span class="dot">05</span><b>Full Audit Trail</b><span>Every AI touchpoint logged the way your CMMC assessor and your ISO auditor both expect.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="s5">
+  <div class="wrap">
+    <div class="sheet-head reveal">
+      <div class="sheet-no">05</div>
+      <div class="titleblock">
+        <span>SHEET</span><b>05 / 07</b>
+        <span>TITLE</span><b>WHEN MODELS MOVE</b>
+        <span>SCALE</span><b>NTS</b>
+        <span>DATE</span><b>2026</b>
+        <span>DRAWN BY</span><b>OB.1</b>
+      </div>
+    </div>
+    <h2 class="reveal">When the models move, the floor doesn't stop</h2>
+    <p class="lede reveal">Vendors deprecate models. Tools drift. Regulations shift mid-quarter. That is covered before it becomes your problem.</p>
+    <div class="doors">
+      <div class="door reveal">
+        <span class="tag">In Every Build</span>
+        <h3>Governance Rider</h3>
+        <p>Every Operational Blueprint contract includes a rider covering what happens when the underlying model changes behavior, gets deprecated, or a new rule like a CMMC level bump lands mid-project.</p>
+      </div>
+      <div class="door gaas reveal d2">
+        <span class="tag">In Every Quarter</span>
+        <h3>Covered Hours</h3>
+        <p>Every GaaS engagement carries covered hours for exactly this: a vendor deprecates a model, a new export rule ships, or a tool starts behaving differently on the floor.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:40px">
+      <details class="faq reveal" open>
+        <summary>What happens if a vendor deprecates the model our floor tools run on?</summary>
+        <p>Every GaaS quarter carries covered hours for exactly this. We re-point the guardrails to the replacement model, re-test against the same six dimensions, and confirm nothing on the floor breaks quietly.</p>
+      </details>
+      <details class="faq reveal">
+        <summary>How do you handle model behavior drift on the floor?</summary>
+        <p>We re-score the tool against its original guardrails on a set cadence. If a scheduling or quoting model starts answering differently than it did at go-live, that shows up in the re-score, not six months later in a customer complaint.</p>
+      </details>
+      <details class="faq reveal">
+        <summary>What if a new regulation lands mid-engagement?</summary>
+        <p>The governance rider in every build contract and the covered hours in every GaaS quarter both cover this. A CMMC level change or a new export control gets mapped against your current controls, not left for your next audit cycle to catch.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="s6">
+  <div class="wrap">
+    <div class="sheet-head reveal">
+      <div class="sheet-no">06</div>
+      <div class="titleblock">
+        <span>SHEET</span><b>06 / 07</b>
+        <span>TITLE</span><b>PROOF</b>
+        <span>SCALE</span><b>NTS</b>
+        <span>DATE</span><b>2026</b>
+        <span>DRAWN BY</span><b>OB.1</b>
+      </div>
+    </div>
+    <h2 class="reveal">We scored a shop like yours</h2>
+    <p class="lede reveal">Fifty to five hundred employees. Great Lakes corridor. CUI on the floor, export-controlled prints in the file room, an ERP nobody fully trusts. Here is what the audit found, anonymized and projected.</p>
+
+    <div class="case-panel reveal">
+      <div class="grid-veil" aria-hidden="true"></div>
+      <h3>Anonymized Manufacturing Audit</h3>
+      <p>Scored against a counsel-gated manufacturing rubric built around CMMC 2.0, ITAR/EAR, CUI handling, and IEC 62443. Featured by Audity, the AI readiness assessment platform. All figures below are projected.</p>
+      <div class="case-stats">
+        <div>
+          <b data-count="53">53</b>
+          <span>readiness score, out of 100</span>
+        </div>
+        <div>
+          <b data-count="487" data-prefix="$" data-suffix="K">$487K</b>
+          <span>projected annual value</span>
+        </div>
+        <div class="bl">
+          <b data-count="6.2" data-decimals="1" data-suffix="x">6.2x</b>
+          <span>projected Year-1 ROI</span>
+        </div>
+        <div>
+          <b data-count="1.9" data-decimals="1">1.9</b>
+          <span>months to payback, projected</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="s7">
+  <div class="wrap">
+    <div class="sheet-head reveal">
+      <div class="sheet-no">07</div>
+      <div class="titleblock">
+        <span>SHEET</span><b>07 / 07</b>
+        <span>TITLE</span><b>STRAIGHT ANSWERS</b>
+        <span>SCALE</span><b>NTS</b>
+        <span>DATE</span><b>2026</b>
+        <span>DRAWN BY</span><b>OB.1</b>
+      </div>
+    </div>
+    <h2 class="reveal">Straight answers</h2>
+    <div style="margin-top:32px">
+      <details class="faq reveal" open>
+        <summary>What does an AI audit for a manufacturer actually cover?</summary>
+        <p>An 82-point diagnostic across six dimensions: business context, technology maturity, automation opportunity, data infrastructure, decision authority, and investment readiness. Built for shops carrying CUI, export-controlled prints, and ISO 9001 quality records, not a generic SaaS checklist.</p>
+      </details>
+      <details class="faq reveal">
+        <summary>We are not a defense contractor. Does CMMC or ITAR even apply to us?</summary>
+        <p>Plenty of shops touch CUI or export-controlled data two or three tiers down a supply chain without realizing it. The audit tells you where you actually stand instead of guessing from a prime's flowdown clause.</p>
+      </details>
+      <details class="faq reveal">
+        <summary>How is this different from a cybersecurity audit?</summary>
+        <p>A cybersecurity audit looks at your network. This looks at where AI tools touch your data, your floor, and your decisions, then maps that against your CMMC, ITAR, and ISO 9001 exposure specifically.</p>
+      </details>
+      <details class="faq reveal">
+        <summary>Do we have to hire you to fix what the audit finds?</summary>
+        <p>No. The audit stands on its own. You get the findings and a prioritized roadmap either way. Some shops run it themselves, some bring us back for the Operational Blueprint build.</p>
+      </details>
+      <details class="faq reveal">
+        <summary>How long does the audit take and what does it cost?</summary>
+        <p>Most shops finish in a few weeks, start to finish. It is a fixed-phase, flat-fee engagement, scoped in one call, so you know the number before we start.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band grid-bg on-dark">
+  <svg class="compass" viewBox="0 0 100 100" aria-hidden="true">
+    <circle cx="50" cy="50" r="46" fill="none" stroke="#4A7FB5" stroke-width="1"></circle>
+    <circle cx="50" cy="50" r="34" fill="none" stroke="#4A7FB5" stroke-width="1"></circle>
+    <path d="M50,6 L50,94 M6,50 L94,50" stroke="#4A7FB5" stroke-width="1"></path>
+    <path d="M50,16 L58,50 L50,84 L42,50 Z" fill="#4A7FB5"></path>
+  </svg>
+  <div class="wrap reveal">
+    <h2>Would you run a machine nobody calibrated?</h2>
+    <p>Get the same six-dimension audit that scored a shop like yours. Fixed-phase, flat-fee, scoped in one call.</p>
+    <div class="btn-row">
+      <a href="https://ob1ai.co/services" class="btn btn-primary">Get Your AI Readiness Score</a>
+      <a href="mailto:chris@ob1ai.co" class="btn btn-ghost">Talk to Chris</a>
+    </div>
+  </div>
+</section>
+
+<footer class="ob1">
+  <div class="wrap">
+    <div>
+      <b>OB.1 AI Solutions</b> · Cleveland, Ohio · <a href="mailto:admin@ob1ai.co">admin@ob1ai.co</a> · <a href="tel:+12346020500">(234) 602-0500</a>
+      <div class="foot-tag">RULES BEFORE TOOLS</div>
+    </div>
+    <div>© 2026 OB.1 AI Solutions</div>
+  </div>
+</footer>
+
+<script src="js/ob1.js" defer></script>
+</body>
+</html>

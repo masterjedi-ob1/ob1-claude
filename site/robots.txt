@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ob1ai.co/sitemap.xml
